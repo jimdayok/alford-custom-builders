@@ -1,65 +1,163 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import Link from "next/link";
 
-export default function Home() {
+import { CTA } from "@/components/cta";
+import { Hero } from "@/components/hero";
+import { ProjectCard } from "@/components/project-card";
+import { SectionHeading } from "@/components/section-heading";
+import { ServiceCard } from "@/components/service-card";
+import { Testimonial } from "@/components/testimonial";
+import {
+  differentiators,
+  featuredProjects,
+  processSteps,
+  services,
+  siteConfig,
+  testimonials,
+} from "@/lib/site-data";
+
+export const metadata: Metadata = {
+  title: "Luxury Residential Construction",
+  description:
+    "Explore Alford Custom Builders for luxury custom homes, refined renovations, and a high-touch construction experience.",
+};
+
+export default function HomePage() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    name: siteConfig.name,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    telephone: siteConfig.phone,
+    email: siteConfig.email,
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+
+      <Hero />
+
+      <section className="section-shell">
+        <SectionHeading
+          eyebrow="Featured Projects"
+          title="Distinctive homes shaped around architecture, craftsmanship, and the way people truly live."
+          description="Every project is built to feel composed, warm, and enduring. Our portfolio reflects careful material choices, thoughtful detailing, and a commitment to execution that honors the original design intent."
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+        <div className="mt-12 grid gap-8 lg:grid-cols-3">
+          {featuredProjects.map((project) => (
+            <ProjectCard key={project.title} {...project} />
+          ))}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className="section-shell">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <SectionHeading
+            eyebrow="Services"
+            title="Comprehensive residential construction for homes that require more than standard execution."
+            description="From new construction to transformative renovations, our work is guided by planning, restraint, and meticulous finish quality."
+          />
+          <div className="grid gap-6 sm:grid-cols-2">
+            {services.slice(0, 4).map((service) => (
+              <ServiceCard key={service.title} {...service} />
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="section-shell">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <SectionHeading
+            eyebrow="Why Choose Alford"
+            title="A premium build experience depends on both craftsmanship and the discipline behind it."
+            description="We bring together design sensitivity, project leadership, and trusted trade execution to create homes of lasting quality."
+          />
+          <div className="grid gap-6 sm:grid-cols-2">
+            {differentiators.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-[1.75rem] border border-[var(--color-border)] bg-white p-7 shadow-[0_18px_60px_rgba(20,26,35,0.06)]"
+              >
+                <h3 className="font-serif text-2xl text-[var(--color-charcoal)]">
+                  {item.title}
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-shell">
+        <SectionHeading
+          eyebrow="Our Process"
+          title="A clear process allows luxury projects to move with less friction and more confidence."
+          description="We believe great homes are built through strong early planning, consistent communication, and careful finish management all the way to completion."
+        />
+        <div className="mt-12 grid gap-6 lg:grid-cols-4">
+          {processSteps.map((item) => (
+            <div
+              key={item.step}
+              className="rounded-[1.75rem] border border-[var(--color-border)] bg-[var(--color-surface)] p-7"
+            >
+              <p className="text-sm font-semibold tracking-[0.28em] uppercase text-[var(--color-wood)]">
+                {item.step}
+              </p>
+              <h3 className="mt-4 font-serif text-3xl text-[var(--color-charcoal)]">
+                {item.title}
+              </h3>
+              <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-[var(--color-navy)] px-5 py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeading
+            eyebrow="Testimonials"
+            title="Clients remember how the process felt as much as how the home looks."
+            description="We aim to create a measured, elevated experience from first concept through final delivery."
+            align="center"
+          />
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+            {testimonials.map((item) => (
+              <Testimonial key={item.quote} {...item} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-shell pt-20">
+        <CTA
+          title="Ready to build something enduring?"
+          description="Whether you are planning a custom residence, a major renovation, or a carefully integrated addition, we would love to hear about your vision."
+          primaryHref="/contact"
+          primaryLabel="Start Your Project"
+          secondaryHref="/services"
+          secondaryLabel="Explore Services"
+        />
+      </section>
+
+      <section className="px-5 pb-10 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl text-center">
+          <Link
+            href="/our-process"
+            className="text-sm font-semibold tracking-[0.18em] uppercase text-[var(--color-navy)] transition hover:text-[var(--color-wood)]"
+          >
+            Learn more about our process
+          </Link>
+        </div>
+      </section>
+    </>
   );
 }
