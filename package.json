@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "generate:portfolio": "node scripts/generate-portfolio-data.mjs",
+    "prebuild": "npm run generate:portfolio",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"

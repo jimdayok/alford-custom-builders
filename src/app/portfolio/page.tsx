@@ -1,73 +1,93 @@
 import type { Metadata } from "next";
 
 import { CTA } from "@/components/cta";
-import { PageHero } from "@/components/page-hero";
-import { ProjectCard } from "@/components/project-card";
-import { SectionHeading } from "@/components/section-heading";
-import { featuredProjects } from "@/lib/site-data";
+import { PortfolioGrid } from "@/components/portfolio/portfolio-grid";
+import { portfolioProjects } from "@/data/portfolio";
+import { siteConfig } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Portfolio",
   description:
-    "Browse featured residential construction projects from Alford Custom Builders.",
+    "Explore luxury residential work from Alford Custom Builders through immersive project galleries and room-by-room photography.",
+  openGraph: {
+    title: `Portfolio | ${siteConfig.name}`,
+    description:
+      "Explore luxury residential work from Alford Custom Builders through immersive project galleries and room-by-room photography.",
+    images: [
+      {
+        url: portfolioProjects[0]?.coverImage ?? "/opengraph-image",
+        alt: portfolioProjects[0]?.title ?? siteConfig.name,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Portfolio | ${siteConfig.name}`,
+    description:
+      "Explore luxury residential work from Alford Custom Builders through immersive project galleries and room-by-room photography.",
+    images: [portfolioProjects[0]?.coverImage ?? "/opengraph-image"],
+  },
 };
-
-const portfolioProjects = [
-  ...featuredProjects,
-  {
-    title: "Harbor Point Manor",
-    category: "Interior Reimagining",
-    description:
-      "A formal residence refreshed with gallery-like circulation, tailored stonework, and warm contemporary finishes.",
-    image: "/images/placeholders/project-harbor.svg",
-  },
-  {
-    title: "Cedar Bluff Estate",
-    category: "Architectural Remodel",
-    description:
-      "Reworked structural volumes and exterior materials to create a more elegant, natural, and cohesive home.",
-    image: "/images/placeholders/project-cedar.svg",
-  },
-  {
-    title: "Oak Terrace Residence",
-    category: "Custom New Build",
-    description:
-      "A layered family home with expansive glazing, crafted millwork, and spaces designed for gathering and retreat.",
-    image: "/images/placeholders/project-oak.svg",
-  },
-];
 
 export default function PortfolioPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Portfolio"
-        title="A collection of homes defined by proportion, texture, and careful execution."
-        description="Our portfolio represents the kind of residential work we love most: elegant, thoughtful homes that feel effortless because every detail was considered."
-      />
+      <section className="relative isolate overflow-hidden border-b border-white/10 bg-[#13110f]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(210,179,143,0.16),transparent_24%),linear-gradient(180deg,#1a1714_0%,#13110f_100%)]" />
+        <div className="relative mx-auto max-w-7xl px-5 pb-16 pt-20 sm:px-6 lg:px-8 lg:pb-20 lg:pt-24">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(20rem,28rem)] lg:items-end">
+            <div className="max-w-4xl">
+              <p className="text-xs font-semibold tracking-[0.36em] uppercase text-[#d2b38f]">
+                Portfolio
+              </p>
+              <h1 className="mt-5 font-serif text-5xl leading-none text-[#f7f1e7] sm:text-6xl lg:text-7xl">
+                Homes experienced through light, material, and sequence.
+              </h1>
+              <p className="mt-6 max-w-3xl text-base leading-8 text-[#efe8dc]/74 sm:text-lg">
+                Explore a premium gallery of Alford Custom Builders projects with room-based
+                navigation, immersive photography, and a visual rhythm that mirrors the homes
+                themselves.
+              </p>
+            </div>
 
-      <section className="section-shell">
-        <SectionHeading
-          eyebrow="Selected Work"
-          title="Projects that balance beauty, livability, and enduring construction quality."
-          description="These featured concepts are representative of the tone, level of finish, and architectural character we bring to each engagement."
-        />
-        <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-          {portfolioProjects.map((project) => (
-            <ProjectCard key={project.title} {...project} />
-          ))}
+            <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.18)] backdrop-blur-sm sm:p-7">
+              <p className="text-xs font-semibold tracking-[0.28em] uppercase text-[#d2b38f]">
+                Selected Residences
+              </p>
+              <div className="mt-5 grid grid-cols-2 gap-4">
+                <div>
+                  <p className="font-serif text-4xl text-[#f7f1e7]">{portfolioProjects.length}</p>
+                  <p className="mt-2 text-sm leading-6 text-[#efe8dc]/66">Project galleries</p>
+                </div>
+                <div>
+                  <p className="font-serif text-4xl text-[#f7f1e7]">
+                    {portfolioProjects.reduce((sum, project) => sum + project.photoCount, 0)}
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-[#efe8dc]/66">Curated photographs</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="section-shell pt-20">
-        <CTA
-          title="Looking for the right builder for a design-driven project?"
-          description="Let’s talk about the home you are planning and the kind of experience you want along the way."
-          primaryHref="/contact"
-          primaryLabel="Discuss Your Project"
-          secondaryHref="/about"
-          secondaryLabel="About The Firm"
-        />
+      <section className="bg-[#13110f]">
+        <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 lg:px-8 lg:py-16">
+          <PortfolioGrid projects={portfolioProjects} />
+        </div>
+      </section>
+
+      <section className="bg-[#13110f] pb-16 pt-2 sm:pb-20">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+          <CTA
+            title="Start Your Custom Home Conversation"
+            description="Share the kind of home you want to build or transform, and we’ll shape a process around craftsmanship, clarity, and exceptional execution."
+            primaryHref="/contact"
+            primaryLabel="Schedule A Consultation"
+            secondaryHref="/about"
+            secondaryLabel="About The Firm"
+          />
+        </div>
       </section>
     </>
   );
