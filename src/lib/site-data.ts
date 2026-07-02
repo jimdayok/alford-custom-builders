@@ -10,12 +10,12 @@ export const siteConfig = {
 };
 
 export const navigation = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/journal", label: "Journal" },
-  { href: "/our-process", label: "Our Process" },
   { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/portfolio", label: "Gallery" },
+  { href: "/#testimonials", label: "Testimonials" },
+  { href: "/#locations", label: "Locations" },
+  { href: "/journal", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -257,5 +257,53 @@ export const journalTopics = [
     description:
       "A practical framework for deciding whether to transform an existing home or start from the ground up.",
     href: "/journal",
+  },
+];
+
+export const homepageGallery = [
+  "/images/4301-armstrong-pkwy-hf-1-155.jpg",
+  "/images/4301-armstrong-pkwy-hf-1-59.jpg",
+  "/images/4906-deloache-ave-43.jpg",
+  "/images/3529-bryn-mawr-dr-34.jpg",
+  "/images/3534-greenbrier-dr-52.jpg",
+  "/images/6707Stefani-71.jpg",
+];
+
+export const testimonials = [
+  {
+    quote:
+      "The craftsmanship exceeded every expectation, but what impressed us most was how informed we felt throughout every step of the process.",
+    name: "Michael & Jennifer Collins",
+    context: "Preston Hollow Custom Home",
+  },
+  {
+    quote:
+      "Ben brought a level of responsiveness and calm leadership that made a complex project feel remarkably straightforward.",
+    name: "David & Lauren Mercer",
+    context: "University Park Renovation",
+  },
+  {
+    quote:
+      "Every finish, every detail, every conversation felt thoughtful. We always knew our home was being treated with real care.",
+    name: "Chris and Emily Warren",
+    context: "Park Cities New Build",
+  },
+  {
+    quote:
+      "What stood out most was the transparency. We understood the budget, the timeline, and the decisions in a way that gave us real confidence.",
+    name: "Jonathan & Elise Harper",
+    context: "Highland Park Remodel",
+  },
+  {
+    quote:
+      "There is a rare balance here between legacy craftsmanship and a more modern, collaborative client experience. That combination mattered to us.",
+    name: "Matthew and Caroline Brooks",
+    context: "Dallas Luxury Residence",
+  },
+  {
+    quote:
+      "Even after move-in, the standard never changed. The follow-through was every bit as strong as the build itself.",
+    name: "Andrew & Claire Holloway",
+    context: "Family Home Addition",
   },
 ];

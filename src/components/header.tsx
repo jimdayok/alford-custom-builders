@@ -1,47 +1,42 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Button } from "@/components/button";
 import { navigation } from "@/lib/site-data";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-black/5 bg-[rgba(248,245,239,0.88)] backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="shrink-0" aria-label="Alford Custom Builders home">
-          <Image
-            src="/logos/aclogoblue.png"
-            alt="Alford Custom Builders"
-            width={188}
-            height={56}
-            priority
-            className="h-10 w-auto sm:h-12"
-          />
-        </Link>
+    <header className="border-b border-[rgba(15,34,54,0.08)] bg-[rgba(255,252,247,0.94)]">
+      <div className="mx-auto max-w-7xl px-5 pb-5 pt-6 sm:px-6 lg:px-8 lg:pb-7 lg:pt-8">
+        <div className="flex justify-center">
+          <Link href="/" aria-label="Alford Custom Builders home">
+            <Image
+              src="/logos/aclogoblue.png"
+              alt="Alford Custom Builders"
+              width={248}
+              height={84}
+              priority
+              className="h-16 w-auto sm:h-20"
+            />
+          </Link>
+        </div>
 
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
+        <nav className="mt-5 hidden items-center justify-center gap-8 lg:flex" aria-label="Primary">
           {navigation.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium tracking-[0.14em] uppercase text-[var(--color-charcoal)] transition hover:text-[var(--color-navy)]"
+              className="text-[13px] font-medium tracking-[0.18em] uppercase text-[var(--color-charcoal)] transition hover:text-[var(--color-wood)]"
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden lg:block">
-          <Button href="/contact" variant="secondary">
-            Start a Private Consultation
-          </Button>
-        </div>
-
-        <details className="relative lg:hidden">
-          <summary className="flex cursor-pointer list-none items-center gap-3 rounded-full border border-[var(--color-border)] bg-white/75 px-4 py-2 text-xs font-semibold tracking-[0.2em] uppercase text-[var(--color-charcoal)]">
+        <details className="relative mt-4 lg:hidden">
+          <summary className="mx-auto flex w-fit cursor-pointer list-none items-center rounded-full border border-[var(--color-border)] bg-white px-5 py-2 text-xs font-semibold tracking-[0.2em] uppercase text-[var(--color-charcoal)]">
             Menu
           </summary>
-          <div className="absolute right-0 mt-3 w-64 rounded-[1.5rem] border border-[var(--color-border)] bg-white p-3 shadow-[0_20px_60px_rgba(15,23,31,0.12)]">
+          <div className="absolute left-1/2 top-full z-20 mt-3 w-[min(18rem,90vw)] -translate-x-1/2 rounded-[1.5rem] border border-[var(--color-border)] bg-white p-3 shadow-[0_20px_60px_rgba(15,23,31,0.12)]">
             <nav className="flex flex-col" aria-label="Mobile">
               {navigation.map((item) => (
                 <Link
@@ -52,11 +47,6 @@ export function Header() {
                   {item.label}
                 </Link>
               ))}
-              <div className="px-2 pt-3">
-                <Button href="/contact" variant="secondary">
-                  Start a Private Consultation
-                </Button>
-              </div>
             </nav>
           </div>
         </details>

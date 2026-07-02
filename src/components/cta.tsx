@@ -18,15 +18,15 @@ export function CTA({
   secondaryLabel,
 }: CtaProps) {
   return (
-    <section className="rounded-[2rem] bg-[linear-gradient(135deg,rgba(18,38,58,0.96),rgba(27,33,42,0.96))] px-7 py-14 text-white shadow-[0_24px_80px_rgba(10,16,24,0.22)] sm:px-10 lg:px-14">
+    <section className="rounded-[2rem] border border-[var(--color-border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(246,240,231,0.96))] px-7 py-14 text-[var(--color-charcoal)] shadow-[0_24px_80px_rgba(10,16,24,0.08)] sm:px-10 lg:px-14">
       <div className="max-w-3xl">
-        <p className="text-xs font-semibold tracking-[0.32em] uppercase text-[var(--color-sand)]">
-          Build With Confidence
+        <p className="text-xs font-semibold tracking-[0.32em] uppercase text-[var(--color-wood)]">
+          Start The Conversation
         </p>
         <h2 className="mt-4 font-serif text-4xl leading-tight sm:text-5xl">
           {title}
         </h2>
-        <p className="mt-5 max-w-2xl text-base leading-8 text-white/75">
+        <p className="mt-5 max-w-2xl text-base leading-8 text-[var(--color-muted)]">
           {description}
         </p>
       </div>

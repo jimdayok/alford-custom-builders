@@ -2755,279 +2755,286 @@
   "slug": "other-projects",
   "images": [
     {
+      "src": "/images/headshot.png",
+      "filename": "headshot.png",
+      "room": "Featured Space",
+      "alt": "Other Projects featured space view 1",
+      "caption": "Other Projects • Featured Space"
+    },
+    {
       "src": "/images/hf_20260516_060128_ee00fa91-6f6e-4e50-98cd-4a4ca18183b1.jpg",
       "filename": "hf_20260516_060128_ee00fa91-6f6e-4e50-98cd-4a4ca18183b1.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 1",
+      "alt": "Other Projects featured space view 2",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_060511_0e71e4ca-92ca-4732-898f-1179be2bb755.jpg",
       "filename": "hf_20260516_060511_0e71e4ca-92ca-4732-898f-1179be2bb755.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 2",
+      "alt": "Other Projects featured space view 3",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_060703_8b8c9863-96a9-4d9c-a060-a063ee8db2a0.jpg",
       "filename": "hf_20260516_060703_8b8c9863-96a9-4d9c-a060-a063ee8db2a0.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 3",
+      "alt": "Other Projects featured space view 4",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_060722_d95cb999-2ecf-4a9a-af71-68a0f1e37118.jpg",
       "filename": "hf_20260516_060722_d95cb999-2ecf-4a9a-af71-68a0f1e37118.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 4",
+      "alt": "Other Projects featured space view 5",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_060750_cc2bd4ad-eb66-4d51-a888-a3043b5bc321.jpg",
       "filename": "hf_20260516_060750_cc2bd4ad-eb66-4d51-a888-a3043b5bc321.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 5",
+      "alt": "Other Projects featured space view 6",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_060812_512190b6-d30e-467b-ac81-6027ca6411a6.jpg",
       "filename": "hf_20260516_060812_512190b6-d30e-467b-ac81-6027ca6411a6.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 6",
+      "alt": "Other Projects featured space view 7",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_060831_76d6c71c-9bf0-4984-baea-def84061831c.jpg",
       "filename": "hf_20260516_060831_76d6c71c-9bf0-4984-baea-def84061831c.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 7",
+      "alt": "Other Projects featured space view 8",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_060855_10b8583b-0717-44ba-a2c6-2b33a5a79b5f.jpg",
       "filename": "hf_20260516_060855_10b8583b-0717-44ba-a2c6-2b33a5a79b5f.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 8",
+      "alt": "Other Projects featured space view 9",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_060917_f9a31de9-1d48-4829-834b-af7949dfce2b.jpg",
       "filename": "hf_20260516_060917_f9a31de9-1d48-4829-834b-af7949dfce2b.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 9",
+      "alt": "Other Projects featured space view 10",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_061021_ff25c0e8-3b5d-4b0b-98b2-f9de8ffbe3e9.jpg",
       "filename": "hf_20260516_061021_ff25c0e8-3b5d-4b0b-98b2-f9de8ffbe3e9.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 10",
+      "alt": "Other Projects featured space view 11",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_061058_b1032af4-7341-4aa7-8e4d-5247299d62ee.jpg",
       "filename": "hf_20260516_061058_b1032af4-7341-4aa7-8e4d-5247299d62ee.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 11",
+      "alt": "Other Projects featured space view 12",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_061119_e1ad78ae-838c-4a79-8639-ba78e1eed8bd.jpg",
       "filename": "hf_20260516_061119_e1ad78ae-838c-4a79-8639-ba78e1eed8bd.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 12",
+      "alt": "Other Projects featured space view 13",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_061202_0a172129-e767-4ac6-aa8c-ed7a1b8614e3.jpg",
       "filename": "hf_20260516_061202_0a172129-e767-4ac6-aa8c-ed7a1b8614e3.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 13",
+      "alt": "Other Projects featured space view 14",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_061210_79c7b044-a910-4310-ba4d-15a1c846bcf1.jpg",
       "filename": "hf_20260516_061210_79c7b044-a910-4310-ba4d-15a1c846bcf1.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 14",
+      "alt": "Other Projects featured space view 15",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_061231_3a721e9a-df50-4222-8999-996dc223f39d.jpg",
       "filename": "hf_20260516_061231_3a721e9a-df50-4222-8999-996dc223f39d.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 15",
+      "alt": "Other Projects featured space view 16",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_061249_6c986eeb-d20e-4f5e-84b7-1a47ce73aab0.jpg",
       "filename": "hf_20260516_061249_6c986eeb-d20e-4f5e-84b7-1a47ce73aab0.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 16",
+      "alt": "Other Projects featured space view 17",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_061320_a20c196d-c9e0-4002-9b2d-5e71eccf0085.jpg",
       "filename": "hf_20260516_061320_a20c196d-c9e0-4002-9b2d-5e71eccf0085.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 17",
+      "alt": "Other Projects featured space view 18",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_061339_6c8e9664-ab38-45fa-927d-485004b5147b.jpg",
       "filename": "hf_20260516_061339_6c8e9664-ab38-45fa-927d-485004b5147b.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 18",
+      "alt": "Other Projects featured space view 19",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_061401_9da9d750-8ad8-4d2d-82f9-e74a95d447c8.jpg",
       "filename": "hf_20260516_061401_9da9d750-8ad8-4d2d-82f9-e74a95d447c8.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 19",
+      "alt": "Other Projects featured space view 20",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_061523_2ea8d91d-0bb2-47fd-afea-2c8228a5cf97.jpg",
       "filename": "hf_20260516_061523_2ea8d91d-0bb2-47fd-afea-2c8228a5cf97.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 20",
+      "alt": "Other Projects featured space view 21",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_061554_aa93850d-040e-47a7-8b34-1dbf70bbcf8c.jpg",
       "filename": "hf_20260516_061554_aa93850d-040e-47a7-8b34-1dbf70bbcf8c.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 21",
+      "alt": "Other Projects featured space view 22",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_061623_6a887ed0-9423-4bb6-9252-49ace180a578.jpg",
       "filename": "hf_20260516_061623_6a887ed0-9423-4bb6-9252-49ace180a578.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 22",
+      "alt": "Other Projects featured space view 23",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_061645_9e1e3626-f0d8-4df1-9134-6414adb2b260.jpg",
       "filename": "hf_20260516_061645_9e1e3626-f0d8-4df1-9134-6414adb2b260.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 23",
+      "alt": "Other Projects featured space view 24",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_061719_2f6bd42f-d047-48eb-bc27-481996d052ef.jpg",
       "filename": "hf_20260516_061719_2f6bd42f-d047-48eb-bc27-481996d052ef.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 24",
+      "alt": "Other Projects featured space view 25",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_061757_228d23a9-a0ad-4073-9079-f4b14aa8e073.jpg",
       "filename": "hf_20260516_061757_228d23a9-a0ad-4073-9079-f4b14aa8e073.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 25",
+      "alt": "Other Projects featured space view 26",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_061818_d98ed428-bf3f-4ba9-935e-463a124183b3.jpg",
       "filename": "hf_20260516_061818_d98ed428-bf3f-4ba9-935e-463a124183b3.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 26",
+      "alt": "Other Projects featured space view 27",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_061914_c8e1a6c9-ddaa-4045-8cda-d3dee4f4d758.jpg",
       "filename": "hf_20260516_061914_c8e1a6c9-ddaa-4045-8cda-d3dee4f4d758.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 27",
+      "alt": "Other Projects featured space view 28",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_062015_739f835f-1894-469c-945e-81762a1a42f0.jpg",
       "filename": "hf_20260516_062015_739f835f-1894-469c-945e-81762a1a42f0.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 28",
+      "alt": "Other Projects featured space view 29",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_062105_0dbebff2-9c6a-4dd9-841e-4acb7aafd02f.jpg",
       "filename": "hf_20260516_062105_0dbebff2-9c6a-4dd9-841e-4acb7aafd02f.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 29",
+      "alt": "Other Projects featured space view 30",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_062915_6a091fbe-a6c1-4100-9717-5d5d089ad5f3.jpg",
       "filename": "hf_20260516_062915_6a091fbe-a6c1-4100-9717-5d5d089ad5f3.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 30",
+      "alt": "Other Projects featured space view 31",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_062925_b40e8f3b-f7fe-4eab-aa38-280514f63f50.jpg",
       "filename": "hf_20260516_062925_b40e8f3b-f7fe-4eab-aa38-280514f63f50.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 31",
+      "alt": "Other Projects featured space view 32",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_062935_cf9dcf4d-a9d4-484e-97fc-8c0a7f49d8c8.jpg",
       "filename": "hf_20260516_062935_cf9dcf4d-a9d4-484e-97fc-8c0a7f49d8c8.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 32",
+      "alt": "Other Projects featured space view 33",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_062943_1cef7b63-6c47-4a88-81cb-28ce5c706c3f.jpg",
       "filename": "hf_20260516_062943_1cef7b63-6c47-4a88-81cb-28ce5c706c3f.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 33",
+      "alt": "Other Projects featured space view 34",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_144354_210063d1-b0de-4363-8f49-6301bef3d1e7.jpg",
       "filename": "hf_20260516_144354_210063d1-b0de-4363-8f49-6301bef3d1e7.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 34",
+      "alt": "Other Projects featured space view 35",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf_20260516_144703_ae942e4e-1ee0-431d-b29e-b38a74194ed9.jpg",
       "filename": "hf_20260516_144703_ae942e4e-1ee0-431d-b29e-b38a74194ed9.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 35",
+      "alt": "Other Projects featured space view 36",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf-1-4.jpg",
       "filename": "hf-1-4.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 36",
+      "alt": "Other Projects featured space view 37",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf-1-6.jpg",
       "filename": "hf-1-6.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 37",
+      "alt": "Other Projects featured space view 38",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf-1-7.jpg",
       "filename": "hf-1-7.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 38",
+      "alt": "Other Projects featured space view 39",
       "caption": "Other Projects • Featured Space"
     },
     {
       "src": "/images/hf-1.jpg",
       "filename": "hf-1.jpg",
       "room": "Featured Space",
-      "alt": "Other Projects featured space view 39",
+      "alt": "Other Projects featured space view 40",
       "caption": "Other Projects • Featured Space"
     }
   ],
-  "coverImage": "/images/hf_20260516_060128_ee00fa91-6f6e-4e50-98cd-4a4ca18183b1.jpg"
+  "coverImage": "/images/headshot.png"
 }
 ]
