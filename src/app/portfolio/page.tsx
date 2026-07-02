@@ -8,7 +8,7 @@ import { siteConfig } from "@/lib/site-data";
 export const metadata: Metadata = {
   title: "Portfolio",
   description:
-    "Explore luxury residential work from Alford Custom Builders through immersive project galleries and room-by-room photography.",
+    "Explore Dallas luxury residential work from Alford Custom Builders through immersive project galleries and room-by-room photography.",
   openGraph: {
     title: `Portfolio | ${siteConfig.name}`,
     description:
@@ -41,12 +41,12 @@ export default function PortfolioPage() {
                 Portfolio
               </p>
               <h1 className="mt-5 font-serif text-5xl leading-none text-[#f7f1e7] sm:text-6xl lg:text-7xl">
-                Homes experienced through light, material, and sequence.
+                Timeless Dallas homes experienced through light, material, and detail.
               </h1>
               <p className="mt-6 max-w-3xl text-base leading-8 text-[#efe8dc]/74 sm:text-lg">
-                Explore a premium gallery of Alford Custom Builders projects with room-based
-                navigation, immersive photography, and a visual rhythm that mirrors the homes
-                themselves.
+                Explore a premium gallery of custom homes and high-end residential work
+                that reflects the classic, transitional standard Alford Custom Builders is
+                bringing to the Dallas market.
               </p>
             </div>
 
@@ -81,9 +81,9 @@ export default function PortfolioPage() {
         <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
           <CTA
             title="Start Your Custom Home Conversation"
-            description="Share the kind of home you want to build or transform, and we’ll shape a process around craftsmanship, clarity, and exceptional execution."
+            description="Share the kind of home you want to build or transform, and we will shape a process around craftsmanship, clarity, and exceptional execution."
             primaryHref="/contact"
-            primaryLabel="Schedule A Consultation"
+            primaryLabel="Start a Private Consultation"
             secondaryHref="/about"
             secondaryLabel="About The Firm"
           />

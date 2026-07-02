@@ -3,11 +3,6 @@ import Link from "next/link";
 
 import { navigation, siteConfig } from "@/lib/site-data";
 
-const footerLinks = [
-  ...navigation,
-  { href: "/our-process", label: "Our Process" },
-];
-
 export function Footer() {
   return (
     <footer className="mt-24 bg-[var(--color-charcoal)] text-white">
@@ -23,8 +18,8 @@ export function Footer() {
             />
           </Link>
           <p className="mt-6 max-w-xl text-sm leading-8 text-white/70">
-            Luxury residential construction with a calm process, refined execution,
-            and lasting craftsmanship.
+            Luxury custom homes and high-end remodels for Dallas clients who
+            value personal attention, timeless design, and clear communication.
           </p>
         </div>
 
@@ -34,7 +29,7 @@ export function Footer() {
               Navigate
             </p>
             <div className="mt-5 flex flex-col gap-4">
-              {footerLinks.map((item) => (
+              {navigation.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -51,7 +46,7 @@ export function Footer() {
             </p>
             <div className="mt-5 space-y-4 text-sm text-white/75">
               <p>{siteConfig.location}</p>
-              <a href={`tel:${siteConfig.phone}`} className="block transition hover:text-white">
+              <a href="tel:+14698631381" className="block transition hover:text-white">
                 {siteConfig.phone}
               </a>
               <a
@@ -67,7 +62,7 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-6 text-xs tracking-[0.16em] uppercase text-white/45 sm:px-6 sm:flex-row sm:items-center sm:justify-between lg:px-8">
           <p>© {new Date().getFullYear()} Alford Custom Builders</p>
-          <p>Built for timeless residential living</p>
+          <p>Built for timeless Dallas living</p>
         </div>
       </div>
     </footer>

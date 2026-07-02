@@ -3,19 +3,19 @@ import Link from "next/link";
 
 import { CTA } from "@/components/cta";
 import { PageHero } from "@/components/page-hero";
-import { siteConfig } from "@/lib/site-data";
+import { marketFocus, siteConfig } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact Alford Custom Builders to discuss a luxury custom home, renovation, or addition project.",
+    "Contact Alford Custom Builders to discuss a Dallas luxury custom home or high-end remodel project.",
 };
 
 const inquiryTopics = [
   "Custom home construction",
   "Whole-home renovation",
-  "Architectural addition",
-  "Kitchen or bath transformation",
+  "High-end remodel planning",
+  "Additions and expansions",
 ];
 
 export default function ContactPage() {
@@ -23,8 +23,8 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title="Let’s begin with a conversation about your home, your goals, and the experience you want."
-        description="We welcome early-stage inquiries as well as projects that already have plans, selections, or a design team in place."
+        title="Let’s start with a conversation about your home, your goals, and the standard you expect from your builder."
+        description="Whether your project is still forming or already has plans in hand, Alford Custom Builders welcomes thoughtful inquiries for Preston Hollow, University Park, Highland Park, the Park Cities, and surrounding Dallas luxury neighborhoods."
       />
 
       <section className="section-shell">
@@ -41,7 +41,7 @@ export default function ContactPage() {
               <p>
                 Phone:{" "}
                 <a
-                  href={`tel:${siteConfig.phone}`}
+                  href="tel:+14698631381"
                   className="font-semibold text-[var(--color-navy)]"
                 >
                   {siteConfig.phone}
@@ -55,6 +55,11 @@ export default function ContactPage() {
                 >
                   {siteConfig.email}
                 </a>
+              </p>
+              <p>
+                Best fit: luxury custom homes, high-end remodels, and major
+                residential additions in Dallas-area neighborhoods where quality
+                and communication matter.
               </p>
             </div>
           </div>
@@ -71,6 +76,16 @@ export default function ContactPage() {
                 >
                   {topic}
                 </div>
+              ))}
+            </div>
+            <div className="mt-8 flex flex-wrap gap-3">
+              {marketFocus.map((market) => (
+                <span
+                  key={market}
+                  className="rounded-full border border-[var(--color-border)] bg-white px-4 py-2 text-[11px] font-semibold tracking-[0.18em] uppercase text-[var(--color-charcoal)]"
+                >
+                  {market}
+                </span>
               ))}
             </div>
             <p className="mt-8 text-sm leading-8 text-[var(--color-muted)]">
@@ -93,11 +108,11 @@ export default function ContactPage() {
       <section className="section-shell pt-20">
         <CTA
           title="Ready when you are."
-          description="Share your plans, inspiration, or project goals and we’ll help you understand the best next step."
+          description="Share your plans, inspiration, or project goals and we will help you understand the right next step for your project."
           primaryHref={`mailto:${siteConfig.email}?subject=Project Inquiry`}
-          primaryLabel="Email Alford Custom Builders"
+          primaryLabel="Start a Private Consultation"
           secondaryHref="/portfolio"
-          secondaryLabel="Browse Portfolio"
+          secondaryLabel="View Our Work"
         />
       </section>
     </>

@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --color-warm-white: #f8f5ef;
-  --color-surface: #f2ede5;
-  --color-charcoal: #1b212a;
-  --color-navy: #12263a;
-  --color-wood: #7e5a3f;
-  --color-sand: #d9c5ab;
-  --color-soft-gray: #cfd6dc;
-  --color-muted: #5b6570;
-  --color-border: rgba(18, 38, 58, 0.12);
+  --color-warm-white: #f7f2ea;
+  --color-surface: #efe6d8;
+  --color-charcoal: #16202b;
+  --color-navy: #0f2236;
+  --color-wood: #9a6d46;
+  --color-sand: #ddc5a5;
+  --color-soft-gray: #cad2d9;
+  --color-muted: #576270;
+  --color-border: rgba(15, 34, 54, 0.12);
+  --color-border-strong: rgba(15, 34, 54, 0.18);
 }
 
 @theme inline {
@@ -51,8 +52,8 @@ img {
 
 .site-bg {
   background:
-    radial-gradient(circle at top, rgba(18, 38, 58, 0.04), transparent 24%),
-    linear-gradient(180deg, #faf7f1 0%, #f8f5ef 28%, #f6f1e8 100%);
+    radial-gradient(circle at top, rgba(15, 34, 54, 0.06), transparent 24%),
+    linear-gradient(180deg, #fbf7f1 0%, #f7f2ea 26%, #f1e8dc 100%);
 }
 
 .section-shell {
@@ -60,6 +61,21 @@ img {
   max-width: 80rem;
   padding-inline: 1.25rem;
   padding-top: 4.5rem;
+}
+
+.section-panel {
+  border: 1px solid var(--color-border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(247, 242, 234, 0.8));
+  box-shadow: 0 24px 80px rgba(16, 24, 32, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.image-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 42%, rgba(15, 34, 54, 0.12));
+  pointer-events: none;
 }
 
 .font-serif {

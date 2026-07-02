@@ -4,12 +4,12 @@ import { CTA } from "@/components/cta";
 import { PageHero } from "@/components/page-hero";
 import { ServiceCard } from "@/components/service-card";
 import { SectionHeading } from "@/components/section-heading";
-import { processSteps, services } from "@/lib/site-data";
+import { clientFit, processSteps, services } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Explore custom homes, renovations, additions, and pre-construction services from Alford Custom Builders.",
+    "Explore custom homes, high-end remodels, and builder-led planning services from Alford Custom Builders.",
 };
 
 export default function ServicesPage() {
@@ -17,15 +17,15 @@ export default function ServicesPage() {
     <>
       <PageHero
         eyebrow="Services"
-        title="Residential construction services tailored for complex, design-forward homes."
-        description="We support our clients from the earliest planning conversations through closeout, with clear communication and premium execution at every phase."
+        title="Luxury custom homes and high-end remodels led with direct communication, disciplined planning, and timeless standards."
+        description="Alford Custom Builders serves Dallas clients who want premium residential work handled with personal builder involvement, practical judgment, and a process that stays clear from beginning to end."
       />
 
       <section className="section-shell">
         <SectionHeading
           eyebrow="What We Do"
-          title="A full suite of services for custom homes and transformative renovations."
-          description="Every service is delivered with the same focus on planning, material quality, and a seamless client experience."
+          title="Services shaped around high-touch residential work, not one-size-fits-all production building."
+          description="Every service is delivered with the same priorities: quality, transparency, responsiveness, and a strong eye for what works."
         />
         <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service) => (
@@ -37,9 +37,29 @@ export default function ServicesPage() {
       <section className="section-shell">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <SectionHeading
+            eyebrow="Who We Build For"
+            title="The best-fit projects are the ones that benefit from close builder involvement and fast, thoughtful decisions."
+            description="These are the kinds of clients and projects this company is designed to serve best."
+          />
+          <div className="space-y-4">
+            {clientFit.map((item) => (
+              <div
+                key={item}
+                className="rounded-[1.75rem] border border-[var(--color-border)] bg-white p-7"
+              >
+                <p className="text-sm leading-8 text-[var(--color-muted)]">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-shell">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <SectionHeading
             eyebrow="How It Comes Together"
             title="Premium execution begins long before the first day on site."
-            description="Our process supports design integrity, financial clarity, and build quality through every stage of the project."
+            description="The process is intentionally lean so projects can stay organized without becoming slow or overcomplicated."
           />
           <div className="space-y-5">
             {processSteps.map((item) => (
@@ -65,9 +85,11 @@ export default function ServicesPage() {
       <section className="section-shell pt-20">
         <CTA
           title="Need a builder who can lead both planning and execution?"
-          description="We would be glad to learn about your project scope, design team, timeline, and priorities."
+          description="Share your project scope, neighborhood, timeline, and design direction, and we can talk through the best next step."
           primaryHref="/contact"
-          primaryLabel="Schedule A Consultation"
+          primaryLabel="Plan Your Custom Home"
+          secondaryHref="/portfolio"
+          secondaryLabel="View Our Work"
         />
       </section>
     </>

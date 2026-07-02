@@ -14,7 +14,7 @@ export function ProjectCard({
   image,
 }: ProjectCardProps) {
   return (
-    <article className="group overflow-hidden rounded-[2rem] border border-[var(--color-border)] bg-white shadow-[0_22px_80px_rgba(16,24,32,0.08)]">
+    <article className="group overflow-hidden rounded-[2rem] border border-[var(--color-border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,244,237,0.94))] shadow-[0_22px_80px_rgba(16,24,32,0.08)] transition duration-300 hover:-translate-y-1">
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image
           src={image}

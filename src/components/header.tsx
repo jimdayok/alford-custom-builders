@@ -33,7 +33,7 @@ export function Header() {
 
         <div className="hidden lg:block">
           <Button href="/contact" variant="secondary">
-            Schedule A Consultation
+            Start a Private Consultation
           </Button>
         </div>
 
@@ -54,7 +54,7 @@ export function Header() {
               ))}
               <div className="px-2 pt-3">
                 <Button href="/contact" variant="secondary">
-                  Schedule A Consultation
+                  Start a Private Consultation
                 </Button>
               </div>
             </nav>

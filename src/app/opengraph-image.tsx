@@ -38,7 +38,7 @@ export default function OpenGraphImage() {
               color: "#7e5a3f",
             }}
           >
-            Alford Custom Builders
+            Dallas Luxury Builder
           </div>
           <div
             style={{
@@ -48,7 +48,7 @@ export default function OpenGraphImage() {
               fontWeight: 600,
             }}
           >
-            Luxury residential construction with lasting craftsmanship.
+            Custom homes and high-end remodels built with integrity and timeless standards.
           </div>
         </div>
         <div
@@ -66,7 +66,7 @@ export default function OpenGraphImage() {
               color: "#405062",
             }}
           >
-            Custom homes, major renovations, and design-forward additions.
+            Serving Preston Hollow, the Park Cities, and surrounding North Dallas neighborhoods.
           </div>
           <div
             style={{
