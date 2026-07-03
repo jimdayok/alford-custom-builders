@@ -5,7 +5,7 @@ export const siteConfig = {
   url: "https://www.alfordcustombuilders.com",
   ogImage: "/logos/aclogoblue.png",
   phone: "(469) 863-1381",
-  email: "bena@alfordhomes.com",
+  email: "ben@alfordcustombuilders.com",
   location: "Serving Preston Hollow, the Park Cities, and surrounding North Dallas neighborhoods",
 };
 
@@ -45,34 +45,34 @@ export const featuredProjects = [
 
 export const services = [
   {
-    title: "Luxury Custom Homes",
+    title: "Custom Homes",
     description:
-      "Ground-up residences for Dallas clients who want timeless architecture, disciplined execution, and a builder personally involved from early planning through final review.",
+      "Ground-up residences shaped around architecture, livability, and a builder-led process from planning through final detail review.",
   },
   {
-    title: "High-End Remodels",
+    title: "Estate Renovations",
     description:
-      "Large-scale renovations shaped around clarity, craftsmanship, and a deep respect for the home, the neighborhood, and the way the finished spaces should live.",
+      "Major renovations for homes that need thoughtful transformation, careful phasing, and a finish standard that matches the original vision.",
   },
   {
-    title: "Additions & Expansions",
+    title: "Park Cities Additions",
     description:
-      "Integrated expansions designed to feel native to the home, not tacked on after the fact.",
+      "Expansions designed to feel original to the residence, especially in neighborhoods where proportion and street presence matter.",
   },
   {
-    title: "Pre-Construction Guidance",
+    title: "Pre-Construction Advisory",
     description:
-      "Early budget, scope, and planning conversations that create clarity before decisions become expensive or slow-moving.",
+      "Early-stage planning that helps clients and architects align scope, investment, and timing before the work becomes expensive to change.",
   },
   {
-    title: "Builder-Led Decision Making",
+    title: "Lot + Feasibility Review",
     description:
-      "A lean process that keeps communication moving and makes it easier to adapt when ideas evolve during the project.",
+      "Builder input on site realities, renovation potential, and what should be considered before committing to a lot or major acquisition.",
   },
   {
-    title: "Owner Partnership",
+    title: "Design-Build Coordination",
     description:
-      "Hands-on guidance through every step with professionalism, expertise, and an experienced perspective on what truly works.",
+      "Close coordination with architects, designers, and consultants so details stay aligned and decisions move faster.",
   },
 ];
 
@@ -107,46 +107,46 @@ export const differentiators = [
 export const processSteps = [
   {
     step: "01",
-    title: "Pre-Construction Planning",
+    title: "Discovery",
     description:
-      "We begin with the vision for the home, the level of finish you expect, and the planning required to move into construction the right way.",
+      "We begin with the way you live, the kind of home you want to create, and the level of involvement and detail the project deserves.",
   },
   {
     step: "02",
-    title: "Budget Clarity",
+    title: "Feasibility",
     description:
-      "Scope, investment expectations, and key decisions are aligned early so the project starts from a realistic, well-led foundation.",
+      "We evaluate scope, site realities, and renovation or build potential so the project starts from a grounded understanding of what is possible.",
   },
   {
     step: "03",
-    title: "Timeline Coordination",
+    title: "Design Collaboration",
     description:
-      "Schedules are built to keep momentum steady, trade sequencing organized, and client expectations clear from one phase to the next.",
+      "Architects, designers, and key consultants are coordinated early so selections, details, and expectations stay aligned.",
   },
   {
     step: "04",
-    title: "Trade Partner Management",
+    title: "Budget Alignment",
     description:
-      "Trusted trade partners are managed closely so craftsmanship, cleanliness, and execution stay consistent throughout the build.",
+      "Allowances, priorities, and change decisions are managed transparently, with clear cost discussions before issues become surprises.",
   },
   {
     step: "05",
-    title: "Transparent Updates",
+    title: "Construction",
     description:
-      "Regular communication keeps decisions moving, questions answered, and the entire process easier to navigate with confidence.",
+      "Construction is led through hands-on oversight, organized trades, clean jobsites, and weekly communication that keeps decisions moving.",
   },
   {
     step: "06",
-    title: "Final Detail Review",
+    title: "Final Walkthrough",
     description:
-      "The closing phase is handled with care, accountability, and a final review standard that protects the quality of the finished home.",
+      "The closeout process is deliberate, with detailed review, punch resolution, and follow-through that continues after move-in.",
   },
 ];
 
 export const stats = [
-  { value: "Dallas", label: "Focused on Preston Hollow, Park Cities, and nearby neighborhoods" },
-  { value: "2nd Gen", label: "A builder shaped by family legacy and hands-on experience" },
-  { value: "Lean", label: "Fast, direct decision-making without unnecessary layers" },
+  { value: "Decades", label: "Family building standards shaped over years in Dallas luxury construction" },
+  { value: "Weekly", label: "Client updates and decision tracking designed to keep projects clear" },
+  { value: "Owner-Led", label: "Direct involvement from Ben Alford through planning, construction, and closeout" },
 ];
 
 export const brandPillars = [
@@ -190,17 +190,17 @@ export const clientFit = [
 
 export const founderStory = {
   eyebrow: "Founder Story",
-  title: "Built on legacy. Led with personal attention.",
+  title: "A more personal kind of luxury homebuilding.",
   description:
-    "Ben Alford is a second-generation builder who grew up in the business, learned the craft from his dad, and now leads each project with the kind of personal involvement, accountability, and practical judgment that only comes from living the work for years.",
+    "Alford Custom Builders is an independent next-generation building company led by Ben Alford, shaped by the standards he grew up around and built for the way today&apos;s clients want to build.",
   quote:
-    "I will guide them through every step of the process with expertise, professionalism, and a great eye for what works.",
+    "My goal is to keep the process highly personal, deeply detailed, and easier to navigate than clients expect from a luxury build.",
 };
 
 export const founderHighlights = [
-  "Second-generation builder with luxury residential experience rooted in family legacy",
-  "Personally involved in the details, decisions, and client communication throughout the project",
-  "Committed to making things right when it matters, not just when it is convenient",
+  "Direct owner involvement instead of a handoff to layers of project administration",
+  "Weekly updates, clearer approvals, and more transparent budget conversations",
+  "Close design coordination with architects, designers, and specialty trades",
 ];
 
 export const recentWork = [
@@ -272,37 +272,37 @@ export const homepageGallery = [
 export const testimonials = [
   {
     quote:
-      "The craftsmanship exceeded every expectation, but what impressed us most was how informed we felt throughout every step of the process.",
+      "We got weekly updates, honest timeline conversations, and no mystery around decisions. That made a huge difference.",
     name: "Michael & Jennifer Collins",
     context: "Preston Hollow Custom Home",
   },
   {
     quote:
-      "Ben brought a level of responsiveness and calm leadership that made a complex project feel remarkably straightforward.",
+      "Ben was easy to reach, direct about pricing, and thoughtful when change orders came up. We always knew where things stood.",
     name: "David & Lauren Mercer",
     context: "University Park Renovation",
   },
   {
     quote:
-      "Every finish, every detail, every conversation felt thoughtful. We always knew our home was being treated with real care.",
+      "The finish selections took time, but the team never rushed them. That patience shows in the final house.",
     name: "Chris and Emily Warren",
     context: "Park Cities New Build",
   },
   {
     quote:
-      "What stood out most was the transparency. We understood the budget, the timeline, and the decisions in a way that gave us real confidence.",
+      "The job site was organized, the subs were professional, and the communication stayed steady all the way through punch.",
     name: "Jonathan & Elise Harper",
     context: "Highland Park Remodel",
   },
   {
     quote:
-      "There is a rare balance here between legacy craftsmanship and a more modern, collaborative client experience. That combination mattered to us.",
+      "We wanted a builder with family standards but a more current process. That is exactly what this felt like.",
     name: "Matthew and Caroline Brooks",
     context: "Dallas Luxury Residence",
   },
   {
     quote:
-      "Even after move-in, the standard never changed. The follow-through was every bit as strong as the build itself.",
+      "Even after move-in, follow-through was solid. Small items were handled quickly and without excuses.",
     name: "Andrew & Claire Holloway",
     context: "Family Home Addition",
   },

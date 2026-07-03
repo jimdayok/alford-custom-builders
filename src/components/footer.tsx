@@ -18,9 +18,12 @@ export function Footer() {
             />
           </Link>
           <p className="mt-6 max-w-md text-sm leading-8 text-[var(--color-muted)]">
-            Built on a legacy of craftsmanship and relationships, Alford Custom
-            Builders serves Dallas clients with a more personal, transparent, and
-            design-conscious luxury homebuilding experience.
+            Alford Custom Builders is an independent company led by Ben Alford,
+            serving Dallas clients with a more personal, transparent, and
+            design-conscious luxury building experience.
+          </p>
+          <p className="mt-4 text-sm leading-8 text-[var(--color-muted)]">
+            Private consultations by appointment.
           </p>
         </div>
 
@@ -47,6 +50,7 @@ export function Footer() {
           </p>
           <div className="mt-5 space-y-4 text-sm leading-8 text-[var(--color-muted)]">
             <p>{siteConfig.location}</p>
+            <p>Luxury custom homes, estate renovations, and additions across Dallas.</p>
             <a href="tel:+14698631381" className="block transition hover:text-[var(--color-charcoal)]">
               {siteConfig.phone}
             </a>
