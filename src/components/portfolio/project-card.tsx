@@ -1,7 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { getProjectHref, type PortfolioProject } from "@/data/portfolio";
+import {
+  getProjectCardImage,
+  getProjectHref,
+  type PortfolioProject,
+} from "@/data/portfolio";
 
 type ProjectCardProps = {
   project: PortfolioProject;
@@ -9,19 +13,23 @@ type ProjectCardProps = {
 };
 
 export function ProjectCard({ project, priority = false }: ProjectCardProps) {
+  const cardImage = getProjectCardImage(project.slug, project.coverImage);
+
   return (
     <Link
       href={getProjectHref(project.slug)}
       className="group relative block overflow-hidden rounded-[2rem] border border-white/10 bg-[#191714] shadow-[0_30px_90px_rgba(0,0,0,0.18)] transition duration-500 hover:-translate-y-1.5 hover:border-[#d2b38f]/45"
+      style={{ contentVisibility: "auto", containIntrinsicSize: "680px" }}
     >
       <div className="relative aspect-[4/5] overflow-hidden">
         <Image
-          src={project.coverImage}
+          src={cardImage}
           alt={`${project.title} featured image`}
           fill
           priority={priority}
           className="object-cover transition duration-700 group-hover:scale-[1.04]"
           sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+          quality={72}
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_20%,rgba(10,10,10,0.2)_45%,rgba(10,10,10,0.9))]" />
       </div>

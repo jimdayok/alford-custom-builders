@@ -41,6 +41,13 @@ a {
   text-decoration: none;
 }
 
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -48,6 +55,11 @@ img {
 
 ::selection {
   background: rgba(18, 38, 58, 0.16);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-wood);
+  outline-offset: 3px;
 }
 
 .site-bg {
@@ -80,6 +92,10 @@ img {
 
 .font-serif {
   font-family: var(--font-serif), serif;
+}
+
+.text-balance {
+  text-wrap: balance;
 }
 
 .animate-rise {
@@ -122,5 +138,20 @@ img {
   .section-shell {
     padding-inline: 2rem;
     padding-top: 6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
   }
 }

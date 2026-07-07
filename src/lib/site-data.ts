@@ -1,8 +1,8 @@
 export const siteConfig = {
-  name: "Alford Custom Builders",
+  name: "Alford Custom Homes",
   description:
-    "Dallas luxury custom homes and high-end remodels led by Ben Alford, a second-generation builder known for clarity, craftsmanship, and personal attention.",
-  url: "https://www.alfordcustombuilders.com",
+    "Dallas luxury custom homes and high-end remodels led by Ben Alford, a second-generation builder known for clarity, craftsmanship, legacy standards, and personal attention.",
+  url: "https://www.alfordcustomhomes.com",
   ogImage: "/logos/aclogoblue.png",
   phone: "(469) 863-1381",
   email: "ben@alfordcustombuilders.com",
@@ -13,8 +13,8 @@ export const navigation = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/portfolio", label: "Gallery" },
+  { href: "/service-areas", label: "Service Areas" },
   { href: "/#testimonials", label: "Testimonials" },
-  { href: "/#locations", label: "Locations" },
   { href: "/journal", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
@@ -143,6 +143,71 @@ export const processSteps = [
   },
 ];
 
+export const homepageTrustCues = [
+  "Custom Homes",
+  "Remodels",
+  "Legacy Craftsmanship",
+];
+
+export const processJourney = [
+  {
+    step: "01",
+    title: "Discovery",
+    eyebrow: "Vision + Fit",
+    description:
+      "We start by understanding how your family lives, what kind of architecture you are drawn to, and what would make the process feel confident from day one.",
+    image: "/images/4301-armstrong-pkwy-hf-1-59.jpg",
+  },
+  {
+    step: "02",
+    title: "Site Walk",
+    eyebrow: "Lot + Existing Conditions",
+    description:
+      "Whether you already own the property or are evaluating one, we walk the site early to discuss orientation, access, neighborhood character, and the realities that shape cost and construction.",
+    image: "/images/3534-greenbrier-dr-52.jpg",
+  },
+  {
+    step: "03",
+    title: "Design + Budget Alignment",
+    eyebrow: "Early Clarity",
+    description:
+      "Plans become more useful when budget conversations happen alongside them. We help align scope, priorities, and expectations before expensive revisions stack up.",
+    image: "/images/4301-armstrong-pkwy-hf-1-141.jpg",
+  },
+  {
+    step: "04",
+    title: "Selections",
+    eyebrow: "Materials + Details",
+    description:
+      "Finish decisions are guided with an eye toward lead times, cohesion, and daily livability so selections feel intentional instead of rushed.",
+    image: "/images/4906-deloache-ave-43.jpg",
+  },
+  {
+    step: "05",
+    title: "Construction",
+    eyebrow: "Builder-Led Execution",
+    description:
+      "Construction is managed with clean communication, accountable trade coordination, and direct oversight that keeps quality and schedule visible throughout the build.",
+    image: "/images/4301-armstrong-pkwy-hf-1-155.jpg",
+  },
+  {
+    step: "06",
+    title: "Final Walkthrough",
+    eyebrow: "Refinement",
+    description:
+      "Before completion, we walk the home in detail, address punch items deliberately, and make sure the finish level matches the standard promised at the start.",
+    image: "/images/3529-bryn-mawr-dr-34.jpg",
+  },
+  {
+    step: "07",
+    title: "Move-In",
+    eyebrow: "Long-Term Accountability",
+    description:
+      "The relationship does not end at handoff. We stay available after move-in so the home settles the way it should and small items are handled with professionalism.",
+    image: "/images/6707Stefani-71.jpg",
+  },
+];
+
 export const stats = [
   { value: "Decades", label: "Family building standards shaped over years in Dallas luxury construction" },
   { value: "Weekly", label: "Client updates and decision tracking designed to keep projects clear" },
@@ -192,7 +257,7 @@ export const founderStory = {
   eyebrow: "Founder Story",
   title: "A more personal kind of luxury homebuilding.",
   description:
-    "Alford Custom Builders is an independent next-generation building company led by Ben Alford, shaped by the standards he grew up around and built for the way today&apos;s clients want to build.",
+    "Alford Custom Homes is an independent next-generation building company led by Ben Alford, shaped by the standards he grew up around and built for the way today&apos;s clients want to build.",
   quote:
     "My goal is to keep the process highly personal, deeply detailed, and easier to navigate than clients expect from a luxury build.",
 };
@@ -220,10 +285,125 @@ export const recentWork = [
   },
   {
     title: "Bryn Mawr Details",
-    label: "Instagram Ready",
+    label: "Recent Details",
     image: "/images/3529-bryn-mawr-dr-31.jpg",
     description:
       "A flexible showcase block designed to later feature recent photography, field updates, or curated social content.",
+  },
+];
+
+export const materialsShowcase = [
+  {
+    title: "Wood",
+    description:
+      "Warm oak tones, tailored millwork, and architectural grain that bring calm and permanence to the rooms families use most.",
+    image: "/images/4301-armstrong-pkwy-hf-1-127.jpg",
+  },
+  {
+    title: "Stone",
+    description:
+      "Natural stone selected for scale, movement, and restraint so focal moments feel substantial without becoming loud.",
+    image: "/images/4301-armstrong-pkwy-hf-1-121.jpg",
+  },
+  {
+    title: "Tile",
+    description:
+      "Clean-lined surfaces and layered textures that support the architecture instead of competing with it.",
+    image: "/images/3534-greenbrier-dr-45.jpg",
+  },
+  {
+    title: "Metal",
+    description:
+      "Steel, bronze, and darkened finishes used as accents for contrast, precision, and quiet sophistication.",
+    image: "/images/4301-armstrong-pkwy-hf-1-103.jpg",
+  },
+  {
+    title: "Cabinetry",
+    description:
+      "Storage and built-ins detailed for both proportion and use, with custom joinery that feels intentional from every angle.",
+    image: "/images/4301-armstrong-pkwy-hf-1-100.jpg",
+  },
+  {
+    title: "Lighting",
+    description:
+      "Decorative and architectural lighting layered to support mood, function, and the visual rhythm of the home.",
+    image: "/images/4301-armstrong-pkwy-hf-1-104.jpg",
+  },
+];
+
+export const whyAlfordPoints = [
+  "One point of contact from early planning through closeout",
+  "Thoughtful coordination with architects, designers, and specialty trades",
+  "Transparent communication around budget, schedule, and decisions",
+  "A trusted subcontractor network with luxury residential experience",
+  "Clean, orderly job sites that respect the home and neighborhood",
+  "Long-term accountability after completion",
+  "Homes planned around how families actually live every day",
+];
+
+export const serviceAreaDetails = [
+  {
+    slug: "preston-hollow",
+    title: "Preston Hollow",
+    description:
+      "Custom homes and large-scale renovations in one of Dallas' most established luxury neighborhoods, where architecture, privacy, and lot character all matter.",
+  },
+  {
+    slug: "university-park",
+    title: "University Park",
+    description:
+      "Builder-led planning and execution for families who want a home that feels timeless, tailored, and deeply livable near schools, parks, and longstanding neighborhood fabric.",
+  },
+  {
+    slug: "highland-park",
+    title: "Highland Park",
+    description:
+      "Refined residential work for clients who expect thoughtful design coordination, polished details, and a high standard for how the process feels.",
+  },
+  {
+    slug: "park-cities",
+    title: "The Park Cities",
+    description:
+      "Ground-up homes, additions, and estate renovations shaped around legacy neighborhoods where proportion, materials, and street presence matter.",
+  },
+  {
+    slug: "north-dallas",
+    title: "North Dallas",
+    description:
+      "Luxury residential construction for clients across North Dallas who want direct builder involvement, transparent communication, and a calm, organized experience.",
+  },
+];
+
+export const faqItems = [
+  {
+    question: "How early should we contact a custom home builder?",
+    answer:
+      "The best time is before plans are too far along. Early builder involvement helps align design ideas, budget expectations, lot realities, and timeline decisions before revisions become expensive.",
+  },
+  {
+    question: "Do you help with design selections?",
+    answer:
+      "Yes. Alford Custom Homes works closely with clients, architects, and interior designers to keep selections aligned with the vision, the schedule, and the level of finish expected.",
+  },
+  {
+    question: "Do you build on client-owned lots?",
+    answer:
+      "Yes. We regularly work with clients who already own their lot, and we can also provide builder perspective when a client is evaluating land or an existing home for renovation potential.",
+  },
+  {
+    question: "Can you help with budgeting before plans are final?",
+    answer:
+      "Absolutely. Early budgeting is one of the best ways to keep a luxury project efficient. We help clients understand scope, priorities, allowances, and likely investment ranges before every detail is finalized.",
+  },
+  {
+    question: "What makes Alford different?",
+    answer:
+      "The company combines family building standards with a more current, builder-led process: direct access, faster communication, clearer decision-making, and close personal involvement from Ben Alford.",
+  },
+  {
+    question: "How do consultations work?",
+    answer:
+      "Consultations typically begin with a conversation about the property, your goals, design status, investment range, and timing. From there, we can recommend the right next step for planning, design coordination, or construction.",
   },
 ];
 
@@ -269,6 +449,7 @@ export const homepageGallery = [
   "/images/6707Stefani-71.jpg",
 ];
 
+// Temporary launch-ready testimonial copy. Replace with approved client testimonials before production launch.
 export const testimonials = [
   {
     quote:

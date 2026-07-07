@@ -247,6 +247,13 @@
       "room": "Featured Space",
       "alt": "Bryn Mawr Dr featured space view 34",
       "caption": "Bryn Mawr Dr • Featured Space"
+    },
+    {
+      "src": "/images/thumbs/bryn-mawr-dr-card.jpg",
+      "filename": "bryn-mawr-dr-card.jpg",
+      "room": "Featured Space",
+      "alt": "Bryn Mawr Dr featured space view 36",
+      "caption": "Bryn Mawr Dr • Featured Space"
     }
   ],
   "coverImage": "/images/3529-bryn-mawr-dr-1.jpg"
@@ -736,6 +743,13 @@
       "filename": "3534-greenbrier-dr-52.jpg",
       "room": "Featured Space",
       "alt": "Greenbrier Dr featured space view 69",
+      "caption": "Greenbrier Dr • Featured Space"
+    },
+    {
+      "src": "/images/thumbs/greenbrier-dr-card.jpg",
+      "filename": "greenbrier-dr-card.jpg",
+      "room": "Featured Space",
+      "alt": "Greenbrier Dr featured space view 70",
       "caption": "Greenbrier Dr • Featured Space"
     }
   ],
@@ -1887,6 +1901,13 @@
       "caption": "Armstrong Pkwy • Featured Space"
     },
     {
+      "src": "/images/thumbs/armstrong-pkwy-card.jpg",
+      "filename": "armstrong-pkwy-card.jpg",
+      "room": "Featured Space",
+      "alt": "Armstrong Pkwy featured space view 171",
+      "caption": "Armstrong Pkwy • Featured Space"
+    },
+    {
       "src": "/images/hf-1-4301-armstrong-pkwy-5.jpg",
       "filename": "hf-1-4301-armstrong-pkwy-5.jpg",
       "room": "Featured Space",
@@ -2241,6 +2262,13 @@
       "filename": "4906-deloache-ave-43.jpg",
       "room": "Featured Space",
       "alt": "Deloache Ave featured space view 43",
+      "caption": "Deloache Ave • Featured Space"
+    },
+    {
+      "src": "/images/thumbs/deloache-ave-card.jpg",
+      "filename": "deloache-ave-card.jpg",
+      "room": "Featured Space",
+      "alt": "Deloache Ave featured space view 44",
       "caption": "Deloache Ave • Featured Space"
     }
   ],
@@ -2746,6 +2774,13 @@
       "room": "Featured Space",
       "alt": "Stefani Dr featured space view 71",
       "caption": "Stefani Dr • Featured Space"
+    },
+    {
+      "src": "/images/thumbs/stefani-dr-card.jpg",
+      "filename": "stefani-dr-card.jpg",
+      "room": "Featured Space",
+      "alt": "Stefani Dr featured space view 72",
+      "caption": "Stefani Dr • Featured Space"
     }
   ],
   "coverImage": "/images/6707Stefani-1.jpg"
@@ -3032,6 +3067,13 @@
       "filename": "hf-1.jpg",
       "room": "Featured Space",
       "alt": "Other Projects featured space view 40",
+      "caption": "Other Projects • Featured Space"
+    },
+    {
+      "src": "/images/thumbs/other-projects-card.jpg",
+      "filename": "other-projects-card.jpg",
+      "room": "Featured Space",
+      "alt": "Other Projects featured space view 41",
       "caption": "Other Projects • Featured Space"
     }
   ],

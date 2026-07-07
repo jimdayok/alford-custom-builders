@@ -1,87 +1,144 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 
-import { CTA } from "@/components/cta";
 import { Button } from "@/components/button";
+import { ChapterRail } from "@/components/home/chapter-rail";
+import { GuidedProcessExperience } from "@/components/home/guided-process-experience";
+import { LeadForm } from "@/components/home/lead-form";
+import { HomepageMotion } from "@/components/home/homepage-motion";
+import { getProjectCardImage, portfolioProjects } from "@/data/portfolio";
 import {
+  faqItems,
   founderHighlights,
-  homepageGallery,
-  marketFocus,
-  processSteps,
-  services,
+  homepageTrustCues,
+  materialsShowcase,
+  processJourney,
+  serviceAreaDetails,
   siteConfig,
   stats,
   testimonials,
+  whyAlfordPoints,
 } from "@/lib/site-data";
+import {
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+  buildHomeConstructionBusinessSchema,
+  buildOrganizationSchema,
+  buildWebsiteSchema,
+} from "@/lib/schema";
 
-const galleryLabels = [
-  "Preston Hollow Residence",
-  "University Park Remodel",
-  "Highland Park Addition",
-  "North Dallas Custom Home",
-  "Park Cities Outdoor Living",
-  "Design-Focused Interior",
-];
+const featuredProjects = portfolioProjects.slice(0, 3);
+const [featuredTestimonial, ...additionalTestimonials] = testimonials;
 
 export const metadata: Metadata = {
-  title: "Luxury Custom Homes In Dallas",
+  title: "Dallas Luxury Custom Homes",
   description:
-    "Luxury custom homes and estate renovations for Dallas clients who value craftsmanship, clear communication, and direct owner involvement.",
+    "Alford Custom Homes builds Dallas custom homes and high-end remodels with legacy craftsmanship, modern communication, and direct involvement from Ben Alford.",
 };
 
 export default function HomePage() {
-  const [featuredTestimonial, ...moreTestimonials] = testimonials;
-
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
-    name: siteConfig.name,
-    description: siteConfig.description,
-    url: siteConfig.url,
-    telephone: siteConfig.phone,
-    email: siteConfig.email,
-    areaServed: marketFocus,
-  };
+  const schemas = [
+    buildOrganizationSchema(),
+    buildWebsiteSchema(),
+    buildHomeConstructionBusinessSchema(),
+    buildFaqSchema(),
+    buildBreadcrumbSchema([
+      { name: "Home", url: siteConfig.url },
+    ]),
+  ];
 
   return (
     <>
+      <HomepageMotion />
+      <ChapterRail />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
       />
 
-      <section className="relative overflow-hidden">
-        <div className="image-sheen relative h-[74vh] min-h-[38rem] w-full sm:h-[78vh]">
-          <Image
-            src="/images/4301-armstrong-pkwy-hf-1-155.jpg"
-            alt="Luxury Dallas residence by Alford Custom Builders"
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,17,24,0.14),rgba(11,17,24,0.56))]" />
-          <div className="absolute inset-x-0 bottom-0 top-0 flex items-end">
-            <div className="mx-auto w-full max-w-7xl px-5 pb-14 sm:px-6 sm:pb-18 lg:px-8 lg:pb-20">
-              <div className="max-w-4xl text-white animate-fade">
-                <p className="text-xs font-semibold tracking-[0.34em] uppercase text-white/76">
-                  Luxury Custom Homes In Dallas
+      <section
+        data-hero
+        id="top"
+        className="relative min-h-[calc(100vh-6rem)] overflow-hidden bg-[var(--color-charcoal)] text-white"
+      >
+        <div className="absolute inset-0">
+          <div data-hero-parallax className="absolute inset-0 scale-[1.06]">
+            <Image
+              src="/images/4301-armstrong-pkwy-hf-1-155.jpg"
+              alt="Luxury custom home exterior in Dallas built by Alford Custom Homes"
+              fill
+              priority
+              className="object-cover"
+              sizes="100vw"
+            />
+          </div>
+          <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(9,14,20,0.78)_0%,rgba(9,14,20,0.5)_42%,rgba(9,14,20,0.22)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(234,214,184,0.18),transparent_30%)]" />
+        </div>
+
+        <div className="relative z-10 mx-auto flex min-h-[calc(100vh-6rem)] w-full max-w-7xl items-end px-5 pb-14 pt-16 sm:px-6 lg:px-8 lg:pb-20">
+          <div
+            data-hero-copy
+            className="grid w-full gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-end"
+          >
+            <div className="max-w-4xl">
+              <p className="text-xs font-semibold tracking-[0.34em] uppercase text-[var(--color-sand)]">
+                Dallas Luxury Home Builder
+              </p>
+              <h1
+                data-split-heading
+                data-hero-heading
+                className="text-balance mt-6 font-serif text-5xl leading-[0.94] sm:text-6xl lg:text-[5.7rem]"
+              >
+                Custom homes and high-end remodels shaped by family legacy, modern clarity, and personal builder involvement.
+              </h1>
+              <p className="mt-6 max-w-2xl text-base leading-8 text-white/76 sm:text-lg">
+                Ben Alford leads every project with the standards he grew up
+                around and the responsiveness today&apos;s clients expect, serving
+                Preston Hollow, University Park, Highland Park, and the Park Cities.
+              </p>
+
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                <Button href="/contact">Schedule a Consultation</Button>
+                <Button
+                  href="/portfolio"
+                  variant="ghost"
+                  className="border-white/20 bg-white/8 !text-white hover:border-[var(--color-sand)] hover:bg-white/14 hover:!text-white"
+                >
+                  View Our Work
+                </Button>
+              </div>
+
+              <div className="mt-10 flex flex-wrap gap-3">
+                {homepageTrustCues.map((cue) => (
+                  <span
+                    key={cue}
+                    className="rounded-full border border-white/14 bg-white/8 px-4 py-2 text-[11px] font-semibold tracking-[0.2em] uppercase text-white/74"
+                  >
+                    {cue}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="lg:justify-self-end">
+              <div className="rounded-[2rem] border border-white/12 bg-[rgba(14,22,31,0.52)] p-6 shadow-[0_34px_80px_rgba(0,0,0,0.24)] backdrop-blur-md">
+                <p className="text-xs font-semibold tracking-[0.28em] uppercase text-[var(--color-sand)]">
+                  Builder-Led Experience
                 </p>
-                <h1 className="mt-6 font-serif text-5xl leading-[0.98] sm:text-6xl lg:text-8xl">
-                  Luxury custom homes and high-end renovations for Dallas clients who expect clarity, craftsmanship, and a builder personally invested in every detail.
-                </h1>
-                <p className="mt-6 max-w-2xl text-base leading-8 text-white/78 sm:text-lg">
-                  Serving Preston Hollow, University Park, Highland Park, and the
-                  Park Cities with direct owner involvement, transparent planning,
-                  and a more modern luxury building experience.
+                <p className="mt-4 font-serif text-3xl leading-tight">
+                  A premium home should feel as well-managed as it looks.
                 </p>
-                <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                  <Button href="/contact" variant="secondary">
-                    Start a Private Consultation
-                  </Button>
-                  <Button href="/portfolio" variant="ghost">
-                    View Recent Work
-                  </Button>
+                <div className="mt-6 grid gap-4">
+                  {founderHighlights.map((item) => (
+                    <div
+                      key={item}
+                      className="rounded-[1.25rem] border border-white/10 bg-white/6 px-4 py-4 text-sm leading-7 text-white/72"
+                    >
+                      {item}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -89,208 +146,289 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-shell">
-        <div className="grid gap-10 lg:grid-cols-[0.94fr_1.06fr] lg:items-center">
-          <div className="image-sheen relative overflow-hidden rounded-[2rem] bg-white shadow-[0_30px_90px_rgba(15,24,34,0.08)]">
-            <div className="relative aspect-[4/5]">
-              <Image
-                src="/images/headshot.png"
-                alt="Ben Alford"
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 38vw, 100vw"
-              />
-            </div>
-          </div>
-
-          <div className="max-w-2xl">
-            <p className="text-xs font-semibold tracking-[0.32em] uppercase text-[var(--color-wood)]">
-              Meet Ben Alford
-            </p>
-            <h2 className="mt-4 font-serif text-4xl leading-tight text-[var(--color-charcoal)] sm:text-5xl lg:text-6xl">
-              A new company shaped by familiar standards and a more current way of building.
-            </h2>
-            <p className="mt-6 text-base leading-8 text-[var(--color-muted)] sm:text-lg">
-              Greg Alford built an extraordinary reputation in Dallas through
-              craftsmanship, honesty, and relationships. Alford Custom Builders is
-              Ben Alford&apos;s independent company, built for clients who want those
-              same standards with a more collaborative, technology-forward, and
-              highly personal experience.
-            </p>
-            <p className="mt-5 text-base leading-8 text-[var(--color-muted)] sm:text-lg">
-              Today&apos;s homeowners expect faster answers, cleaner communication,
-              tighter budget visibility, and a builder who stays close to the
-              details. That is where Ben has chosen to focus.
-            </p>
-            <div className="mt-8 space-y-4">
-              {founderHighlights.map((item) => (
-                <div
-                  key={item}
-                  className="rounded-[1.35rem] border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-4 text-sm leading-7 text-[var(--color-muted)]"
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
-            <div className="mt-8">
-              <Button href="/about">Meet Ben</Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-shell">
-        <div className="grid gap-6 md:grid-cols-3">
+      <section className="section-shell pt-10">
+        <div
+          data-reveal
+          className="grid gap-4 rounded-[2rem] border border-[var(--color-border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(245,239,230,0.95))] p-4 shadow-[0_22px_70px_rgba(15,24,34,0.06)] md:grid-cols-3 md:p-6"
+        >
           {stats.map((stat) => (
             <div
-              key={stat.value}
-              className="rounded-[1.75rem] border border-[var(--color-border)] bg-white px-6 py-7 shadow-[0_18px_60px_rgba(15,24,34,0.05)]"
+              key={stat.label}
+              data-lux-card
+              className="rounded-[1.45rem] bg-white/86 px-5 py-5 shadow-[0_10px_30px_rgba(15,24,34,0.04)]"
             >
-              <p className="font-serif text-3xl text-[var(--color-navy)]">{stat.value}</p>
+              <p className="font-serif text-4xl text-[var(--color-charcoal)]">{stat.value}</p>
               <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">{stat.label}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="section-shell">
-        <div className="max-w-3xl">
-          <p className="text-xs font-semibold tracking-[0.32em] uppercase text-[var(--color-wood)]">
-            Services
-          </p>
-          <h2 className="mt-4 font-serif text-4xl leading-tight text-[var(--color-charcoal)] sm:text-5xl lg:text-6xl">
-            Highly personal. Deeply detailed. Built with the standards of a name Dallas already knows.
-          </h2>
-          <p className="mt-6 text-base leading-8 text-[var(--color-muted)] sm:text-lg">
-            The work spans new homes, transformative renovations, additions, and
-            early advisory support, with each project shaped around design,
-            feasibility, timing, and clear client communication.
-          </p>
-        </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {services.map((service) => (
-            <article
-              key={service.title}
-              className="rounded-[1.75rem] border border-[var(--color-border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(246,240,231,0.9))] p-7 shadow-[0_18px_60px_rgba(20,26,35,0.05)]"
-            >
-              <p className="font-serif text-2xl text-[var(--color-charcoal)]">{service.title}</p>
-              <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">{service.description}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="locations" className="section-shell">
-        <div className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
-          <div className="image-sheen relative overflow-hidden rounded-[2rem] bg-[var(--color-charcoal)] shadow-[0_30px_90px_rgba(10,14,20,0.16)]">
-            <div className="relative aspect-[16/10]">
-              <Image
-                src="/images/3534-greenbrier-dr-52.jpg"
-                alt="Luxury Dallas home exterior and pool"
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 56vw, 100vw"
-              />
+      <section className="section-shell" id="story">
+        <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
+          <div data-reveal className="relative overflow-hidden rounded-[2rem] bg-[#efe3d2] p-6">
+            <div className="absolute left-6 top-6 h-24 w-24 rounded-full border border-[rgba(15,34,54,0.14)]" />
+            <div className="absolute right-6 top-16 h-px w-28 bg-[rgba(15,34,54,0.14)]" />
+            <div className="absolute bottom-8 left-8 h-20 w-20 border border-[rgba(15,34,54,0.14)]" />
+            <div className="image-sheen relative overflow-hidden rounded-[1.6rem]">
+              <div className="relative aspect-[4/5]">
+                <Image
+                  src="/images/headshot.png"
+                  alt="Ben Alford, President of Alford Custom Homes"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 36vw, 100vw"
+                />
+              </div>
             </div>
           </div>
 
-          <div className="max-w-2xl">
+          <div data-reveal className="max-w-3xl">
             <p className="text-xs font-semibold tracking-[0.32em] uppercase text-[var(--color-wood)]">
-              Where We Build
+              The Next Chapter
             </p>
-            <h2 className="mt-4 font-serif text-4xl leading-tight text-[var(--color-charcoal)] sm:text-5xl">
-              A Dallas-focused building company with deep familiarity in the neighborhoods that expect the most.
+            <h2
+              data-split-heading
+              className="text-balance mt-4 font-serif text-4xl leading-tight text-[var(--color-charcoal)] sm:text-5xl lg:text-6xl"
+            >
+              Ben Alford is carrying forward a respected Dallas building legacy with a more current, responsive way of working.
             </h2>
             <p className="mt-6 text-base leading-8 text-[var(--color-muted)] sm:text-lg">
-              From Preston Hollow to University Park, Highland Park, and the
-              broader Park Cities, our work is built for clients who care about
-              design quality, owner access, thoughtful additions, and homes that
-              hold their value visually and structurally over time.
+              Alford Custom Homes stands on the foundation Greg Alford helped
+              establish, but it is very much Ben&apos;s own company: detail-driven,
+              technology-enabled, and personally involved in the decisions that
+              shape how a home is built and how the process feels.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              {marketFocus.map((market) => (
-                <span
-                  key={market}
-                  className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3 text-xs font-semibold tracking-[0.18em] uppercase text-[var(--color-charcoal)]"
-                >
-                  {market}
-                </span>
-              ))}
-            </div>
+            <p className="mt-5 text-base leading-8 text-[var(--color-muted)] sm:text-lg">
+              Clients come for the craftsmanship. They stay confident because the
+              communication is faster, the planning is clearer, and the builder is
+              close enough to the work to answer real questions in real time.
+            </p>
             <div className="mt-8">
-              <Button href="/contact" variant="ghost">
-                Discuss Your Project
+              <Button href="/about" variant="secondary">
+                Meet Ben Alford
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section-shell">
-        <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
-          <div className="max-w-2xl">
-            <p className="text-xs font-semibold tracking-[0.32em] uppercase text-[var(--color-wood)]">
-              How We Build
-            </p>
-            <h2 className="mt-4 font-serif text-4xl leading-tight text-[var(--color-charcoal)] sm:text-5xl">
-              The modern client experience becomes real in the way the process is run.
-            </h2>
-            <p className="mt-6 text-base leading-8 text-[var(--color-muted)] sm:text-lg">
-              The goal is simple: better planning, cleaner decisions, and more
-              visibility throughout the life of the project. That means weekly
-              updates, tighter budget conversations, and collaboration that keeps
-              architects, designers, and clients moving together.
+      <section
+        className="section-shell scroll-mt-32"
+        id="process"
+      >
+        <div data-reveal className="max-w-3xl">
+          <p className="text-xs font-semibold tracking-[0.32em] uppercase text-[var(--color-wood)]">
+            Guided Process
+          </p>
+          <h2
+            data-split-heading
+            className="text-balance mt-4 font-serif text-4xl leading-tight text-[var(--color-charcoal)] sm:text-5xl lg:text-6xl"
+          >
+            A luxury project should unfold with the same confidence and rhythm as the finished home.
+          </h2>
+          <p className="mt-6 text-base leading-8 text-[var(--color-muted)] sm:text-lg">
+            Scroll through the journey and you will see how each stage builds on the
+            one before it, with builder-led decisions, cleaner communication, and
+            a steadier path from first conversation to move-in.
+          </p>
+        </div>
+        <GuidedProcessExperience steps={processJourney} />
+      </section>
+
+      <section className="section-shell py-2">
+        <div
+          data-reveal
+          className="rounded-[2.1rem] border border-[rgba(15,34,54,0.08)] bg-[linear-gradient(120deg,#182330_0%,#101820_42%,#1b2937_100%)] px-7 py-8 text-white shadow-[0_28px_90px_rgba(8,13,20,0.18)]"
+        >
+          <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+            <div>
+              <p className="text-xs font-semibold tracking-[0.32em] uppercase text-[var(--color-sand)]">
+                Signature Standards
+              </p>
+              <h2
+                data-split-heading
+                className="text-balance mt-4 font-serif text-4xl leading-tight sm:text-5xl"
+              >
+                Personal oversight, refined material judgment, and construction decisions that feel calm instead of chaotic.
+              </h2>
+            </div>
+            <p className="max-w-2xl text-base leading-8 text-white/72 sm:text-lg">
+              Great homes do not just happen on the drawing board. They are protected
+              by disciplined execution, thoughtful sequencing, and a builder who
+              stays close enough to the work to keep the experience sharp.
             </p>
           </div>
-          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-            {processSteps.map((item) => (
-              <div
-                key={item.step}
-                className="rounded-[1.75rem] border border-[var(--color-border)] bg-white p-6 shadow-[0_18px_60px_rgba(20,26,35,0.05)]"
-              >
-                <p className="text-xs font-semibold tracking-[0.28em] uppercase text-[var(--color-wood)]">
-                  {item.step}
-                </p>
-                <h3 className="mt-3 font-serif text-2xl text-[var(--color-charcoal)]">
-                  {item.title}
+        </div>
+      </section>
+
+      <section className="section-shell scroll-mt-32" id="portfolio">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div data-reveal className="max-w-3xl">
+            <p className="text-xs font-semibold tracking-[0.32em] uppercase text-[var(--color-wood)]">
+              Recent Work
+            </p>
+            <h2
+              data-split-heading
+              className="text-balance mt-4 font-serif text-4xl leading-tight text-[var(--color-charcoal)] sm:text-5xl lg:text-6xl"
+            >
+              Editorial project stories built from real homes, real materials, and real neighborhood context.
+            </h2>
+          </div>
+          <Button href="/portfolio" variant="secondary">
+            View Our Work
+          </Button>
+        </div>
+
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          {featuredProjects.map((project, index) => (
+            <article
+              key={project.slug}
+              data-reveal
+              className={`group overflow-hidden rounded-[2rem] border border-[var(--color-border)] bg-white shadow-[0_22px_70px_rgba(15,24,34,0.06)] ${
+                index === 0 ? "lg:col-span-2" : ""
+              }`}
+            >
+              <Link href={`/portfolio/${project.slug}`} className="block">
+                <div className="image-sheen relative overflow-hidden">
+                  <div className={`relative ${index === 0 ? "aspect-[16/10]" : "aspect-[4/5]"}`}>
+                    <Image
+                      src={getProjectCardImage(project.slug, project.coverImage)}
+                      alt={`${project.title} luxury residential project by Alford Custom Homes`}
+                      fill
+                      className="object-cover transition duration-700 group-hover:scale-[1.03]"
+                      sizes={index === 0 ? "(min-width: 1024px) 52vw, 100vw" : "(min-width: 1024px) 24vw, 100vw"}
+                      quality={74}
+                    />
+                  </div>
+                </div>
+                <div className="p-6 sm:p-7">
+                  <p className="text-xs font-semibold tracking-[0.28em] uppercase text-[var(--color-wood)]">
+                    {project.slug === "armstrong-pkwy" ? "Park Cities Custom Home" : "Dallas Luxury Residence"}
+                  </p>
+                  <h3 className="mt-3 font-serif text-3xl text-[var(--color-charcoal)]">
+                    {project.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-[var(--color-muted)] sm:text-base">
+                    {project.description}
+                  </p>
+                  <p className="mt-5 text-xs font-semibold tracking-[0.22em] uppercase text-[var(--color-charcoal)]">
+                    Explore Project
+                  </p>
+                </div>
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-shell">
+        <div data-reveal className="max-w-3xl">
+          <p className="text-xs font-semibold tracking-[0.32em] uppercase text-[var(--color-wood)]">
+            Material Language
+          </p>
+          <h2
+            data-split-heading
+            className="text-balance mt-4 font-serif text-4xl leading-tight text-[var(--color-charcoal)] sm:text-5xl"
+          >
+            Premium homes are remembered through texture, restraint, and the confidence of the details.
+          </h2>
+        </div>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {materialsShowcase.map((material) => (
+            <article
+              key={material.title}
+              data-float-card
+              className="overflow-hidden rounded-[1.8rem] border border-[var(--color-border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.97),rgba(245,239,230,0.94))] shadow-[0_20px_65px_rgba(15,24,34,0.06)]"
+            >
+              <div className="image-sheen relative overflow-hidden">
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={material.image}
+                    alt={`${material.title} details from an Alford Custom Homes interior`}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1280px) 28vw, (min-width: 768px) 46vw, 100vw"
+                  />
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="font-serif text-3xl text-[var(--color-charcoal)]">
+                  {material.title}
                 </h3>
-                <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
-                  {item.description}
+                <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
+                  {material.description}
                 </p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-shell">
+        <div className="rounded-[2.25rem] bg-[var(--color-charcoal)] px-6 py-12 text-white shadow-[0_30px_90px_rgba(10,14,20,0.16)] sm:px-8 lg:px-12">
+          <div data-reveal className="max-w-3xl">
+            <p className="text-xs font-semibold tracking-[0.32em] uppercase text-[var(--color-sand)]">
+              Why Alford
+            </p>
+            <h2
+              data-split-heading
+              className="text-balance mt-4 font-serif text-4xl leading-tight sm:text-5xl lg:text-6xl"
+            >
+              Clear communication, trusted craftsmanship, and a process built for real family life.
+            </h2>
+          </div>
+          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {whyAlfordPoints.map((point) => (
+              <div
+                key={point}
+                data-reveal
+                className="rounded-[1.5rem] border border-white/10 bg-white/6 px-5 py-5 text-sm leading-7 text-white/78"
+              >
+                {point}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="testimonials" className="section-shell">
+      <section id="testimonials" className="section-shell scroll-mt-32">
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-          <div className="max-w-2xl">
+          <div data-reveal className="max-w-2xl">
             <p className="text-xs font-semibold tracking-[0.32em] uppercase text-[var(--color-wood)]">
               Client Perspective
             </p>
-            <h2 className="mt-4 font-serif text-4xl leading-tight text-[var(--color-charcoal)] sm:text-5xl">
+            <h2
+              data-split-heading
+              className="text-balance mt-4 font-serif text-4xl leading-tight text-[var(--color-charcoal)] sm:text-5xl lg:text-6xl"
+            >
               Premium homes are remembered as much for the experience as for the finish.
             </h2>
-            <blockquote className="mt-8 font-serif text-3xl leading-tight text-[var(--color-navy)] sm:text-4xl">
-              “{featuredTestimonial.quote}”
-            </blockquote>
-            <p className="mt-6 text-sm font-semibold tracking-[0.16em] uppercase text-[var(--color-charcoal)]">
-              {featuredTestimonial.name}
-            </p>
-            <p className="mt-2 text-sm text-[var(--color-muted)]">
-              {featuredTestimonial.context}
-            </p>
-            <div className="mt-8">
-              <Button href="/contact">Start a Private Consultation</Button>
-            </div>
+            <Link
+              href="/contact#contact-form"
+              className="group mt-8 block rounded-[2rem] border border-[var(--color-border)] bg-white p-7 shadow-[0_20px_70px_rgba(15,24,34,0.06)] transition hover:-translate-y-1 hover:border-[var(--color-border-strong)]"
+            >
+              <blockquote className="font-serif text-3xl leading-tight text-[var(--color-navy)] sm:text-4xl">
+                “{featuredTestimonial.quote}”
+              </blockquote>
+              <p className="mt-6 text-sm font-semibold tracking-[0.18em] uppercase text-[var(--color-charcoal)]">
+                {featuredTestimonial.name}
+              </p>
+              <p className="mt-2 text-sm text-[var(--color-muted)]">
+                {featuredTestimonial.context}
+              </p>
+              <p className="mt-5 text-xs font-semibold tracking-[0.22em] uppercase text-[var(--color-charcoal)] transition group-hover:text-[var(--color-wood)]">
+                Start Your Conversation
+              </p>
+            </Link>
           </div>
 
-          <div className="image-sheen relative overflow-hidden rounded-[2rem] bg-[var(--color-charcoal)] shadow-[0_30px_90px_rgba(10,14,20,0.16)]">
+          <div data-reveal className="image-sheen relative overflow-hidden rounded-[2rem] bg-[var(--color-charcoal)] shadow-[0_30px_90px_rgba(10,14,20,0.16)]">
             <div className="relative aspect-[5/4]">
               <Image
                 src="/images/4301-armstrong-pkwy-hf-1-59.jpg"
-                alt="Interior view of a luxury home by Alford Custom Builders"
+                alt="Kitchen interior from an Alford Custom Homes project in Dallas"
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 50vw, 100vw"
@@ -300,10 +438,12 @@ export default function HomePage() {
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {moreTestimonials.map((item) => (
-            <article
+          {additionalTestimonials.slice(0, 3).map((item) => (
+            <Link
               key={item.quote}
-              className="rounded-[1.75rem] border border-[var(--color-border)] bg-white p-7 shadow-[0_20px_70px_rgba(15,24,34,0.06)]"
+              href="/contact#contact-form"
+              data-reveal
+              className="block rounded-[1.75rem] border border-[var(--color-border)] bg-white p-7 shadow-[0_20px_70px_rgba(15,24,34,0.06)] transition hover:-translate-y-1 hover:border-[var(--color-border-strong)]"
             >
               <p className="font-serif text-2xl leading-9 text-[var(--color-charcoal)]">
                 “{item.quote}”
@@ -312,66 +452,103 @@ export default function HomePage() {
                 {item.name}
               </p>
               <p className="mt-2 text-sm text-[var(--color-muted)]">{item.context}</p>
+              <p className="mt-5 text-xs font-semibold tracking-[0.22em] uppercase text-[var(--color-wood)]">
+                Contact Alford
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-shell scroll-mt-32" id="service-areas">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div data-reveal className="max-w-3xl">
+            <p className="text-xs font-semibold tracking-[0.32em] uppercase text-[var(--color-wood)]">
+              Service Areas
+            </p>
+            <h2
+              data-split-heading
+              className="text-balance mt-4 font-serif text-4xl leading-tight text-[var(--color-charcoal)] sm:text-5xl"
+            >
+              Crawlable service-area content for the Dallas neighborhoods where reputation matters most.
+            </h2>
+          </div>
+          <Button href="/service-areas" variant="secondary">
+            Explore Service Areas
+          </Button>
+        </div>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {serviceAreaDetails.map((area) => (
+            <article
+              key={area.slug}
+              data-reveal
+              className="rounded-[1.75rem] border border-[var(--color-border)] bg-white p-7 shadow-[0_18px_60px_rgba(20,26,35,0.05)]"
+            >
+              <h3 className="font-serif text-3xl text-[var(--color-charcoal)]">
+                {area.title}
+              </h3>
+              <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
+                {area.description}
+              </p>
+              <Link
+                href={`/service-areas#${area.slug}`}
+                className="mt-5 inline-flex text-xs font-semibold tracking-[0.22em] uppercase text-[var(--color-charcoal)] transition hover:text-[var(--color-wood)]"
+              >
+                View Area Details
+              </Link>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="section-shell">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div className="max-w-3xl">
+      <section className="section-shell scroll-mt-32" id="faq">
+        <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr]">
+          <div data-reveal className="max-w-3xl">
             <p className="text-xs font-semibold tracking-[0.32em] uppercase text-[var(--color-wood)]">
-              Gallery Preview
+              FAQ
             </p>
-            <h2 className="mt-4 font-serif text-4xl leading-tight text-[var(--color-charcoal)] sm:text-5xl">
-              Recent work across Dallas homes, additions, and estate-scale renovations.
-            </h2>
-            <p className="mt-6 text-base leading-8 text-[var(--color-muted)] sm:text-lg">
-              A more specific look at the kind of work, settings, and finish level
-              Alford Custom Builders is designed to deliver.
-            </p>
-          </div>
-          <Button href="/portfolio" variant="ghost">
-            View Recent Work
-          </Button>
-        </div>
-
-        <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {homepageGallery.map((image, index) => (
-            <div
-              key={image}
-              className={`image-sheen relative overflow-hidden rounded-[1.75rem] shadow-[0_18px_60px_rgba(15,24,34,0.08)] ${
-                index === 0 || index === 5 ? "xl:row-span-2" : ""
-              }`}
+            <h2
+              data-split-heading
+              className="text-balance mt-4 font-serif text-4xl leading-tight text-[var(--color-charcoal)] sm:text-5xl"
             >
-              <div className={`relative ${index === 0 || index === 5 ? "aspect-[4/5]" : "aspect-[4/3]"}`}>
-                <Image
-                  src={image}
-                  alt={galleryLabels[index] ?? "Alford Custom Builders gallery preview"}
-                  fill
-                  className="object-cover transition duration-700 hover:scale-[1.03]"
-                  sizes="(min-width: 1280px) 30vw, (min-width: 768px) 50vw, 100vw"
-                />
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-[linear-gradient(180deg,transparent,rgba(10,16,24,0.72))] px-5 pb-5 pt-14 text-white">
-                <p className="text-xs font-semibold tracking-[0.22em] uppercase text-white/72">
-                  {galleryLabels[index] ?? "Recent Work"}
+              Answers for clients planning a custom home or high-end remodel in Dallas.
+            </h2>
+          </div>
+          <div className="space-y-4">
+            {faqItems.map((item) => (
+              <details
+                key={item.question}
+                data-reveal
+                className="group rounded-[1.5rem] border border-[var(--color-border)] bg-white px-6 py-5 shadow-[0_12px_40px_rgba(15,24,34,0.04)]"
+              >
+                <summary className="cursor-pointer list-none font-serif text-2xl text-[var(--color-charcoal)]">
+                  {item.question}
+                </summary>
+                <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
+                  {item.answer}
                 </p>
-              </div>
-            </div>
-          ))}
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="section-shell pt-20">
-        <CTA
-          title="Begin with a private conversation about your project."
-          description="Whether you are planning a custom home, an estate renovation, or an addition in one of Dallas&apos; premier neighborhoods, we would be glad to talk through the vision, timing, and next step."
-          primaryHref="/contact"
-          primaryLabel="Discuss Your Project"
-          secondaryHref="/about"
-          secondaryLabel="Meet Ben"
-        />
+      <section className="section-shell pb-2 scroll-mt-32" id="contact-form">
+        <div className="grid gap-6 rounded-[2.25rem] bg-[linear-gradient(145deg,#172230_0%,#0f1721_100%)] p-4 sm:p-6 lg:grid-cols-[0.86fr_1.14fr] lg:p-8">
+          <div className="image-sheen relative overflow-hidden rounded-[1.8rem]">
+            <div className="relative min-h-[26rem]">
+              <Image
+                src="/images/4301-armstrong-pkwy-hf-1-141.jpg"
+                alt="Architectural interior from an Alford Custom Homes custom residence"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 36vw, 100vw"
+              />
+            </div>
+          </div>
+          <LeadForm />
+        </div>
       </section>
     </>
   );

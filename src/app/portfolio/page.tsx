@@ -8,11 +8,11 @@ import { siteConfig } from "@/lib/site-data";
 export const metadata: Metadata = {
   title: "Portfolio",
   description:
-    "Explore Dallas luxury residential work from Alford Custom Builders through immersive project galleries and room-by-room photography.",
+    "Explore Dallas luxury residential work from Alford Custom Homes through immersive project galleries and room-by-room photography.",
   openGraph: {
     title: `Portfolio | ${siteConfig.name}`,
     description:
-      "Explore luxury residential work from Alford Custom Builders through immersive project galleries and room-by-room photography.",
+      "Explore luxury residential work from Alford Custom Homes through immersive project galleries and room-by-room photography.",
     images: [
       {
         url: portfolioProjects[0]?.coverImage ?? "/opengraph-image",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `Portfolio | ${siteConfig.name}`,
     description:
-      "Explore luxury residential work from Alford Custom Builders through immersive project galleries and room-by-room photography.",
+      "Explore luxury residential work from Alford Custom Homes through immersive project galleries and room-by-room photography.",
     images: [portfolioProjects[0]?.coverImage ?? "/opengraph-image"],
   },
 };
@@ -45,7 +45,7 @@ export default function PortfolioPage() {
               </h1>
               <p className="mt-6 max-w-3xl text-base leading-8 text-[#efe8dc]/74 sm:text-lg">
                 Explore a premium gallery of custom homes and high-end residential work
-                that reflects the classic, transitional standard Alford Custom Builders is
+                that reflects the classic, transitional standard Alford Custom Homes is
                 bringing to the Dallas market.
               </p>
             </div>

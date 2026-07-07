@@ -33,6 +33,15 @@ export type PortfolioProject = {
   rooms: string[];
 };
 
+const projectCardImages: Record<string, string> = {
+  "bryn-mawr-dr": "/images/thumbs/bryn-mawr-dr-card.jpg",
+  "greenbrier-dr": "/images/thumbs/greenbrier-dr-card.jpg",
+  "armstrong-pkwy": "/images/thumbs/armstrong-pkwy-card.jpg",
+  "deloache-ave": "/images/thumbs/deloache-ave-card.jpg",
+  "stefani-dr": "/images/thumbs/stefani-dr-card.jpg",
+  "other-projects": "/images/thumbs/other-projects-card.jpg",
+};
+
 function chooseCoverImage(images: PortfolioImage[], fallback: string) {
   return (
     images.find((image) => image.room === "Exterior")?.src ??
@@ -61,7 +70,7 @@ export const portfolioProjects: PortfolioProject[] = generatedPortfolio
       slug: project.slug,
       description:
         projectDescriptions[project.slug] ??
-        "A luxury residential project by Alford Custom Builders.",
+        "A luxury residential project by Alford Custom Homes.",
       coverImage,
       images,
       photoCount: images.length,
@@ -75,4 +84,8 @@ export function getPortfolioProject(slug: string) {
 
 export function getProjectHref(slug: string) {
   return `/portfolio/${slug}`;
+}
+
+export function getProjectCardImage(slug: string, fallback: string) {
+  return projectCardImages[slug] ?? fallback;
 }
