@@ -144,7 +144,7 @@ export function ProjectSlideshow({ project }: ProjectSlideshowProps) {
               onSelect={handleRoomSelect}
             />
 
-            <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_20rem]">
+            <div className="grid gap-6 xl:items-start xl:grid-cols-[minmax(0,1fr)_20rem]">
               <div className="rounded-[2rem] border border-white/10 bg-[#191714] p-3 shadow-[0_28px_90px_rgba(0,0,0,0.2)] sm:p-4">
                 <div
                   className="group relative overflow-hidden rounded-[1.6rem]"
