@@ -70,7 +70,7 @@ export const portfolioProjects: PortfolioProject[] = generatedPortfolio
       slug: project.slug,
       description:
         projectDescriptions[project.slug] ??
-        "A luxury residential project by Alford Custom Homes.",
+        "A luxury residential project by Alford Custom Builders.",
       coverImage,
       images,
       photoCount: images.length,

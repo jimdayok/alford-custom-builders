@@ -1,8 +1,8 @@
 export const siteConfig = {
-  name: "Alford Custom Homes",
+  name: "Alford Custom Builders",
   description:
     "Dallas luxury custom homes and high-end remodels led by Ben Alford, a second-generation builder known for clarity, craftsmanship, legacy standards, and personal attention.",
-  url: "https://www.alfordcustomhomes.com",
+  url: "https://alfordcustombuilders.com",
   ogImage: "/logos/aclogoblue.png",
   phone: "(469) 863-1381",
   email: "ben@alfordcustombuilders.com",
@@ -257,7 +257,7 @@ export const founderStory = {
   eyebrow: "Founder Story",
   title: "A more personal kind of luxury homebuilding.",
   description:
-    "Alford Custom Homes is an independent next-generation building company led by Ben Alford, shaped by the standards he grew up around and built for the way today&apos;s clients want to build.",
+    "Alford Custom Builders is an independent next-generation building company led by Ben Alford, shaped by the standards he grew up around and built for the way today&apos;s clients want to build.",
   quote:
     "My goal is to keep the process highly personal, deeply detailed, and easier to navigate than clients expect from a luxury build.",
 };
@@ -383,7 +383,7 @@ export const faqItems = [
   {
     question: "Do you help with design selections?",
     answer:
-      "Yes. Alford Custom Homes works closely with clients, architects, and interior designers to keep selections aligned with the vision, the schedule, and the level of finish expected.",
+      "Yes. Alford Custom Builders works closely with clients, architects, and interior designers to keep selections aligned with the vision, the schedule, and the level of finish expected.",
   },
   {
     question: "Do you build on client-owned lots?",

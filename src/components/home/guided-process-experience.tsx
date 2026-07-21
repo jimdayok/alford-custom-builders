@@ -87,7 +87,7 @@ export function GuidedProcessExperience({
                     <Image
                       key={activeStep.image}
                       src={activeStep.image}
-                      alt={`${activeStep.title} stage of an Alford Custom Homes project`}
+                      alt={`${activeStep.title} stage of an Alford Custom Builders project`}
                       fill
                       className="object-cover"
                       sizes="(min-width: 1024px) 44vw, 100vw"
@@ -171,7 +171,7 @@ export function GuidedProcessExperience({
               <div className="relative aspect-[16/10]">
                 <Image
                   src={step.image}
-                  alt={`${step.title} stage of an Alford Custom Homes project`}
+                  alt={`${step.title} stage of an Alford Custom Builders project`}
                   fill
                   className="object-cover"
                   sizes="100vw"

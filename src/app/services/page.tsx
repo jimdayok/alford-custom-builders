@@ -9,7 +9,7 @@ import { clientFit, processSteps, services } from "@/lib/site-data";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Explore custom homes, high-end remodels, and builder-led planning services from Alford Custom Homes.",
+    "Explore custom homes, high-end remodels, and builder-led planning services from Alford Custom Builders.",
 };
 
 export default function ServicesPage() {
@@ -18,7 +18,7 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Services"
         title="Luxury custom homes and high-end remodels led with direct communication, disciplined planning, and timeless standards."
-        description="Alford Custom Homes serves Dallas clients who want premium residential work handled with personal builder involvement, practical judgment, and a process that stays clear from beginning to end."
+        description="Alford Custom Builders serves Dallas clients who want premium residential work handled with personal builder involvement, practical judgment, and a process that stays clear from beginning to end."
       />
 
       <section className="section-shell">

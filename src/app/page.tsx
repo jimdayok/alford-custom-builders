@@ -11,7 +11,6 @@ import { getProjectCardImage, portfolioProjects } from "@/data/portfolio";
 import {
   faqItems,
   founderHighlights,
-  homepageTrustCues,
   materialsShowcase,
   processJourney,
   serviceAreaDetails,
@@ -27,17 +26,18 @@ import {
   buildOrganizationSchema,
   buildWebsiteSchema,
 } from "@/lib/schema";
+import { getHomepageContent } from "@/lib/cms/published-content";
 
 const featuredProjects = portfolioProjects.slice(0, 3);
 const [featuredTestimonial, ...additionalTestimonials] = testimonials;
 
-export const metadata: Metadata = {
-  title: "Dallas Luxury Custom Homes",
-  description:
-    "Alford Custom Homes builds Dallas custom homes and high-end remodels with legacy craftsmanship, modern communication, and direct involvement from Ben Alford.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { data } = await getHomepageContent();
+  return { title: data.seo.title || "Dallas Luxury Custom Homes", description: data.seo.description || siteConfig.description };
+}
 
-export default function HomePage() {
+export default async function HomePage() {
+  const { data: homepageHero, source } = await getHomepageContent();
   const schemas = [
     buildOrganizationSchema(),
     buildWebsiteSchema(),
@@ -52,6 +52,7 @@ export default function HomePage() {
     <>
       <HomepageMotion />
       <ChapterRail />
+      {source === "preview" ? <div role="status" className="fixed right-4 bottom-4 z-[100] rounded-full bg-[#d8b486] px-4 py-2 text-xs font-semibold text-[#101820] shadow-xl">Draft preview · <a className="underline" href="/api/cms/exit-preview">Exit preview</a></div> : null}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
@@ -65,8 +66,8 @@ export default function HomePage() {
         <div className="absolute inset-0">
           <div data-hero-parallax className="absolute inset-0 scale-[1.06]">
             <Image
-              src="/images/4301-armstrong-pkwy-hf-1-155.jpg"
-              alt="Luxury custom home exterior in Dallas built by Alford Custom Homes"
+              src={homepageHero.image.path}
+              alt={homepageHero.image.decorative ? "" : homepageHero.image.altText}
               fill
               priority
               className="object-cover"
@@ -84,34 +85,32 @@ export default function HomePage() {
           >
             <div className="max-w-4xl">
               <p className="text-xs font-semibold tracking-[0.34em] uppercase text-[var(--color-sand)]">
-                Dallas Luxury Home Builder
+                {homepageHero.eyebrow}
               </p>
               <h1
                 data-split-heading
                 data-hero-heading
                 className="text-balance mt-6 font-serif text-5xl leading-[0.94] sm:text-6xl lg:text-[5.7rem]"
               >
-                Custom homes and high-end remodels shaped by family legacy, modern clarity, and personal builder involvement.
+                {homepageHero.heading}
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-8 text-white/76 sm:text-lg">
-                Ben Alford leads every project with the standards he grew up
-                around and the responsiveness today&apos;s clients expect, serving
-                Preston Hollow, University Park, Highland Park, and the Park Cities.
+                {homepageHero.supportingCopy}
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <Button href="/contact">Schedule a Consultation</Button>
+                <Button href={homepageHero.primaryCta.href}>{homepageHero.primaryCta.label}</Button>
                 <Button
-                  href="/portfolio"
+                  href={homepageHero.secondaryCta.href}
                   variant="ghost"
                   className="border-white/20 bg-white/8 !text-white hover:border-[var(--color-sand)] hover:bg-white/14 hover:!text-white"
                 >
-                  View Our Work
+                  {homepageHero.secondaryCta.label}
                 </Button>
               </div>
 
               <div className="mt-10 flex flex-wrap gap-3">
-                {homepageTrustCues.map((cue) => (
+                {homepageHero.trustCues.map((cue) => (
                   <span
                     key={cue}
                     className="rounded-full border border-white/14 bg-white/8 px-4 py-2 text-[11px] font-semibold tracking-[0.2em] uppercase text-white/74"
@@ -174,7 +173,7 @@ export default function HomePage() {
               <div className="relative aspect-[4/5]">
                 <Image
                   src="/images/headshot.png"
-                  alt="Ben Alford, President of Alford Custom Homes"
+                  alt="Ben Alford, President of Alford Custom Builders"
                   fill
                   className="object-cover"
                   sizes="(min-width: 1024px) 36vw, 100vw"
@@ -194,7 +193,7 @@ export default function HomePage() {
               Ben Alford is carrying forward a respected Dallas building legacy with a more current, responsive way of working.
             </h2>
             <p className="mt-6 text-base leading-8 text-[var(--color-muted)] sm:text-lg">
-              Alford Custom Homes stands on the foundation Greg Alford helped
+              Alford Custom Builders stands on the foundation Greg Alford helped
               establish, but it is very much Ben&apos;s own company: detail-driven,
               technology-enabled, and personally involved in the decisions that
               shape how a home is built and how the process feels.
@@ -294,7 +293,7 @@ export default function HomePage() {
                   <div className={`relative ${index === 0 ? "aspect-[16/10]" : "aspect-[4/5]"}`}>
                     <Image
                       src={getProjectCardImage(project.slug, project.coverImage)}
-                      alt={`${project.title} luxury residential project by Alford Custom Homes`}
+                      alt={`${project.title} luxury residential project by Alford Custom Builders`}
                       fill
                       className="object-cover transition duration-700 group-hover:scale-[1.03]"
                       sizes={index === 0 ? "(min-width: 1024px) 52vw, 100vw" : "(min-width: 1024px) 24vw, 100vw"}
@@ -346,7 +345,7 @@ export default function HomePage() {
                 <div className="relative aspect-[4/3]">
                   <Image
                     src={material.image}
-                    alt={`${material.title} details from an Alford Custom Homes interior`}
+                    alt={`${material.title} details from an Alford Custom Builders interior`}
                     fill
                     className="object-cover"
                     sizes="(min-width: 1280px) 28vw, (min-width: 768px) 46vw, 100vw"
@@ -428,7 +427,7 @@ export default function HomePage() {
             <div className="relative aspect-[5/4]">
               <Image
                 src="/images/4301-armstrong-pkwy-hf-1-59.jpg"
-                alt="Kitchen interior from an Alford Custom Homes project in Dallas"
+                alt="Kitchen interior from an Alford Custom Builders project in Dallas"
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 50vw, 100vw"
@@ -540,7 +539,7 @@ export default function HomePage() {
             <div className="relative min-h-[26rem]">
               <Image
                 src="/images/4301-armstrong-pkwy-hf-1-141.jpg"
-                alt="Architectural interior from an Alford Custom Homes custom residence"
+                alt="Architectural interior from an Alford Custom Builders custom residence"
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 36vw, 100vw"

@@ -8,7 +8,7 @@ import { buildBreadcrumbSchema } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Service Areas",
   description:
-    "Explore the Dallas neighborhoods and communities served by Alford Custom Homes, including Preston Hollow, Highland Park, University Park, and the Park Cities.",
+    "Explore the Dallas neighborhoods and communities served by Alford Custom Builders, including Preston Hollow, Highland Park, University Park, and the Park Cities.",
 };
 
 export default function ServiceAreasPage() {
@@ -27,7 +27,7 @@ export default function ServiceAreasPage() {
       <PageHero
         eyebrow="Service Areas"
         title="Luxury custom homes and high-end remodels across Dallas neighborhoods where trust, design, and execution all matter."
-        description="Alford Custom Homes focuses on communities where architecture, property context, and long-term value deserve a builder who stays personally involved from planning through closeout."
+        description="Alford Custom Builders focuses on communities where architecture, property context, and long-term value deserve a builder who stays personally involved from planning through closeout."
       />
 
       <section className="section-shell">

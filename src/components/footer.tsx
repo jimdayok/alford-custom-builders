@@ -11,7 +11,7 @@ export function Footer() {
           <div className="grid gap-10 px-6 py-8 sm:px-8 lg:grid-cols-[1fr_auto] lg:items-end lg:px-12 lg:py-12">
             <div className="max-w-3xl">
               <p className="text-xs font-semibold tracking-[0.32em] uppercase text-[var(--color-sand)]">
-                Alford Custom Homes
+                Alford Custom Builders
               </p>
               <h2 className="mt-4 font-serif text-4xl leading-tight sm:text-5xl">
                 Start with a conversation that feels as considered as the home you want to build.
@@ -41,17 +41,17 @@ export function Footer() {
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr_0.9fr]">
           <div className="max-w-lg">
-            <Link href="/" aria-label="Alford Custom Homes home">
+            <Link href="/" aria-label="Alford Custom Builders home">
               <Image
                 src="/logos/aclogoblue.png"
-                alt="Alford Custom Homes"
+                alt="Alford Custom Builders"
                 width={220}
                 height={74}
                 className="h-14 w-auto rounded-[0.6rem] shadow-[0_14px_34px_rgba(15,24,34,0.08)]"
               />
             </Link>
             <p className="mt-6 text-base leading-8 text-[var(--color-muted)]">
-              Alford Custom Homes is an independent company led by Ben Alford,
+              Alford Custom Builders is an independent company led by Ben Alford,
               serving Dallas clients with a more personal, transparent, and
               design-conscious luxury building experience.
             </p>
@@ -103,7 +103,7 @@ export function Footer() {
 
       <div className="border-t border-[rgba(15,34,54,0.08)]">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-6 text-xs tracking-[0.16em] uppercase text-[rgba(22,32,43,0.54)] sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <p>© {new Date().getFullYear()} Alford Custom Homes</p>
+          <p>© {new Date().getFullYear()} Alford Custom Builders</p>
           <p>Luxury custom homes and high-end remodels in Dallas</p>
         </div>
       </div>

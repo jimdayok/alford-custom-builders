@@ -24,10 +24,10 @@ export function Header() {
       <header className="relative z-30 border-b border-[rgba(15,34,54,0.08)] bg-[rgba(255,252,247,0.94)]">
         <div className="mx-auto max-w-7xl px-5 pb-5 pt-6 sm:px-6 lg:px-8 lg:pb-7 lg:pt-8">
           <div className="flex justify-center">
-            <Link href="/" aria-label="Alford Custom Homes home">
+            <Link href="/" aria-label="Alford Custom Builders home">
               <Image
                 src="/logos/aclogoblue.png"
-                alt="Alford Custom Homes"
+                alt="Alford Custom Builders"
                 width={248}
                 height={84}
                 priority
@@ -76,10 +76,10 @@ export function Header() {
       >
         <div className="mx-auto mt-3 w-[min(96vw,84rem)] rounded-[1.35rem] border border-[rgba(255,255,255,0.35)] bg-[rgba(248,244,237,0.82)] px-4 py-3 shadow-[0_18px_60px_rgba(15,24,34,0.14)] backdrop-blur-2xl sm:px-5">
           <div className="flex items-center justify-between gap-4">
-            <Link href="/" aria-label="Alford Custom Homes home" className="shrink-0">
+            <Link href="/" aria-label="Alford Custom Builders home" className="shrink-0">
               <Image
                 src="/logos/aclogoblue.png"
-                alt="Alford Custom Homes"
+                alt="Alford Custom Builders"
                 width={150}
                 height={48}
                 className="h-10 w-auto rounded-[0.5rem] shadow-[0_10px_24px_rgba(15,24,34,0.14)]"

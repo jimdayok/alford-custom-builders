@@ -14,7 +14,7 @@ import {
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about Ben Alford, the second-generation story behind Alford Custom Homes, and the values guiding each Dallas project.",
+    "Learn about Ben Alford, the second-generation story behind Alford Custom Builders, and the values guiding each Dallas project.",
 };
 
 export default function AboutPage() {
@@ -23,7 +23,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About"
         title="A second-generation builder creating timeless Dallas homes with personal attention and clear accountability."
-        description="Alford Custom Homes was shaped around legacy, relationships, and the belief that premium residential construction should feel trusted, orderly, and personally led from first conversation through final detail review."
+        description="Alford Custom Builders was shaped around legacy, relationships, and the belief that premium residential construction should feel trusted, orderly, and personally led from first conversation through final detail review."
       />
 
       <section className="section-shell">
@@ -31,7 +31,7 @@ export default function AboutPage() {
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
             <Image
               src="/images/4301-armstrong-pkwy-hf-1-154.jpg"
-              alt="Interior architectural detail from an Alford Custom Homes project"
+              alt="Interior architectural detail from an Alford Custom Builders project"
               fill
               className="object-cover"
               sizes="(min-width: 1024px) 40vw, 100vw"
@@ -78,7 +78,7 @@ export default function AboutPage() {
             to build homes that feel classic, memorable, and worth the investment.
           </div>
           <div className="text-sm leading-8 text-[var(--color-muted)]">
-            Clients choose Alford Custom Homes for relationships, communication,
+            Clients choose Alford Custom Builders for relationships, communication,
             professionalism, and the confidence that if something needs to be made
             right, it will be handled the right way.
           </div>
@@ -134,7 +134,7 @@ export default function AboutPage() {
       <section className="section-shell pt-20">
         <CTA
           title="Tell us about the home or remodel you want to create."
-          description="If you want a builder who values communication, quality, and a clean process, Alford Custom Homes would love to hear about your plans."
+          description="If you want a builder who values communication, quality, and a clean process, Alford Custom Builders would love to hear about your plans."
           primaryHref="/contact"
           primaryLabel="Discuss Your Build"
           secondaryHref="/portfolio"

@@ -9,7 +9,7 @@ import { buildBreadcrumbSchema } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact Alford Custom Homes to discuss a Dallas luxury custom home or high-end remodel project.",
+    "Contact Alford Custom Builders to discuss a Dallas luxury custom home or high-end remodel project.",
 };
 
 export default function ContactPage() {
@@ -28,7 +28,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Let’s start with a conversation about your home, your goals, and the standard you expect from your builder."
-        description="Whether your project is still forming or already has plans in hand, Alford Custom Homes welcomes thoughtful inquiries for Preston Hollow, University Park, Highland Park, the Park Cities, and surrounding Dallas luxury neighborhoods."
+        description="Whether your project is still forming or already has plans in hand, Alford Custom Builders welcomes thoughtful inquiries for Preston Hollow, University Park, Highland Park, the Park Cities, and surrounding Dallas luxury neighborhoods."
       />
 
       <section className="section-shell">
