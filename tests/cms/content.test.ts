@@ -3,11 +3,18 @@ import { isAllowedPath, isAllowedTag } from "@/lib/cms/allowlist";
 import { fallbackHomepageHero } from "@/lib/cms/fallback/homepage";
 import { homepageHeroSchema, publishedRowSchema } from "@/lib/cms/schemas";
 import { siteConfig } from "@/lib/site-data";
+import { exportSnapshot } from "../../scripts/cms/current-content";
 
 describe("Alford CMS boundary", () => {
   it("uses the canonical customer name and website", () => {
     expect(siteConfig.name).toBe("Alford Custom Builders");
     expect(siteConfig.url).toBe("https://alfordcustombuilders.com");
+  });
+
+  it("uses the canonical www host for signed preview and revalidation requests", async () => {
+    const snapshot = await exportSnapshot();
+    expect(snapshot.site.productionUrl).toBe("https://alfordcustombuilders.com");
+    expect(snapshot.site.previewUrl).toBe("https://www.alfordcustombuilders.com");
   });
 
   it("keeps the static homepage fallback valid", () => expect(homepageHeroSchema.safeParse(fallbackHomepageHero).success).toBe(true));

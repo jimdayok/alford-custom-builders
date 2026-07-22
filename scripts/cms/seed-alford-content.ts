@@ -14,7 +14,7 @@ if (!url || !key) throw new Error("NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE
 const supabase = createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
 const { data: organization, error: organizationError } = await supabase.from("organizations").upsert({ name: "Alford Custom Builders", slug: "alford-custom-homes", status: "active" }, { onConflict: "slug" }).select("id").single();
 if (organizationError) throw organizationError;
-const { data: site, error: siteError } = await supabase.from("sites").upsert({ organization_id: organization.id, name: snapshot.site.name, slug: snapshot.site.slug, production_url: snapshot.site.productionUrl, preview_url: snapshot.site.productionUrl, status: "active", publishing_mode: "approval_required", config: { adapter: "alford-custom-homes" } }, { onConflict: "slug" }).select("id").single();
+const { data: site, error: siteError } = await supabase.from("sites").upsert({ organization_id: organization.id, name: snapshot.site.name, slug: snapshot.site.slug, production_url: snapshot.site.productionUrl, preview_url: snapshot.site.previewUrl, status: "active", publishing_mode: "approval_required", config: { adapter: "alford-custom-homes" } }, { onConflict: "slug" }).select("id").single();
 if (siteError) throw siteError;
 let insertedEntries = 0;
 for (const item of snapshot.contentEntries) {

@@ -82,5 +82,5 @@ export async function legacyMedia() {
 
 export async function exportSnapshot() {
   const media = await legacyMedia();
-  return { version: 1, site: { name: siteConfig.name, slug: "alford-custom-homes", productionUrl: siteConfig.url }, contentEntries, media, audit: { services: services.length, processSteps: processSteps.length, testimonials: testimonials.length, serviceAreas: serviceAreaDetails.length, journalDrafts: journalTopics.length, pages: 2, portfolioProjects: portfolioProjects.length, projectImages: portfolioProjects.reduce((sum, project) => sum + project.images.length, 0), portfolioSlugs: portfolioProjects.map((project) => project.slug) } };
+  return { version: 1, site: { name: siteConfig.name, slug: "alford-custom-homes", productionUrl: siteConfig.url, previewUrl: "https://www.alfordcustombuilders.com" }, contentEntries, media, audit: { services: services.length, processSteps: processSteps.length, testimonials: testimonials.length, serviceAreas: serviceAreaDetails.length, journalDrafts: journalTopics.length, pages: 2, portfolioProjects: portfolioProjects.length, projectImages: portfolioProjects.reduce((sum, project) => sum + project.images.length, 0), portfolioSlugs: portfolioProjects.map((project) => project.slug) } };
 }
