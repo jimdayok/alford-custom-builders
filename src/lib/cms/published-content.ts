@@ -13,15 +13,19 @@ import { fetchPreviewContent } from "@/lib/cms/preview-content";
 function reportCmsFallback(reason: string) { console.error(`[cms] Alford fallback used: ${reason}`); }
 
 export async function getHomepageContent(): Promise<LoadedContent<HomepageHeroContent>> {
-  if (process.env.CMS_ENABLED !== "true") return { data: fallbackHomepageHero, source: "static" };
   if ((await draftMode()).isEnabled) {
-    const preview = previewRowSchema.safeParse(await fetchPreviewContent("page_section", "homepage-hero"));
-    if (preview.success) {
-      const data = homepageHeroSchema.safeParse(preview.data.draft_data);
-      if (data.success) return { data: data.data, source: "preview", revision: preview.data.draft_revision };
+    try {
+      const preview = previewRowSchema.safeParse(await fetchPreviewContent("page_section", "homepage-hero"));
+      if (preview.success) {
+        const data = homepageHeroSchema.safeParse(preview.data.draft_data);
+        if (data.success) return { data: data.data, source: "preview", revision: preview.data.draft_revision };
+      }
+      reportCmsFallback("preview content was missing or invalid");
+    } catch (error) {
+      reportCmsFallback(error instanceof Error ? `preview request failed: ${error.message}` : "preview request failed");
     }
-    reportCmsFallback("preview content was missing or invalid");
   }
+  if (process.env.CMS_ENABLED !== "true") return { data: fallbackHomepageHero, source: "static" };
   try {
     const rows = await fetchPublishedRows("page_section", "homepage-hero");
     const row = publishedRowSchema.safeParse(Array.isArray(rows) ? rows[0] : null);
