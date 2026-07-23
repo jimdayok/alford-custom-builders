@@ -4,7 +4,8 @@ import { CTA } from "@/components/cta";
 import { PageHero } from "@/components/page-hero";
 import { ServiceCard } from "@/components/service-card";
 import { SectionHeading } from "@/components/section-heading";
-import { clientFit, processSteps, services } from "@/lib/site-data";
+import { clientFit } from "@/lib/site-data";
+import { getProcessSteps, getServices } from "@/lib/cms/published-content";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -12,7 +13,8 @@ export const metadata: Metadata = {
     "Explore custom homes, high-end remodels, and builder-led planning services from Alford Custom Builders.",
 };
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const [services, processSteps] = await Promise.all([getServices(), getProcessSteps()]);
   return (
     <>
       <PageHero

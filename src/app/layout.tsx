@@ -5,6 +5,7 @@ import "./globals.css";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { siteConfig } from "@/lib/site-data";
+import { getGlobalSettings } from "@/lib/cms/published-content";
 
 const serif = Cormorant_Garamond({
   subsets: ["latin"],
@@ -17,14 +18,16 @@ const sans = Manrope({
   variable: "--font-sans",
 });
 
-export const metadata: Metadata = {
+export async function generateMetadata(): Promise<Metadata> {
+  const settings = await getGlobalSettings();
+  return {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
+    default: settings.defaultSeoTitle,
+    template: `%s | ${settings.businessName}`,
   },
-  description: siteConfig.description,
-  applicationName: siteConfig.name,
+  description: settings.defaultSeoDescription,
+  applicationName: settings.businessName,
   keywords: [
     "Dallas custom home builder",
     "Park Cities home builder",
@@ -40,22 +43,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    siteName: siteConfig.name,
-    title: siteConfig.name,
-    description: siteConfig.description,
+    siteName: settings.businessName,
+    title: settings.defaultSeoTitle,
+    description: settings.defaultSeoDescription,
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: siteConfig.name,
+        alt: settings.businessName,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.name,
-    description: siteConfig.description,
+    title: settings.defaultSeoTitle,
+    description: settings.defaultSeoDescription,
     images: ["/opengraph-image"],
   },
   icons: {
@@ -69,7 +72,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteConfig.url,
   },
-};
+  };
+}
 
 export default function RootLayout({
   children,

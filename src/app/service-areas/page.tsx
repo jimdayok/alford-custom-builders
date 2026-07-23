@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 
 import { Button } from "@/components/button";
 import { PageHero } from "@/components/page-hero";
-import { serviceAreaDetails, siteConfig } from "@/lib/site-data";
+import { siteConfig } from "@/lib/site-data";
+import { getServiceAreas } from "@/lib/cms/published-content";
 import { buildBreadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -11,7 +12,8 @@ export const metadata: Metadata = {
     "Explore the Dallas neighborhoods and communities served by Alford Custom Builders, including Preston Hollow, Highland Park, University Park, and the Park Cities.",
 };
 
-export default function ServiceAreasPage() {
+export default async function ServiceAreasPage() {
+  const serviceAreaDetails = await getServiceAreas();
   const breadcrumbSchema = buildBreadcrumbSchema([
     { name: "Home", url: siteConfig.url },
     { name: "Service Areas", url: `${siteConfig.url}/service-areas` },
@@ -45,20 +47,17 @@ export default function ServiceAreasPage() {
                 {area.title}
               </h2>
               <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
-                {area.description}
+                {area.shortDescription}
               </p>
               <p className="mt-5 text-base leading-8 text-[var(--color-muted)]">
-                Clients in {area.title} typically value direct communication,
-                thoughtful design coordination, disciplined budgeting, and the
-                peace of mind that comes from working closely with the builder
-                leading the project.
+                {area.body}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button href="/portfolio" variant="primary">
                   View Work
                 </Button>
                 <Button href="/contact" variant="secondary">
-                  Schedule a Consultation
+                  {area.ctaLabel || "Schedule a Consultation"}
                 </Button>
               </div>
             </article>

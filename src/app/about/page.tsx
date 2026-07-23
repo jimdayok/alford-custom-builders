@@ -4,34 +4,30 @@ import Image from "next/image";
 import { CTA } from "@/components/cta";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
-import {
-  brandPillars,
-  differentiators,
-  founderStory,
-  marketFocus,
-} from "@/lib/site-data";
+import { getAboutPageContent } from "@/lib/cms/published-content";
 
-export const metadata: Metadata = {
-  title: "About",
-  description:
-    "Learn about Ben Alford, the second-generation story behind Alford Custom Builders, and the values guiding each Dallas project.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { data } = await getAboutPageContent();
+  return { title: data.seo.title, description: data.seo.description };
+}
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const { data, source } = await getAboutPageContent();
   return (
     <>
+      {source === "preview" ? <div role="status" className="fixed right-4 bottom-4 z-[100] rounded-full bg-[#d8b486] px-4 py-2 text-xs font-semibold text-[#101820] shadow-xl">Draft preview · <a className="underline" href="/api/cms/exit-preview">Exit preview</a></div> : null}
       <PageHero
-        eyebrow="About"
-        title="A second-generation builder creating timeless Dallas homes with personal attention and clear accountability."
-        description="Alford Custom Builders was shaped around legacy, relationships, and the belief that premium residential construction should feel trusted, orderly, and personally led from first conversation through final detail review."
+        eyebrow={data.eyebrow}
+        title={data.heading}
+        description={data.introduction}
       />
 
       <section className="section-shell">
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
             <Image
-              src="/images/4301-armstrong-pkwy-hf-1-154.jpg"
-              alt="Interior architectural detail from an Alford Custom Builders project"
+              src={data.founderImage.path}
+              alt={data.founderImage.decorative ? "" : data.founderImage.altText}
               fill
               className="object-cover"
               sizes="(min-width: 1024px) 40vw, 100vw"
@@ -39,12 +35,12 @@ export default function AboutPage() {
           </div>
           <div>
             <SectionHeading
-              eyebrow={founderStory.eyebrow}
-              title={founderStory.title}
-              description={founderStory.description}
+              eyebrow={data.founderEyebrow}
+              title={data.founderTitle}
+              description={data.founderDescription}
             />
             <div className="mt-8 grid gap-6 sm:grid-cols-2">
-              {differentiators.map((item) => (
+              {data.differentiators.map((item) => (
                 <div
                   key={item.title}
                   className="rounded-[1.5rem] bg-white p-6 shadow-[0_18px_50px_rgba(15,24,32,0.06)]"
@@ -66,34 +62,25 @@ export default function AboutPage() {
         <div className="grid gap-8 rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)] p-8 lg:grid-cols-3">
           <div>
             <p className="text-xs font-semibold tracking-[0.28em] uppercase text-[var(--color-wood)]">
-              Legacy And Values
+              {data.legacyEyebrow}
             </p>
             <h2 className="mt-4 font-serif text-4xl text-[var(--color-charcoal)]">
-              The business is built on doing the work well and standing behind it.
+              {data.legacyTitle}
             </h2>
           </div>
-          <div className="text-sm leading-8 text-[var(--color-muted)]">
-            Ben Alford learned the business from his dad and sees this company as
-            a continuation of that legacy. The goal is not to chase trends. It is
-            to build homes that feel classic, memorable, and worth the investment.
-          </div>
-          <div className="text-sm leading-8 text-[var(--color-muted)]">
-            Clients choose Alford Custom Builders for relationships, communication,
-            professionalism, and the confidence that if something needs to be made
-            right, it will be handled the right way.
-          </div>
+          {data.legacyParagraphs.map((paragraph) => <div key={paragraph} className="text-sm leading-8 text-[var(--color-muted)]">{paragraph}</div>)}
         </div>
       </section>
 
       <section className="section-shell">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <SectionHeading
-            eyebrow="What Matters Here"
-            title="The brand is meant to feel trusted, professional, classic, and best-in-class."
-            description="Those qualities came through repeatedly in the discovery work, and they define how the company wants to show up in the market."
+            eyebrow={data.valuesEyebrow}
+            title={data.valuesTitle}
+            description={data.valuesDescription}
           />
           <div className="grid gap-6 sm:grid-cols-2">
-            {brandPillars.map((item) => (
+            {data.brandPillars.map((item) => (
               <div
                 key={item.title}
                 className="rounded-[1.75rem] border border-[var(--color-border)] bg-white p-7 shadow-[0_18px_60px_rgba(20,26,35,0.06)]"
@@ -119,7 +106,7 @@ export default function AboutPage() {
             Designed for clients in North Dallas neighborhoods where trust and reputation lead the conversation.
           </h2>
           <div className="mt-8 flex flex-wrap gap-3">
-            {marketFocus.map((market) => (
+            {data.marketFocus.map((market) => (
               <span
                 key={market}
                 className="rounded-full border border-white/12 bg-white/[0.05] px-4 py-3 text-sm tracking-[0.14em] uppercase text-white/78"
@@ -133,12 +120,12 @@ export default function AboutPage() {
 
       <section className="section-shell pt-20">
         <CTA
-          title="Tell us about the home or remodel you want to create."
-          description="If you want a builder who values communication, quality, and a clean process, Alford Custom Builders would love to hear about your plans."
+          title={data.ctaTitle}
+          description={data.ctaDescription}
           primaryHref="/contact"
-          primaryLabel="Discuss Your Build"
+          primaryLabel={data.primaryCtaLabel}
           secondaryHref="/portfolio"
-          secondaryLabel="View Our Work"
+          secondaryLabel={data.secondaryCtaLabel}
         />
       </section>
     </>

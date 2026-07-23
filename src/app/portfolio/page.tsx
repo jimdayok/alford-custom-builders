@@ -2,34 +2,17 @@ import type { Metadata } from "next";
 
 import { CTA } from "@/components/cta";
 import { PortfolioGrid } from "@/components/portfolio/portfolio-grid";
-import { portfolioProjects } from "@/data/portfolio";
 import { siteConfig } from "@/lib/site-data";
+import { getPortfolioProjects } from "@/lib/cms/published-content";
 
-export const metadata: Metadata = {
-  title: "Portfolio",
-  description:
-    "Explore Dallas luxury residential work from Alford Custom Builders through immersive project galleries and room-by-room photography.",
-  openGraph: {
-    title: `Portfolio | ${siteConfig.name}`,
-    description:
-      "Explore luxury residential work from Alford Custom Builders through immersive project galleries and room-by-room photography.",
-    images: [
-      {
-        url: portfolioProjects[0]?.coverImage ?? "/opengraph-image",
-        alt: portfolioProjects[0]?.title ?? siteConfig.name,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `Portfolio | ${siteConfig.name}`,
-    description:
-      "Explore luxury residential work from Alford Custom Builders through immersive project galleries and room-by-room photography.",
-    images: [portfolioProjects[0]?.coverImage ?? "/opengraph-image"],
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const projects = await getPortfolioProjects();
+  const description = "Explore Dallas luxury residential work from Alford Custom Builders through immersive project galleries and room-by-room photography.";
+  return { title: "Portfolio", description, openGraph: { title: `Portfolio | ${siteConfig.name}`, description, images: [{ url: projects[0]?.coverImage ?? "/opengraph-image", alt: projects[0]?.title ?? siteConfig.name }] }, twitter: { card: "summary_large_image", title: `Portfolio | ${siteConfig.name}`, description, images: [projects[0]?.coverImage ?? "/opengraph-image"] } };
+}
 
-export default function PortfolioPage() {
+export default async function PortfolioPage() {
+  const portfolioProjects = await getPortfolioProjects();
   return (
     <>
       <section className="relative isolate overflow-hidden border-b border-white/10 bg-[#13110f]">

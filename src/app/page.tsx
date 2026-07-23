@@ -7,16 +7,14 @@ import { ChapterRail } from "@/components/home/chapter-rail";
 import { GuidedProcessExperience } from "@/components/home/guided-process-experience";
 import { LeadForm } from "@/components/home/lead-form";
 import { HomepageMotion } from "@/components/home/homepage-motion";
-import { getProjectCardImage, portfolioProjects } from "@/data/portfolio";
+import { getProjectCardImage } from "@/data/portfolio";
 import {
   faqItems,
   founderHighlights,
   materialsShowcase,
-  processJourney,
-  serviceAreaDetails,
+  processJourney as fallbackProcessJourney,
   siteConfig,
   stats,
-  testimonials,
   whyAlfordPoints,
 } from "@/lib/site-data";
 import {
@@ -26,10 +24,7 @@ import {
   buildOrganizationSchema,
   buildWebsiteSchema,
 } from "@/lib/schema";
-import { getHomepageContent } from "@/lib/cms/published-content";
-
-const featuredProjects = portfolioProjects.slice(0, 3);
-const [featuredTestimonial, ...additionalTestimonials] = testimonials;
+import { getGlobalSettings, getHomepageContent, getPortfolioProjects, getProcessSteps, getServiceAreas, getTestimonials } from "@/lib/cms/published-content";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { data } = await getHomepageContent();
@@ -37,11 +32,22 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function HomePage() {
-  const { data: homepageHero, source } = await getHomepageContent();
+  const [{ data: homepageHero, source }, portfolioProjects, cmsProcessSteps, serviceAreaDetails, testimonials, globalSettings] = await Promise.all([
+    getHomepageContent(), getPortfolioProjects(), getProcessSteps(), getServiceAreas(), getTestimonials(), getGlobalSettings(),
+  ]);
+  const featuredProjects = portfolioProjects.slice(0, 3);
+  const [featuredTestimonial, ...additionalTestimonials] = testimonials;
+  const processJourney = cmsProcessSteps.map((step, index) => ({
+    step: step.step,
+    title: step.title,
+    eyebrow: step.eyebrow ?? fallbackProcessJourney[index]?.eyebrow ?? "Builder-Led Process",
+    description: step.description,
+    image: step.image?.path ?? fallbackProcessJourney[index]?.image ?? "/images/4301-armstrong-pkwy-hf-1-59.jpg",
+  }));
   const schemas = [
-    buildOrganizationSchema(),
-    buildWebsiteSchema(),
-    buildHomeConstructionBusinessSchema(),
+    buildOrganizationSchema(globalSettings),
+    buildWebsiteSchema(globalSettings),
+    buildHomeConstructionBusinessSchema(globalSettings, serviceAreaDetails),
     buildFaqSchema(),
     buildBreadcrumbSchema([
       { name: "Home", url: siteConfig.url },
@@ -488,7 +494,7 @@ export default async function HomePage() {
                 {area.title}
               </h3>
               <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
-                {area.description}
+                {area.shortDescription}
               </p>
               <Link
                 href={`/service-areas#${area.slug}`}

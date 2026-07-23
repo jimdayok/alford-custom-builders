@@ -3,16 +3,17 @@ import Link from "next/link";
 
 import { LeadForm } from "@/components/home/lead-form";
 import { PageHero } from "@/components/page-hero";
-import { marketFocus, siteConfig } from "@/lib/site-data";
+import { siteConfig } from "@/lib/site-data";
+import { getContactPageContent, getServiceAreas } from "@/lib/cms/published-content";
 import { buildBreadcrumbSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Contact Alford Custom Builders to discuss a Dallas luxury custom home or high-end remodel project.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { data } = await getContactPageContent();
+  return { title: data.seo.title, description: data.seo.description };
+}
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const [{ data, source }, serviceAreas] = await Promise.all([getContactPageContent(), getServiceAreas()]);
   const breadcrumbSchema = buildBreadcrumbSchema([
     { name: "Home", url: siteConfig.url },
     { name: "Contact", url: `${siteConfig.url}/contact` },
@@ -20,15 +21,16 @@ export default function ContactPage() {
 
   return (
     <>
+      {source === "preview" ? <div role="status" className="fixed right-4 bottom-4 z-[100] rounded-full bg-[#d8b486] px-4 py-2 text-xs font-semibold text-[#101820] shadow-xl">Draft preview · <a className="underline" href="/api/cms/exit-preview">Exit preview</a></div> : null}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       <PageHero
-        eyebrow="Contact"
-        title="Let’s start with a conversation about your home, your goals, and the standard you expect from your builder."
-        description="Whether your project is still forming or already has plans in hand, Alford Custom Builders welcomes thoughtful inquiries for Preston Hollow, University Park, Highland Park, the Park Cities, and surrounding Dallas luxury neighborhoods."
+        eyebrow={data.eyebrow}
+        title={data.heading}
+        description={data.introduction}
       />
 
       <section className="section-shell">
@@ -41,20 +43,20 @@ export default function ContactPage() {
               Private consultations for custom homes and luxury remodels
             </h2>
             <div className="mt-8 space-y-5 text-sm leading-8 text-[var(--color-muted)]">
-              <p>{siteConfig.location}</p>
+              <p>{data.serviceAreaCopy}</p>
               <p>
                 Phone:{" "}
-                <a href="tel:+14698631381" className="font-semibold text-[var(--color-navy)]">
-                  {siteConfig.phone}
+                <a href={`tel:${data.displayedPhone.replace(/[^+\d]/g, "")}`} className="font-semibold text-[var(--color-navy)]">
+                  {data.displayedPhone}
                 </a>
               </p>
               <p>
                 Email:{" "}
                 <a
-                  href={`mailto:${siteConfig.email}`}
+                  href={`mailto:${data.displayedEmail}`}
                   className="font-semibold text-[var(--color-navy)]"
                 >
-                  {siteConfig.email}
+                  {data.displayedEmail}
                 </a>
               </p>
               <p>
@@ -74,12 +76,12 @@ export default function ContactPage() {
                 Neighborhood Focus
               </p>
               <div className="mt-4 flex flex-wrap gap-3">
-                {marketFocus.map((market) => (
+                {serviceAreas.map((area) => (
                   <span
-                    key={market}
+                    key={area.slug}
                     className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-[11px] font-semibold tracking-[0.18em] uppercase text-[var(--color-charcoal)]"
                   >
-                    {market}
+                    {area.title}
                   </span>
                 ))}
               </div>
@@ -87,10 +89,10 @@ export default function ContactPage() {
 
             <div className="mt-8">
               <Link
-                href={`mailto:${siteConfig.email}?subject=Project Inquiry`}
+                href={`mailto:${data.displayedEmail}?subject=Project Inquiry`}
                 className="inline-flex min-h-12 items-center rounded-[0.95rem] bg-[var(--color-navy)] px-6 py-3 text-sm font-semibold tracking-[0.18em] uppercase text-white transition hover:-translate-y-0.5 hover:bg-[var(--color-charcoal)]"
               >
-                Email Your Project Details
+                {data.ctaText}
               </Link>
             </div>
           </div>

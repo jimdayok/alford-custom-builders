@@ -5,11 +5,8 @@ import { notFound } from "next/navigation";
 import { CTA } from "@/components/cta";
 import { ProjectHero } from "@/components/portfolio/project-hero";
 import { ProjectSlideshow } from "@/components/portfolio/project-slideshow";
-import {
-  getPortfolioProject,
-  getProjectHref,
-  portfolioProjects,
-} from "@/data/portfolio";
+import { getProjectHref } from "@/data/portfolio";
+import { getPortfolioProjects } from "@/lib/cms/published-content";
 import { siteConfig } from "@/lib/site-data";
 
 type ProjectPageProps = {
@@ -18,8 +15,8 @@ type ProjectPageProps = {
   }>;
 };
 
-export function generateStaticParams() {
-  return portfolioProjects.map((project) => ({
+export async function generateStaticParams() {
+  return (await getPortfolioProjects()).map((project) => ({
     slug: project.slug,
   }));
 }
@@ -28,7 +25,7 @@ export async function generateMetadata({
   params,
 }: ProjectPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const project = getPortfolioProject(slug);
+  const project = (await getPortfolioProjects()).find((item) => item.slug === slug);
 
   if (!project) {
     return {
@@ -63,7 +60,7 @@ export async function generateMetadata({
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
-  const project = getPortfolioProject(slug);
+  const project = (await getPortfolioProjects()).find((item) => item.slug === slug);
 
   if (!project) {
     notFound();

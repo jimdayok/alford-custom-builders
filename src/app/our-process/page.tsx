@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { CTA } from "@/components/cta";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
-import { brandPillars, processSteps } from "@/lib/site-data";
+import { getAboutPageContent, getProcessSteps } from "@/lib/cms/published-content";
 
 export const metadata: Metadata = {
   title: "Our Process",
@@ -11,7 +11,9 @@ export const metadata: Metadata = {
     "See how Alford Custom Builders approaches planning, communication, and execution for Dallas luxury custom homes and remodels.",
 };
 
-export default function OurProcessPage() {
+export default async function OurProcessPage() {
+  const [processSteps, about] = await Promise.all([getProcessSteps(), getAboutPageContent()]);
+  const brandPillars = about.data.brandPillars;
   return (
     <>
       <PageHero

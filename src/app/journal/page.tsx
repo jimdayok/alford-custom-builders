@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 import { CTA } from "@/components/cta";
 import { PageHero } from "@/components/page-hero";
-import { journalTopics } from "@/lib/site-data";
+import { getJournalPosts } from "@/lib/cms/published-content";
 
 export const metadata: Metadata = {
   title: "Journal",
@@ -11,7 +12,8 @@ export const metadata: Metadata = {
     "Explore future-ready insights from Alford Custom Builders on Dallas luxury custom homes, remodel planning, and high-end residential construction.",
 };
 
-export default function JournalPage() {
+export default async function JournalPage() {
+  const journalPosts = await getJournalPosts();
   return (
     <>
       <PageHero
@@ -22,27 +24,27 @@ export default function JournalPage() {
 
       <section className="section-shell">
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {journalTopics.map((topic) => (
+          {journalPosts.map((post) => (
             <article
-              key={topic.title}
+              key={post.slug}
               className="rounded-[1.85rem] border border-[var(--color-border)] bg-white p-7 shadow-[0_22px_70px_rgba(20,26,35,0.07)]"
             >
+              {post.coverImage ? <div className="relative mb-6 aspect-[16/10] overflow-hidden rounded-[1.25rem]"><Image src={post.coverImage.path} alt={post.coverImage.decorative ? "" : post.coverImage.altText} fill className="object-cover" sizes="(min-width: 1280px) 28vw, 100vw" /></div> : null}
               <p className="text-xs font-semibold tracking-[0.28em] uppercase text-[var(--color-wood)]">
-                Planned Topic
+                {new Date(`${post.publishDate}T12:00:00`).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
               </p>
               <h2 className="mt-4 font-serif text-3xl text-[var(--color-charcoal)]">
-                {topic.title}
+                <Link href={`/journal/${post.slug}`}>{post.title}</Link>
               </h2>
               <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
-                {topic.description}
+                {post.excerpt}
               </p>
               <div className="mt-8">
-                <span className="inline-flex rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-[11px] font-semibold tracking-[0.2em] uppercase text-[var(--color-charcoal)]">
-                  Future Article Structure
-                </span>
+                <Link href={`/journal/${post.slug}`} className="text-xs font-semibold tracking-[0.2em] uppercase text-[var(--color-charcoal)]">Read Article</Link>
               </div>
             </article>
           ))}
+          {journalPosts.length === 0 ? <div className="md:col-span-2 xl:col-span-3 rounded-[1.85rem] border border-[var(--color-border)] bg-white p-8 text-[var(--color-muted)]">No journal articles have been published yet.</div> : null}
         </div>
       </section>
 
