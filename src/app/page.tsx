@@ -24,7 +24,7 @@ import {
   buildOrganizationSchema,
   buildWebsiteSchema,
 } from "@/lib/schema";
-import { getGlobalSettings, getHomepageContent, getPortfolioProjects, getProcessSteps, getServiceAreas, getTestimonials } from "@/lib/cms/published-content";
+import { getGlobalSettings, getHomepageContent, getPortfolioProjects, getProcessSteps, getServiceAreas } from "@/lib/cms/published-content";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { data } = await getHomepageContent();
@@ -32,11 +32,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function HomePage() {
-  const [{ data: homepageHero, source }, portfolioProjects, cmsProcessSteps, serviceAreaDetails, testimonials, globalSettings] = await Promise.all([
-    getHomepageContent(), getPortfolioProjects(), getProcessSteps(), getServiceAreas(), getTestimonials(), getGlobalSettings(),
+  const [{ data: homepageHero, source }, portfolioProjects, cmsProcessSteps, serviceAreaDetails, globalSettings] = await Promise.all([
+    getHomepageContent(), getPortfolioProjects(), getProcessSteps(), getServiceAreas(), getGlobalSettings(),
   ]);
   const featuredProjects = portfolioProjects.slice(0, 3);
-  const [featuredTestimonial, ...additionalTestimonials] = testimonials;
   const processJourney = cmsProcessSteps.map((step, index) => ({
     step: step.step,
     title: step.title,
@@ -395,73 +394,6 @@ export default async function HomePage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section id="testimonials" className="section-shell scroll-mt-32">
-        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-          <div data-reveal className="max-w-2xl">
-            <p className="text-xs font-semibold tracking-[0.32em] uppercase text-[var(--color-wood)]">
-              Client Perspective
-            </p>
-            <h2
-              data-split-heading
-              className="text-balance mt-4 font-serif text-4xl leading-tight text-[var(--color-charcoal)] sm:text-5xl lg:text-6xl"
-            >
-              Premium homes are remembered as much for the experience as for the finish.
-            </h2>
-            <Link
-              href="/contact#contact-form"
-              className="group mt-8 block rounded-[2rem] border border-[var(--color-border)] bg-white p-7 shadow-[0_20px_70px_rgba(15,24,34,0.06)] transition hover:-translate-y-1 hover:border-[var(--color-border-strong)]"
-            >
-              <blockquote className="font-serif text-3xl leading-tight text-[var(--color-navy)] sm:text-4xl">
-                “{featuredTestimonial.quote}”
-              </blockquote>
-              <p className="mt-6 text-sm font-semibold tracking-[0.18em] uppercase text-[var(--color-charcoal)]">
-                {featuredTestimonial.name}
-              </p>
-              <p className="mt-2 text-sm text-[var(--color-muted)]">
-                {featuredTestimonial.context}
-              </p>
-              <p className="mt-5 text-xs font-semibold tracking-[0.22em] uppercase text-[var(--color-charcoal)] transition group-hover:text-[var(--color-wood)]">
-                Start Your Conversation
-              </p>
-            </Link>
-          </div>
-
-          <div data-reveal className="image-sheen relative overflow-hidden rounded-[2rem] bg-[var(--color-charcoal)] shadow-[0_30px_90px_rgba(10,14,20,0.16)]">
-            <div className="relative aspect-[5/4]">
-              <Image
-                src="/images/4301-armstrong-pkwy-hf-1-59.jpg"
-                alt="Kitchen interior from an Alford Custom Builders project in Dallas"
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 50vw, 100vw"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {additionalTestimonials.slice(0, 3).map((item) => (
-            <Link
-              key={item.quote}
-              href="/contact#contact-form"
-              data-reveal
-              className="block rounded-[1.75rem] border border-[var(--color-border)] bg-white p-7 shadow-[0_20px_70px_rgba(15,24,34,0.06)] transition hover:-translate-y-1 hover:border-[var(--color-border-strong)]"
-            >
-              <p className="font-serif text-2xl leading-9 text-[var(--color-charcoal)]">
-                “{item.quote}”
-              </p>
-              <p className="mt-6 text-sm font-semibold tracking-[0.16em] uppercase text-[var(--color-charcoal)]">
-                {item.name}
-              </p>
-              <p className="mt-2 text-sm text-[var(--color-muted)]">{item.context}</p>
-              <p className="mt-5 text-xs font-semibold tracking-[0.22em] uppercase text-[var(--color-wood)]">
-                Contact Alford
-              </p>
-            </Link>
-          ))}
         </div>
       </section>
 
