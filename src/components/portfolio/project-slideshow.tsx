@@ -1,14 +1,17 @@
 "use client";
 
 import type { TouchEvent } from "react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
-import type { PortfolioImage, PortfolioProject } from "@/data/portfolio";
+import type { PortfolioProject } from "@/data/portfolio";
+import {
+  getPortfolioImageAlt,
+  getPortfolioImageCaption,
+} from "@/lib/portfolio-display";
 
 import { GalleryMasonry } from "@/components/portfolio/gallery-masonry";
 import { ImageLightbox } from "@/components/portfolio/image-lightbox";
-import { RoomFilterNav } from "@/components/portfolio/room-filter-nav";
 import { ThumbnailRail } from "@/components/portfolio/thumbnail-rail";
 
 type ProjectSlideshowProps = {
@@ -18,75 +21,54 @@ type ProjectSlideshowProps = {
 const swipeThreshold = 40;
 
 export function ProjectSlideshow({ project }: ProjectSlideshowProps) {
-  const roomOptions = useMemo(() => ["All", ...project.rooms], [project.rooms]);
-  const [activeRoom, setActiveRoom] = useState("All");
   const [activeIndex, setActiveIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
-
-  const filteredImages = useMemo(() => {
-    if (activeRoom === "All") return project.images;
-    return project.images.filter((image) => image.room === activeRoom);
-  }, [activeRoom, project.images]);
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
       if (lightboxOpen) return;
       if (event.key === "ArrowLeft") {
         setActiveIndex((current) =>
-          current === 0 ? filteredImages.length - 1 : current - 1,
+          current === 0 ? project.images.length - 1 : current - 1,
         );
       }
       if (event.key === "ArrowRight") {
         setActiveIndex((current) =>
-          current === filteredImages.length - 1 ? 0 : current + 1,
+          current === project.images.length - 1 ? 0 : current + 1,
         );
       }
     }
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [filteredImages.length, lightboxOpen]);
+  }, [lightboxOpen, project.images.length]);
 
-  if (filteredImages.length === 0) {
+  if (project.images.length === 0) {
     return null;
   }
 
-  const activeImage = filteredImages[activeIndex] ?? filteredImages[0];
+  const activeImage = project.images[activeIndex] ?? project.images[0];
+  const activeCaption = getPortfolioImageCaption(activeImage);
 
   function goToIndex(index: number) {
     setActiveIndex(index);
   }
 
-  function handleRoomSelect(room: string) {
-    setActiveRoom(room);
-    setActiveIndex(0);
-  }
-
   function goToPrevious() {
     setActiveIndex((current) =>
-      current === 0 ? filteredImages.length - 1 : current - 1,
+      current === 0 ? project.images.length - 1 : current - 1,
     );
   }
 
   function goToNext() {
     setActiveIndex((current) =>
-      current === filteredImages.length - 1 ? 0 : current + 1,
+      current === project.images.length - 1 ? 0 : current + 1,
     );
   }
 
-  function openRoomImage(room: string, image: PortfolioImage) {
-    const targetRoom = room === "All" ? "All" : room;
-    const targetImages =
-      targetRoom === "All"
-        ? project.images
-        : project.images.filter((projectImage) => projectImage.room === targetRoom);
-    const targetIndex = targetImages.findIndex(
-      (projectImage) => projectImage.src === image.src,
-    );
-
-    setActiveRoom(targetRoom);
-    setActiveIndex(targetIndex === -1 ? 0 : targetIndex);
+  function openImage(index: number) {
+    setActiveIndex(index);
     setLightboxOpen(true);
   }
 
@@ -111,13 +93,6 @@ export function ProjectSlideshow({ project }: ProjectSlideshowProps) {
     setTouchStartX(null);
   }
 
-  const groupedImages = project.rooms
-    .map((room) => ({
-      room,
-      images: project.images.filter((image) => image.room === room),
-    }))
-    .filter((group) => group.images.length > 0);
-
   return (
     <>
       <section className="border-b border-white/8 bg-[#11100e]">
@@ -129,20 +104,14 @@ export function ProjectSlideshow({ project }: ProjectSlideshowProps) {
                   Explore The Home
                 </p>
                 <h2 className="mt-4 font-serif text-3xl text-[#f7f1e7] sm:text-4xl">
-                  Room-by-room imagery with cinematic navigation.
+                  Project photography with cinematic navigation.
                 </h2>
               </div>
               <p className="max-w-xl text-sm leading-7 text-[#efe8dc]/66">
-                Use the room filters, keyboard arrows, or swipe gestures to move through the
-                project. Click any image for an expanded lightbox view.
+                Use the keyboard arrows or swipe gestures to move through the project.
+                Click any image for an expanded lightbox view.
               </p>
             </div>
-
-            <RoomFilterNav
-              rooms={roomOptions}
-              activeRoom={activeRoom}
-              onSelect={handleRoomSelect}
-            />
 
             <div className="grid gap-6 xl:items-start xl:grid-cols-[minmax(0,1fr)_20rem]">
               <div className="rounded-[2rem] border border-white/10 bg-[#191714] p-3 shadow-[0_28px_90px_rgba(0,0,0,0.2)] sm:p-4">
@@ -160,7 +129,11 @@ export function ProjectSlideshow({ project }: ProjectSlideshowProps) {
                       <Image
                         key={activeImage.src}
                         src={activeImage.src}
-                        alt={activeImage.alt}
+                        alt={getPortfolioImageAlt(
+                          activeImage,
+                          activeIndex,
+                          project.title,
+                        )}
                         fill
                         priority
                         className="animate-fade object-cover transition duration-700 group-hover:scale-[1.015]"
@@ -170,16 +143,15 @@ export function ProjectSlideshow({ project }: ProjectSlideshowProps) {
                     </div>
                     <div className="absolute inset-x-0 bottom-0 flex flex-col gap-3 p-6 sm:p-8">
                       <div className="flex flex-wrap items-center gap-3 text-[11px] font-semibold tracking-[0.22em] uppercase">
-                        <span className="rounded-full border border-white/10 bg-black/25 px-4 py-2 text-[#d2b38f] backdrop-blur-sm">
-                          {activeImage.room}
-                        </span>
                         <span className="text-[#efe8dc]/54">
-                          {activeIndex + 1} / {filteredImages.length}
+                          {activeIndex + 1} / {project.images.length}
                         </span>
                       </div>
-                      <p className="max-w-3xl text-sm leading-7 text-[#efe8dc]/78 sm:text-base">
-                        {activeImage.caption}
-                      </p>
+                      {activeCaption ? (
+                        <p className="max-w-3xl text-sm leading-7 text-[#efe8dc]/78 sm:text-base">
+                          {activeCaption}
+                        </p>
+                      ) : null}
                     </div>
                   </button>
 
@@ -209,15 +181,16 @@ export function ProjectSlideshow({ project }: ProjectSlideshowProps) {
                       Thumbnail Rail
                     </p>
                     <p className="mt-2 text-sm leading-7 text-[#efe8dc]/68">
-                      Jump to a specific image in the current room selection.
+                      Jump to a specific image in this project.
                     </p>
                   </div>
                 </div>
                 <div className="mt-5 xl:max-h-[42rem] xl:overflow-y-auto xl:pr-1">
                   <ThumbnailRail
-                    images={filteredImages}
+                    images={project.images}
                     activeIndex={activeIndex}
                     onSelect={goToIndex}
+                    projectTitle={project.title}
                   />
                 </div>
               </div>
@@ -228,28 +201,25 @@ export function ProjectSlideshow({ project }: ProjectSlideshowProps) {
 
       <section className="bg-[#141311]">
         <div className="mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:px-8 lg:py-18">
-          <div className="space-y-12">
-            {groupedImages.map((group) => (
-              <div key={group.room}>
-                <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-                  <div>
-                    <p className="text-xs font-semibold tracking-[0.26em] uppercase text-[#d2b38f]">
-                      {project.title}
-                    </p>
-                    <h3 className="mt-3 font-serif text-3xl text-[#f7f1e7]">
-                      {group.room}
-                    </h3>
-                  </div>
-                  <p className="text-xs font-semibold tracking-[0.22em] uppercase text-[#efe8dc]/52">
-                    {group.images.length} Images
-                  </p>
-                </div>
-                <GalleryMasonry
-                  images={group.images}
-                  onImageClick={(index) => openRoomImage(group.room, group.images[index])}
-                />
+          <div>
+            <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-xs font-semibold tracking-[0.26em] uppercase text-[#d2b38f]">
+                  {project.title}
+                </p>
+                <h3 className="mt-3 font-serif text-3xl text-[#f7f1e7]">
+                  Project Gallery
+                </h3>
               </div>
-            ))}
+              <p className="text-xs font-semibold tracking-[0.22em] uppercase text-[#efe8dc]/52">
+                {project.images.length} Images
+              </p>
+            </div>
+            <GalleryMasonry
+              images={project.images}
+              projectTitle={project.title}
+              onImageClick={openImage}
+            />
           </div>
         </div>
       </section>
@@ -261,7 +231,8 @@ export function ProjectSlideshow({ project }: ProjectSlideshowProps) {
         onPrevious={goToPrevious}
         onNext={goToNext}
         title={project.title}
-        indexLabel={`${activeIndex + 1} of ${filteredImages.length}`}
+        indexLabel={`${activeIndex + 1} of ${project.images.length}`}
+        imageIndex={activeIndex}
       />
     </>
   );

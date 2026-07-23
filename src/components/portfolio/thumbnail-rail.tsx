@@ -4,17 +4,20 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 
 import type { PortfolioImage } from "@/data/portfolio";
+import { getPortfolioImageAlt } from "@/lib/portfolio-display";
 
 type ThumbnailRailProps = {
   images: PortfolioImage[];
   activeIndex: number;
   onSelect: (index: number) => void;
+  projectTitle: string;
 };
 
 export function ThumbnailRail({
   images,
   activeIndex,
   onSelect,
+  projectTitle,
 }: ThumbnailRailProps) {
   const itemRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
@@ -49,13 +52,13 @@ export function ThumbnailRail({
                   ? "border-[#d2b38f] bg-[#1d1915] shadow-[0_14px_34px_rgba(210,179,143,0.18)]"
                   : "border-white/10 hover:-translate-y-1 hover:border-white/30"
               }`}
-              aria-label={`View ${image.room}`}
+              aria-label={`View image ${index + 1}`}
               aria-pressed={isActive}
               aria-current={isActive}
             >
               <Image
                 src={image.src}
-                alt={image.alt}
+                alt={getPortfolioImageAlt(image, index, projectTitle)}
                 fill
                 className={`object-cover transition duration-500 ${
                   isActive ? "scale-105" : "group-hover:scale-105"
@@ -65,10 +68,7 @@ export function ThumbnailRail({
               <span className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,8,8,0.05),rgba(8,8,8,0.18)_48%,rgba(8,8,8,0.82))]" />
               <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-3 text-left">
                 <span className="min-w-0">
-                  <span className="block truncate text-[10px] font-semibold tracking-[0.24em] uppercase text-[#d2b38f]">
-                    {image.room}
-                  </span>
-                  <span className="mt-1 block truncate text-xs text-[#f7f1e7]/82">
+                  <span className="block truncate text-xs text-[#f7f1e7]/82">
                     {index + 1} of {images.length}
                   </span>
                 </span>

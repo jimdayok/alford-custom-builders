@@ -4,6 +4,10 @@ import { useEffect } from "react";
 import Image from "next/image";
 
 import type { PortfolioImage } from "@/data/portfolio";
+import {
+  getPortfolioImageAlt,
+  getPortfolioImageCaption,
+} from "@/lib/portfolio-display";
 
 type ImageLightboxProps = {
   image: PortfolioImage | null;
@@ -13,6 +17,7 @@ type ImageLightboxProps = {
   onNext: () => void;
   title: string;
   indexLabel: string;
+  imageIndex: number;
 };
 
 export function ImageLightbox({
@@ -23,6 +28,7 @@ export function ImageLightbox({
   onNext,
   title,
   indexLabel,
+  imageIndex,
 }: ImageLightboxProps) {
   useEffect(() => {
     if (!open) return;
@@ -43,6 +49,7 @@ export function ImageLightbox({
   }, [onClose, onNext, onPrevious, open]);
 
   if (!open || !image) return null;
+  const caption = getPortfolioImageCaption(image);
 
   return (
     <div
@@ -91,19 +98,16 @@ export function ImageLightbox({
         <div className="relative aspect-[16/10] w-full">
           <Image
             src={image.src}
-            alt={image.alt}
+            alt={getPortfolioImageAlt(image, imageIndex, title)}
             fill
             className="object-contain"
             sizes="100vw"
           />
         </div>
         <div className="flex flex-col gap-3 border-t border-white/10 px-6 py-5 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-xs font-semibold tracking-[0.22em] uppercase text-[#d2b38f]">
-              {image.room}
-            </p>
-            <p className="mt-2 text-sm leading-7 text-[#efe8dc]/78">{image.caption}</p>
-          </div>
+          {caption ? (
+            <p className="text-sm leading-7 text-[#efe8dc]/78">{caption}</p>
+          ) : null}
           <p className="text-xs font-semibold tracking-[0.22em] uppercase text-[#efe8dc]/52">
             {indexLabel}
           </p>

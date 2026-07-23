@@ -38,9 +38,6 @@ export function ProjectHero({ project, priority = false }: ProjectHeroProps) {
             <span className="rounded-full border border-white/12 bg-white/6 px-4 py-2">
               {project.photoCount} Photos
             </span>
-            <span className="rounded-full border border-white/12 bg-white/6 px-4 py-2">
-              {project.rooms.length} Spaces
-            </span>
           </div>
         </div>
       </div>
