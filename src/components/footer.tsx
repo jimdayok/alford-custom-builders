@@ -6,6 +6,8 @@ import { getGlobalSettings } from "@/lib/cms/published-content";
 
 export async function Footer() {
   const settings = await getGlobalSettings();
+  const websiteManagementUrl =
+    "https://portal.d2dperformance.com/portal/login?next=%2Fportal%2Fsites%2Falford-custom-homes";
   return (
     <footer className="mt-24 border-t border-[rgba(15,34,54,0.08)] bg-[linear-gradient(180deg,#f6f1e8_0%,#efe7da_100%)] text-[var(--color-charcoal)]">
       <div className="mx-auto max-w-7xl px-5 pb-8 pt-14 sm:px-6 lg:px-8 lg:pb-10 lg:pt-18">
@@ -104,7 +106,15 @@ export async function Footer() {
       <div className="border-t border-[rgba(15,34,54,0.08)]">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-6 text-xs tracking-[0.16em] uppercase text-[rgba(22,32,43,0.54)] sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <p>© {new Date().getFullYear()} {settings.businessName}</p>
-          <p>Luxury custom homes and high-end remodels in Dallas</p>
+          <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-5">
+            <p>Luxury custom homes and high-end remodels in Dallas</p>
+            <a
+              href={websiteManagementUrl}
+              className="w-fit border-b border-current pb-0.5 text-[10px] tracking-[0.18em] text-[rgba(22,32,43,0.44)] transition hover:text-[var(--color-wood)]"
+            >
+              Admin login · Edit this website
+            </a>
+          </div>
         </div>
       </div>
     </footer>
