@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { headers } from "next/headers";
 import "./globals.css";
 
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { PreviewBanner } from "@/components/preview-banner";
 import { siteConfig } from "@/lib/site-data";
 import { getGlobalSettings } from "@/lib/cms/published-content";
 
@@ -75,19 +77,29 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const requestHeaders = await headers();
+  const siteMode = requestHeaders.get("x-alford-site-mode");
+  const isPreview = siteMode === "preview";
+  const isComingSoon = siteMode === "coming-soon";
+
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable}`}>
       <body>
-        <div className="site-bg min-h-screen">
-          <Header />
+        {isComingSoon ? (
           <main>{children}</main>
-          <Footer />
-        </div>
+        ) : (
+          <div className="site-bg min-h-screen">
+            {isPreview ? <PreviewBanner /> : null}
+            <Header previewMode={isPreview} />
+            <main>{children}</main>
+            <Footer />
+          </div>
+        )}
       </body>
     </html>
   );

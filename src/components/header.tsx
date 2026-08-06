@@ -1,18 +1,81 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 import { navigation } from "@/lib/site-data";
 
-export function Header() {
+type MobileMenuProps = {
+  align?: "center" | "right";
+  label: string;
+};
+
+function MobileMenu({ align = "right", label }: MobileMenuProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const closeOnOutsideClick = (event: PointerEvent) => {
+      if (!menuRef.current?.contains(event.target as Node)) setIsOpen(false);
+    };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsOpen(false);
+    };
+
+    document.addEventListener("pointerdown", closeOnOutsideClick);
+    document.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.removeEventListener("pointerdown", closeOnOutsideClick);
+      document.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [isOpen]);
+
+  const menuId = `${label.toLowerCase().replaceAll(" ", "-")}-menu`;
+
+  return (
+    <div ref={menuRef} className="relative">
+      <button
+        type="button"
+        aria-controls={menuId}
+        aria-expanded={isOpen}
+        onClick={() => setIsOpen((open) => !open)}
+        className="flex min-h-10 cursor-pointer items-center rounded-full border border-[var(--color-border)] bg-white px-5 py-2 text-[11px] font-semibold tracking-[0.22em] uppercase text-[var(--color-charcoal)]"
+      >
+        {isOpen ? "Close" : "Menu"}
+      </button>
+      {isOpen ? (
+        <div
+          id={menuId}
+          className={`absolute top-full z-30 mt-3 w-[min(19rem,88vw)] rounded-[1.3rem] border border-[var(--color-border)] bg-[rgba(248,244,237,0.98)] p-3 shadow-[0_20px_60px_rgba(15,24,34,0.16)] backdrop-blur-xl ${
+            align === "center" ? "left-1/2 -translate-x-1/2" : "right-0"
+          }`}
+        >
+          <nav className="flex flex-col" aria-label={label}>
+            {navigation.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                className="rounded-[1rem] px-4 py-3 text-sm text-[var(--color-charcoal)] transition hover:bg-[var(--color-surface)] focus-visible:bg-[var(--color-surface)]"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+export function Header({ previewMode = false }: { previewMode?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 220);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 220);
 
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -48,33 +111,18 @@ export function Header() {
             ))}
           </nav>
 
-          <details className="relative mt-4 lg:hidden">
-            <summary className="mx-auto flex w-fit cursor-pointer list-none items-center rounded-full border border-[var(--color-border)] bg-white px-5 py-2 text-xs font-semibold tracking-[0.2em] uppercase text-[var(--color-charcoal)]">
-              Menu
-            </summary>
-            <div className="absolute left-1/2 top-full z-20 mt-3 w-[min(18rem,90vw)] -translate-x-1/2 rounded-[1.5rem] border border-[var(--color-border)] bg-white p-3 shadow-[0_20px_60px_rgba(15,23,31,0.12)]">
-              <nav className="flex flex-col" aria-label="Mobile">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="rounded-2xl px-4 py-3 text-sm text-[var(--color-charcoal)] transition hover:bg-[var(--color-surface)]"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </nav>
-            </div>
-          </details>
+          <div className="mt-4 flex justify-center lg:hidden">
+            <MobileMenu align="center" label="Mobile navigation" />
+          </div>
         </div>
       </header>
 
       <div
-        className={`fixed inset-x-0 top-0 z-50 transition duration-500 ${
+        className={`fixed inset-x-0 z-50 transition duration-500 ${previewMode ? "top-10" : "top-0"} ${
           scrolled ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
         }`}
       >
-        <div className="mx-auto mt-3 w-[min(96vw,84rem)] rounded-[1.35rem] border border-[rgba(255,255,255,0.35)] bg-[rgba(248,244,237,0.82)] px-4 py-3 shadow-[0_18px_60px_rgba(15,24,34,0.14)] backdrop-blur-2xl sm:px-5">
+        <div className="mx-auto mt-3 w-[min(96vw,84rem)] rounded-[1.35rem] border border-[rgba(255,255,255,0.35)] bg-[rgba(248,244,237,0.84)] px-4 py-3 shadow-[0_18px_60px_rgba(15,24,34,0.14)] backdrop-blur-2xl sm:px-5">
           <div className="flex items-center justify-between gap-4">
             <Link href="/" aria-label="Alford Custom Builders home" className="shrink-0">
               <Image
@@ -86,7 +134,7 @@ export function Header() {
               />
             </Link>
 
-            <nav className="hidden items-center gap-6 xl:flex" aria-label="Sticky Primary">
+            <nav className="hidden items-center gap-6 xl:flex" aria-label="Sticky primary">
               {navigation.map((item) => (
                 <Link
                   key={item.href}
@@ -105,24 +153,9 @@ export function Header() {
               >
                 Schedule a Consultation
               </Link>
-              <details className="relative xl:hidden">
-                <summary className="flex list-none cursor-pointer items-center rounded-full border border-[var(--color-border)] bg-white px-4 py-2 text-[11px] font-semibold tracking-[0.22em] uppercase text-[var(--color-charcoal)]">
-                  Menu
-                </summary>
-                <div className="absolute right-0 top-full mt-3 w-[min(18rem,84vw)] rounded-[1.3rem] border border-[var(--color-border)] bg-[rgba(248,244,237,0.98)] p-3 shadow-[0_20px_60px_rgba(15,24,34,0.16)] backdrop-blur-xl">
-                  <nav className="flex flex-col" aria-label="Sticky Mobile">
-                    {navigation.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="rounded-[1rem] px-4 py-3 text-sm text-[var(--color-charcoal)] transition hover:bg-[var(--color-surface)]"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </nav>
-                </div>
-              </details>
+              <div className="xl:hidden">
+                <MobileMenu label="Sticky mobile navigation" />
+              </div>
             </div>
           </div>
         </div>
