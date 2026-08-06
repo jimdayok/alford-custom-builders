@@ -4,7 +4,11 @@ import { useRef, useState } from "react";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
-export function ComingSoonInquiry() {
+type ComingSoonInquiryProps = {
+  buttonLabel?: string;
+};
+
+export function ComingSoonInquiry({ buttonLabel = "Request More Information" }: ComingSoonInquiryProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [status, setStatus] = useState<FormStatus>("idle");
   const [message, setMessage] = useState("");
@@ -49,7 +53,7 @@ export function ComingSoonInquiry() {
         onClick={openDialog}
         className="inline-flex min-h-14 items-center justify-center rounded-full bg-[var(--color-sand)] px-7 py-4 text-xs font-bold tracking-[0.22em] uppercase text-[var(--color-charcoal)] shadow-[0_18px_50px_rgba(0,0,0,0.2)] transition hover:-translate-y-0.5 hover:bg-[#efd9b8]"
       >
-        Request More Information
+        {buttonLabel}
       </button>
 
       <dialog

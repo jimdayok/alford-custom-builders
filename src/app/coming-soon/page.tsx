@@ -10,58 +10,29 @@ export const metadata: Metadata = {
 
 export default function ComingSoonPage() {
   return (
-    <section className="coming-soon-page relative isolate flex min-h-svh overflow-hidden bg-[#151a22] text-white">
+    <section className="coming-soon-page relative isolate min-h-svh overflow-hidden bg-[#111b29] text-white">
       <Image
-        src="/images/4301-armstrong-pkwy-hf-1-1.jpg"
-        alt="Alford Custom Builders residence in Dallas"
+        src="/logos/aclogoblue.png"
+        alt="Alford Custom Builders"
         fill
         priority
-        className="-z-30 object-cover object-center"
+        className="-z-30 object-contain object-center md:object-cover"
         sizes="100vw"
       />
-      <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(10,14,20,0.94)_0%,rgba(10,14,20,0.73)_47%,rgba(10,14,20,0.34)_100%)]" />
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_78%_20%,rgba(228,203,164,0.18),transparent_30%),linear-gradient(0deg,rgba(8,11,16,0.66),transparent_42%)]" />
+      <div className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,rgba(8,15,25,0.08)_35%,rgba(8,15,25,0.2)_62%,rgba(8,15,25,0.72)_100%)]" />
 
-      <div className="mx-auto flex min-h-svh w-full max-w-[96rem] flex-col px-5 py-6 sm:px-8 sm:py-8 lg:px-12 lg:py-10">
-        <header className="flex items-start justify-between gap-6 border-b border-white/16 pb-6">
-          <Image
-            src="/logos/aclogoblue.png"
-            alt="Alford Custom Builders"
-            width={220}
-            height={74}
-            className="h-14 w-auto bg-[#151a22]/90 object-contain shadow-[0_12px_40px_rgba(0,0,0,0.22)] sm:h-16"
-          />
-          <div className="hidden items-center gap-3 pt-3 text-[10px] font-semibold tracking-[0.24em] uppercase text-white/60 sm:flex">
-            <span className="h-2 w-2 rounded-full bg-[var(--color-sand)] shadow-[0_0_18px_var(--color-sand)]" />
-            Dallas, Texas
+      <main className="mx-auto flex min-h-svh w-full max-w-[100rem] items-end justify-center px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4 sm:px-7 sm:pb-7 lg:px-10 lg:pb-10">
+        <div className="grid w-full max-w-5xl items-center gap-5 rounded-[1.75rem] border border-[#ead6b6]/24 bg-[#08111e]/78 px-6 py-5 shadow-[0_24px_90px_rgba(0,0,0,0.42)] backdrop-blur-xl sm:px-8 sm:py-6 md:grid-cols-[1fr_auto] md:gap-8">
+          <div>
+            <p className="text-[9px] font-bold tracking-[0.3em] uppercase text-[#e4cba4] sm:text-[10px]">The next chapter is taking shape</p>
+            <div className="mt-2 flex flex-wrap items-baseline gap-x-4 gap-y-1">
+              <h1 className="font-serif text-[clamp(2.5rem,7vw,4.5rem)] font-normal leading-none tracking-[-0.035em] text-white">Coming Soon</h1>
+              <p className="text-[10px] font-semibold tracking-[0.24em] uppercase text-white/52">Dallas, Texas</p>
+            </div>
           </div>
-        </header>
-
-        <div className="grid flex-1 items-center py-12 lg:grid-cols-[1.05fr_0.95fr] lg:py-16">
-          <div className="max-w-4xl">
-            <p className="text-[10px] font-bold tracking-[0.32em] uppercase text-[var(--color-sand)] sm:text-xs">The next chapter is taking shape</p>
-            <h1 className="mt-6 font-serif text-[clamp(5rem,13vw,11.5rem)] font-normal leading-[0.68] tracking-[-0.055em]">
-              Coming<br /><span className="ml-[0.34em] italic text-[var(--color-sand)]">Soon.</span>
-            </h1>
-            <p className="mt-9 max-w-xl text-base leading-8 text-white/72 sm:text-lg">
-              A more personal standard for luxury homebuilding—defined by calm leadership, honest conversations, and exceptional execution.
-            </p>
-            <div className="mt-9"><ComingSoonInquiry /></div>
-          </div>
+          <ComingSoonInquiry buttonLabel="Click Here to Contact Us" />
         </div>
-
-        <footer className="grid gap-5 border-t border-white/16 pt-6 text-white/58 sm:grid-cols-3 sm:items-end">
-          <div>
-            <p className="text-[9px] font-bold tracking-[0.26em] uppercase text-[var(--color-sand)]">Built on trust</p>
-            <p className="mt-2 text-xs leading-5">Direct builder involvement from planning through closeout.</p>
-          </div>
-          <div>
-            <p className="text-[9px] font-bold tracking-[0.26em] uppercase text-[var(--color-sand)]">Rooted in Dallas</p>
-            <p className="mt-2 text-xs leading-5">Custom homes and estate renovations across Dallas neighborhoods.</p>
-          </div>
-          <p className="text-[9px] tracking-[0.2em] uppercase sm:text-right">© {new Date().getFullYear()} Alford Custom Builders</p>
-        </footer>
-      </div>
+      </main>
     </section>
   );
 }
