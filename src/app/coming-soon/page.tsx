@@ -11,14 +11,19 @@ export const metadata: Metadata = {
 export default function ComingSoonPage() {
   return (
     <section className="coming-soon-page relative isolate min-h-svh overflow-hidden bg-[#111b29] text-white">
-      <Image
-        src="/logos/aclogoblue.png"
-        alt="Alford Custom Builders"
-        fill
-        priority
-        className="-z-30 object-contain object-center md:object-cover"
-        sizes="100vw"
-      />
+      <div className="absolute inset-x-0 top-0 bottom-[clamp(10.5rem,21vh,14rem)] -z-30 flex items-center justify-center px-5 sm:px-10">
+        <Image
+          src="/logos/acb-logo-vector.svg"
+          alt="Alford Custom Builders"
+          width={1396}
+          height={636}
+          priority
+          unoptimized
+          className="h-auto w-full"
+          style={{ maxWidth: "68rem" }}
+          sizes="(max-width: 640px) 92vw, (max-width: 1280px) 78vw, 1088px"
+        />
+      </div>
       <div className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,rgba(8,15,25,0.08)_35%,rgba(8,15,25,0.2)_62%,rgba(8,15,25,0.72)_100%)]" />
 
       <main className="mx-auto flex min-h-svh w-full max-w-[100rem] items-end justify-center px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4 sm:px-7 sm:pb-7 lg:px-10 lg:pb-10">
