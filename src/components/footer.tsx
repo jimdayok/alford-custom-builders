@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { navigation } from "@/lib/site-data";
 import { getGlobalSettings } from "@/lib/cms/published-content";
+import { CookiePreferencesButton } from "@/components/cookie-preferences-button";
 
 export async function Footer() {
   const settings = await getGlobalSettings();
@@ -108,6 +109,9 @@ export async function Footer() {
           <p>© {new Date().getFullYear()} {settings.businessName}</p>
           <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-5">
             <p>Luxury custom homes and high-end remodels in Dallas</p>
+            <Link href="/privacy-policy" className="w-fit transition hover:text-[var(--color-wood)] hover:underline">Privacy policy</Link>
+            <Link href="/cookie-policy" className="w-fit transition hover:text-[var(--color-wood)] hover:underline">Cookie policy</Link>
+            <CookiePreferencesButton />
             <a
               href={websiteManagementUrl}
               className="w-fit border-b border-current pb-0.5 text-[10px] tracking-[0.18em] text-[rgba(22,32,43,0.44)] transition hover:text-[var(--color-wood)]"

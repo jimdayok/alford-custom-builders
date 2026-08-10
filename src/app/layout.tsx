@@ -6,6 +6,7 @@ import "./globals.css";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { PreviewBanner } from "@/components/preview-banner";
+import { CookieConsentProvider } from "@/components/cookie-consent-provider";
 import { siteConfig } from "@/lib/site-data";
 import { getGlobalSettings } from "@/lib/cms/published-content";
 
@@ -90,16 +91,18 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable}`}>
       <body>
-        {isComingSoon ? (
-          <main>{children}</main>
-        ) : (
-          <div className="site-bg min-h-screen">
-            {isPreview ? <PreviewBanner /> : null}
-            <Header previewMode={isPreview} />
+        <CookieConsentProvider>
+          {isComingSoon ? (
             <main>{children}</main>
-            <Footer />
-          </div>
-        )}
+          ) : (
+            <div className="site-bg min-h-screen">
+              {isPreview ? <PreviewBanner /> : null}
+              <Header previewMode={isPreview} />
+              <main>{children}</main>
+              <Footer />
+            </div>
+          )}
+        </CookieConsentProvider>
       </body>
     </html>
   );

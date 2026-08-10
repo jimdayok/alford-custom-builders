@@ -4,6 +4,7 @@ const MAIN_HOSTS = new Set([
   "alfordcustombuilders.com",
   "www.alfordcustombuilders.com",
 ]);
+const PUBLIC_POLICY_PATHS = new Set(["/privacy-policy", "/cookie-policy"]);
 
 function requestWithMode(request: NextRequest, mode: "preview" | "coming-soon") {
   const requestHeaders = new Headers(request.headers);
@@ -30,6 +31,9 @@ export function proxy(request: NextRequest) {
 
   if (isMain) {
     const headers = requestWithMode(request, "coming-soon");
+    if (PUBLIC_POLICY_PATHS.has(pathname)) {
+      return NextResponse.next({ request: { headers } });
+    }
     if (pathname === "/coming-soon") {
       return NextResponse.next({ request: { headers } });
     }

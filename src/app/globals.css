@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "@c15t/react/styles.css";
 
 :root {
   --color-warm-white: #f6f4ef;
