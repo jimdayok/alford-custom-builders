@@ -7,6 +7,13 @@ import { useEffect } from "react";
 let openPreferencesDialog: () => void = () => undefined;
 export function openCookiePreferences() { openPreferencesDialog(); }
 
+function PrivacyShieldIcon() {
+  return <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20">
+    <path fill="#191d25" d="M12 2.75 19.5 6v5.3c0 4.45-2.94 8.23-7.5 10.1-4.56-1.87-7.5-5.65-7.5-10.1V6L12 2.75Z" />
+    <path fill="none" stroke="#e4cba4" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.35" d="m8.4 12.2 2.25 2.25 4.95-5" />
+  </svg>;
+}
+
 const theme = {
   colors: { primary: "#191d25", primaryHover: "#2b3440", surface: "#f6f4ef", surfaceHover: "#e9e6df", text: "#191d25", textMuted: "#5f6268", textOnPrimary: "#ffffff" },
   radius: { md: "0.75rem", lg: "1rem" },
@@ -40,6 +47,6 @@ export function CookieConsentProvider({ children }: { children: React.ReactNode 
   }}>
     <ConsentStateBridge>{children}</ConsentStateBridge>
     <ConsentBanner hideBranding layout={[["reject", "accept"], "customize"]} primaryButton={["reject", "accept"]} legalLinks={["privacyPolicy", "cookiePolicy"]} />
-    <ConsentDialog hideBranding legalLinks={["privacyPolicy", "cookiePolicy"]} showTrigger={{ icon: "settings", ariaLabel: "Open privacy preferences", showWhen: "after-consent", size: "sm" }} />
+    <ConsentDialog hideBranding legalLinks={["privacyPolicy", "cookiePolicy"]} showTrigger={{ icon: <PrivacyShieldIcon />, ariaLabel: "Open privacy preferences", showWhen: "after-consent", size: "sm" }} />
   </ConsentManagerProvider>;
 }

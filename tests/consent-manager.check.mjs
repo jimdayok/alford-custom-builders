@@ -12,6 +12,9 @@ test("shared c15t manager gates measurement and exposes policy controls", async 
   assert.match(provider, /backendURL: "\/api\/c15t"/);
   assert.match(provider, /has\("measurement"\)/);
   assert.match(provider, /measurement \? <Analytics \/>/);
+  assert.match(provider, /function PrivacyShieldIcon\(\)/);
+  assert.match(provider, /icon: <PrivacyShieldIcon \/>/);
+  assert.doesNotMatch(provider, /icon: "settings"/);
   assert.match(config, /d2d-consent-service\.vercel\.app\/api\/c15t/);
   assert.match(layout, /CookieConsentProvider/);
   assert.match(footer, /CookiePreferencesButton/);
