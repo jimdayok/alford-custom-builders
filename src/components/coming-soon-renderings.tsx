@@ -123,8 +123,7 @@ export function ComingSoonRenderings() {
               >
                 <div className="relative z-10 mb-4 flex w-full max-w-[100rem] items-end justify-between gap-4 px-1 sm:mb-6">
                   <figcaption>
-                    <p className="text-[0.58rem] font-semibold tracking-[0.34em] text-[#d6b58f] uppercase">Plan {rendering.number}</p>
-                    <h2 className="mt-2 font-serif text-3xl font-normal tracking-[-0.025em] text-[#f7f3ec] sm:text-5xl">{rendering.title}</h2>
+                    <h2 className="font-serif text-3xl font-normal tracking-[-0.025em] text-[#f7f3ec] sm:text-5xl">{rendering.title}</h2>
                   </figcaption>
                   <a
                     href={rendering.pdf}
