@@ -4,7 +4,7 @@ import Image from "next/image";
 import { ComingSoonInquiry } from "@/components/coming-soon-inquiry";
 
 const navItemGroupClassName = "group relative text-[0.72rem] font-light tracking-[0.28em] sm:text-[0.86rem]";
-const navItemClassName = "leading-normal text-white/85 transition-colors hover:text-white";
+const navItemClassName = "leading-normal text-white";
 const navTooltipClassName = "pointer-events-none absolute top-full left-1/2 mt-3 -translate-x-1/2 translate-y-1 whitespace-nowrap rounded-full border border-white/20 bg-[#102538]/90 px-3 py-1.5 text-[0.5rem] font-semibold tracking-[0.24em] text-white opacity-0 shadow-lg backdrop-blur-md transition duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100";
 
 export const metadata: Metadata = {
@@ -72,7 +72,6 @@ export default function ComingSoonPage() {
                 buttonLabel="THE BUILDER"
                 buttonClassName={navItemClassName}
               />
-              <span aria-hidden="true" className={navTooltipClassName}>COMING SOON</span>
             </span>
           </nav>
         </div>
