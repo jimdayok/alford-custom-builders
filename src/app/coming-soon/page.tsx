@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import { ComingSoonInquiry } from "@/components/coming-soon-inquiry";
 import { ComingSoonLogoLink } from "@/components/coming-soon-logo-link";
+import { ComingSoonRenderings } from "@/components/coming-soon-renderings";
 
 const navItemGroupClassName = "group relative text-[0.72rem] font-light tracking-[0.28em] sm:text-[0.86rem]";
 const navItemClassName = "leading-normal text-white";
@@ -91,6 +92,7 @@ export default function ComingSoonPage() {
             <p className="mt-5 text-[0.68rem] font-semibold tracking-[0.42em] text-white sm:text-[0.86rem]">
               COMING SOON
             </p>
+            <ComingSoonRenderings />
           </div>
         </div>
         <div aria-hidden="true" className="min-h-[15svh]" />
@@ -103,7 +105,7 @@ export default function ComingSoonPage() {
             buttonClassName={`${navItemGroupClassName} ${navItemClassName}`}
           />
           <p className={`${navItemGroupClassName} ${navItemClassName} text-center`}>
-            © 2026 Alford Custom Homes
+            © 2026 Alford Custom Builders
           </p>
         </div>
       </footer>

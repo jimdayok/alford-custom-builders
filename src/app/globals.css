@@ -199,6 +199,65 @@ img {
   animation: dialog-in 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+.renderings-dialog[open] {
+  animation: renderings-dialog-in 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.renderings-dialog::backdrop {
+  animation: renderings-backdrop-in 500ms ease both;
+}
+
+.renderings-shell::before {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
+  content: "";
+  opacity: 0.11;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+}
+
+.rendering-panel::before {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(214, 181, 143, 0.09), transparent 31%),
+    radial-gradient(circle at 82% 72%, rgba(73, 113, 145, 0.13), transparent 38%),
+    linear-gradient(145deg, #0b1823 0%, #102638 54%, #09141e 100%);
+  content: "";
+}
+
+.rendering-frame {
+  transform: translateY(18px) scale(0.985);
+  opacity: 0;
+  animation: rendering-frame-in 780ms 160ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes renderings-dialog-in {
+  from {
+    opacity: 0;
+    transform: scale(1.018);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes renderings-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes rendering-frame-in {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 @keyframes dialog-in {
   from {
     opacity: 0;
@@ -215,6 +274,18 @@ img {
   .coming-soon-dialog {
     max-height: calc(100svh - 1.5rem);
     overflow-y: auto;
+  }
+
+  .renderings-scroll {
+    scroll-snap-type: y proximity;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .renderings-dialog[open],
+  .renderings-dialog::backdrop,
+  .rendering-frame {
+    animation: none;
   }
 }
 
