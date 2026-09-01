@@ -93,7 +93,7 @@ export default function ComingSoonPage() {
             </p>
           </div>
         </div>
-        <div aria-hidden="true" className="min-h-[30svh]" />
+        <div aria-hidden="true" className="min-h-[15svh]" />
       </main>
 
       <footer className="relative z-30 border-t border-white/20 bg-[rgba(11,28,43,0.3)]">
