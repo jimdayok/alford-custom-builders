@@ -95,7 +95,7 @@ export default function ComingSoonPage() {
             <ComingSoonRenderings />
           </div>
         </div>
-        <div aria-hidden="true" className="min-h-[7.5svh]" />
+        <div aria-hidden="true" className="min-h-[3svh]" />
       </main>
 
       <footer className="relative z-30 border-t border-white/20 bg-[rgba(11,28,43,0.3)]">
