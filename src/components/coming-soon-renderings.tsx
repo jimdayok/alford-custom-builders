@@ -136,7 +136,7 @@ export function ComingSoonRenderings() {
               <figure
                 key={rendering.number}
                 data-rendering
-                className="rendering-panel relative flex min-h-[calc(100svh-5.25rem)] snap-start flex-col items-center justify-start px-4 py-8 sm:px-8 lg:px-14"
+                className="rendering-panel relative flex min-h-[calc(100svh-5.25rem)] scroll-mt-[5.25rem] snap-start flex-col items-center justify-start px-4 py-8 sm:px-8 lg:px-14"
               >
                 <div className="relative z-10 mb-4 flex w-full max-w-[100rem] items-end justify-between gap-4 px-1 sm:mb-6">
                   <figcaption>
