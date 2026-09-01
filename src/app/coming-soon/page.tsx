@@ -31,7 +31,7 @@ export default function ComingSoonPage() {
       </div>
       <div className="absolute inset-0 z-10 bg-[linear-gradient(180deg,rgba(16,30,43,0.52)_0%,rgba(12,22,31,0.36)_42%,rgba(8,14,20,0.52)_100%)]" />
 
-      <header className="absolute inset-x-0 top-0 z-30 border-b border-white/15 bg-[rgba(12,29,44,0.18)]">
+      <header className="absolute inset-x-0 top-0 z-30 border-b border-white/20 bg-[rgba(11,28,43,0.3)]">
         <div className="mx-auto flex h-[6.5rem] w-full max-w-[96rem] items-center justify-between gap-5 px-5 sm:h-[7.75rem] sm:px-10 lg:px-12">
           <a href="#the-home" aria-label="Alford Custom Builders home" className="relative h-16 w-48 shrink-0 overflow-hidden sm:h-[4.5rem] sm:w-60">
             <Image
@@ -42,7 +42,21 @@ export default function ComingSoonPage() {
               preload
               unoptimized
               sizes="(max-width: 639px) 12rem, 15rem"
-              className="absolute top-1/2 left-0 h-auto w-full -translate-y-1/2"
+              className="absolute top-1/2 left-0 h-auto w-full -translate-y-1/2 brightness-0 invert [clip-path:inset(0_0_0_30%)] drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]"
+            />
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 bg-[#d6b58f] [clip-path:inset(0_70%_0_0)] drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]"
+              style={{
+                WebkitMaskImage: "url('/logos/alfordtemplogo.png')",
+                WebkitMaskPosition: "left center",
+                WebkitMaskRepeat: "no-repeat",
+                WebkitMaskSize: "100% auto",
+                maskImage: "url('/logos/alfordtemplogo.png')",
+                maskPosition: "left center",
+                maskRepeat: "no-repeat",
+                maskSize: "100% auto",
+              }}
             />
           </a>
 
