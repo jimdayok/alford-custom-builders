@@ -37,7 +37,7 @@ export function ComingSoonInquiry({
 
       form.reset();
       setStatus("success");
-      setMessage("Thank you. Alford Custom Builder’s Team will be in touch soon.");
+      setMessage("Thank you. Ben Alford will respond.");
     } catch (error) {
       setStatus("error");
       setMessage(error instanceof Error ? error.message : "Unable to send your request.");
@@ -79,7 +79,7 @@ export function ComingSoonInquiry({
 
           <p className="text-[10px] font-bold tracking-[0.28em] uppercase text-[var(--color-sand)]">Private inquiry</p>
           <h2 className="mt-4 max-w-xl font-serif text-4xl leading-[1.02] sm:text-5xl">Stay connected as the next chapter takes shape.</h2>
-          <p className="mt-4 max-w-lg text-sm leading-7 text-white/64">Share your name, email, and an optional note. Alford Custom Builder’s Team will follow up with more information.</p>
+          <p className="mt-4 max-w-lg text-sm leading-7 text-white/64">Share your name, email, and an optional note. Ben Alford will respond.</p>
 
           {status === "success" ? (
             <div role="status" className="mt-8 rounded-[1.25rem] border border-[var(--color-sand)]/35 bg-[var(--color-sand)]/10 p-6">
