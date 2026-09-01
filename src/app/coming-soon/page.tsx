@@ -32,7 +32,7 @@ export default function ComingSoonPage() {
       </div>
       <div className="fixed inset-0 z-10 bg-[linear-gradient(180deg,rgba(16,30,43,0.52)_0%,rgba(12,22,31,0.36)_42%,rgba(8,14,20,0.52)_100%)]" />
 
-      <header className="absolute inset-x-0 top-0 z-30 border-b border-white/20 bg-[rgba(11,28,43,0.3)]">
+      <header className="fixed inset-x-0 top-0 z-30 border-b border-white/20 bg-[rgba(11,28,43,0.3)]">
         <div className="mx-auto flex h-[6.5rem] w-full max-w-[96rem] items-center justify-between gap-5 px-5 sm:h-[7.75rem] sm:px-10 lg:px-12">
           <ComingSoonLogoLink className="relative h-16 w-48 shrink-0 overflow-hidden sm:h-[4.5rem] sm:w-60">
             <Image
@@ -79,26 +79,28 @@ export default function ComingSoonPage() {
         </div>
       </header>
 
-      <main className="relative z-20 mx-auto flex min-h-svh w-full max-w-[96rem] items-center justify-center px-5 pb-[max(2rem,env(safe-area-inset-bottom))] pt-[8.5rem] text-center sm:px-10 sm:pt-[10rem] lg:px-12">
-        <div className="-translate-y-[1vh] sm:translate-y-[3vh]">
-          <h1 className="font-serif text-[clamp(4.15rem,9.2vw,8.9rem)] font-normal leading-[0.78] tracking-[-0.055em] text-[#f7f3ec] [text-shadow:0_3px_28px_rgba(0,0,0,0.34)]">
-            Luxury. Personalized.
-          </h1>
-          <p className="mt-10 text-[0.68rem] font-semibold tracking-[0.34em] text-white/92 sm:mt-12 sm:text-[0.9rem]">
-            6207 PRESTONSHIRE <span aria-hidden="true">·</span> PRESTON HOLLOW
-          </p>
-          <p className="mt-5 text-[0.68rem] font-semibold tracking-[0.42em] text-white sm:text-[0.86rem]">
-            COMING SOON
-          </p>
+      <main className="relative z-20">
+        <div className="mx-auto flex min-h-svh w-full max-w-[96rem] items-center justify-center px-5 pb-[max(2rem,env(safe-area-inset-bottom))] pt-[8.5rem] text-center sm:px-10 sm:pt-[10rem] lg:px-12">
+          <div className="-translate-y-[1vh] sm:translate-y-[3vh]">
+            <h1 className="font-serif text-[clamp(4.15rem,9.2vw,8.9rem)] font-normal leading-[0.78] tracking-[-0.055em] text-[#f7f3ec] [text-shadow:0_3px_28px_rgba(0,0,0,0.34)]">
+              Luxury. Personalized.
+            </h1>
+            <p className="mt-10 text-[0.68rem] font-semibold tracking-[0.34em] text-white/92 sm:mt-12 sm:text-[0.9rem]">
+              6207 PRESTONSHIRE <span aria-hidden="true">·</span> PRESTON HOLLOW
+            </p>
+            <p className="mt-5 text-[0.68rem] font-semibold tracking-[0.42em] text-white sm:text-[0.86rem]">
+              COMING SOON
+            </p>
+          </div>
         </div>
+        <div aria-hidden="true" className="min-h-[70svh] sm:min-h-svh" />
       </main>
 
       <footer className="relative z-30 border-t border-white/20 bg-[rgba(11,28,43,0.3)]">
         <div className="mx-auto flex min-h-[6.5rem] w-full max-w-[96rem] items-center justify-center px-5 sm:min-h-[7.75rem] sm:px-10 lg:px-12">
-          <ComingSoonInquiry
-            buttonLabel="CONTACT THE BUILDER"
-            buttonClassName={`${navItemGroupClassName} ${navItemClassName}`}
-          />
+          <p className={`${navItemGroupClassName} ${navItemClassName} text-center`}>
+            © 2026 Alford Custom Homes
+          </p>
         </div>
       </footer>
     </section>
