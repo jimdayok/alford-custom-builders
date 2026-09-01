@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 import { ComingSoonInquiry } from "@/components/coming-soon-inquiry";
+import { ComingSoonLogoLink } from "@/components/coming-soon-logo-link";
 
 const navItemGroupClassName = "group relative text-[0.72rem] font-light tracking-[0.28em] sm:text-[0.86rem]";
 const navItemClassName = "leading-normal text-white";
@@ -33,7 +34,7 @@ export default function ComingSoonPage() {
 
       <header className="absolute inset-x-0 top-0 z-30 border-b border-white/20 bg-[rgba(11,28,43,0.3)]">
         <div className="mx-auto flex h-[6.5rem] w-full max-w-[96rem] items-center justify-between gap-5 px-5 sm:h-[7.75rem] sm:px-10 lg:px-12">
-          <a href="#the-home" aria-label="Alford Custom Builders home" className="relative h-16 w-48 shrink-0 overflow-hidden sm:h-[4.5rem] sm:w-60">
+          <ComingSoonLogoLink className="relative h-16 w-48 shrink-0 overflow-hidden sm:h-[4.5rem] sm:w-60">
             <Image
               src="/logos/alfordtemplogo.png"
               alt="Alford Custom Builders"
@@ -58,7 +59,7 @@ export default function ComingSoonPage() {
                 maskSize: "100% auto",
               }}
             />
-          </a>
+          </ComingSoonLogoLink>
 
           <nav className="flex items-center gap-5 sm:gap-12" aria-label="Coming soon navigation">
             <span className={`${navItemGroupClassName} hidden sm:inline-flex`}>
