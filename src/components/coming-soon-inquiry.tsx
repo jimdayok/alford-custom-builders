@@ -6,9 +6,13 @@ type FormStatus = "idle" | "submitting" | "success" | "error";
 
 type ComingSoonInquiryProps = {
   buttonLabel?: string;
+  buttonClassName?: string;
 };
 
-export function ComingSoonInquiry({ buttonLabel = "Request More Information" }: ComingSoonInquiryProps) {
+export function ComingSoonInquiry({
+  buttonLabel = "Request More Information",
+  buttonClassName,
+}: ComingSoonInquiryProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [status, setStatus] = useState<FormStatus>("idle");
   const [message, setMessage] = useState("");
@@ -51,7 +55,7 @@ export function ComingSoonInquiry({ buttonLabel = "Request More Information" }: 
       <button
         type="button"
         onClick={openDialog}
-        className="inline-flex min-h-14 items-center justify-center rounded-full bg-[var(--color-sand)] px-7 py-4 text-xs font-bold tracking-[0.22em] uppercase text-[var(--color-charcoal)] shadow-[0_18px_50px_rgba(0,0,0,0.2)] transition hover:-translate-y-0.5 hover:bg-[#efd9b8]"
+        className={buttonClassName ?? "inline-flex min-h-14 items-center justify-center rounded-full bg-[var(--color-sand)] px-7 py-4 text-xs font-bold tracking-[0.22em] uppercase text-[var(--color-charcoal)] shadow-[0_18px_50px_rgba(0,0,0,0.2)] transition hover:-translate-y-0.5 hover:bg-[#efd9b8]"}
       >
         {buttonLabel}
       </button>

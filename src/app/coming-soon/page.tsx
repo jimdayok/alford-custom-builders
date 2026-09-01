@@ -4,38 +4,74 @@ import Image from "next/image";
 import { ComingSoonInquiry } from "@/components/coming-soon-inquiry";
 
 export const metadata: Metadata = {
-  title: "Coming Soon",
-  description: "A more personal standard for luxury homebuilding is coming soon from Alford Custom Builders in Dallas.",
+  title: "6207 Prestonshire | Coming Soon",
+  description: "Luxury, personalized. A new Alford Custom Builders residence is coming soon to 6207 Prestonshire in Preston Hollow.",
 };
 
 export default function ComingSoonPage() {
   return (
-    <section className="coming-soon-page relative isolate min-h-svh overflow-hidden bg-[#111b29] text-white">
-      <div className="absolute inset-x-0 top-0 bottom-[clamp(10.5rem,21vh,14rem)] -z-30 flex items-center justify-center px-5 sm:px-10">
+    <section
+      id="the-home"
+      className="coming-soon-page relative isolate min-h-svh overflow-hidden bg-[#1b2834] text-white"
+    >
+      <div className="absolute inset-0 z-0">
         <Image
-          src="/logos/acb-logo-vector.svg"
-          alt="Alford Custom Builders"
-          width={1396}
-          height={636}
-          priority
+          src="/images/prestonshire-coming-soon.jpg"
+          alt="Architectural rendering of the residence planned for 6207 Prestonshire in Preston Hollow"
+          fill
+          preload
           unoptimized
-          className="h-auto w-full"
-          style={{ maxWidth: "68rem" }}
-          sizes="(max-width: 640px) 92vw, (max-width: 1280px) 78vw, 1088px"
+          className="object-cover object-[58%_center] sm:object-center"
+          sizes="100vw"
         />
       </div>
-      <div className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,rgba(8,15,25,0.08)_35%,rgba(8,15,25,0.2)_62%,rgba(8,15,25,0.72)_100%)]" />
+      <div className="absolute inset-0 z-10 bg-[linear-gradient(180deg,rgba(16,30,43,0.52)_0%,rgba(12,22,31,0.36)_42%,rgba(8,14,20,0.52)_100%)]" />
 
-      <main className="mx-auto flex min-h-svh w-full max-w-[100rem] items-end justify-center px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4 sm:px-7 sm:pb-7 lg:px-10 lg:pb-10">
-        <div className="grid w-full max-w-5xl items-center gap-5 rounded-[1.75rem] border border-[#ead6b6]/24 bg-[#08111e]/78 px-6 py-5 shadow-[0_24px_90px_rgba(0,0,0,0.42)] backdrop-blur-xl sm:px-8 sm:py-6 md:grid-cols-[1fr_auto] md:gap-8">
-          <div>
-            <p className="text-[9px] font-bold tracking-[0.3em] uppercase text-[#e4cba4] sm:text-[10px]">The next chapter is taking shape</p>
-            <div className="mt-2 flex flex-wrap items-baseline gap-x-4 gap-y-1">
-              <h1 className="font-serif text-[clamp(2.5rem,7vw,4.5rem)] font-normal leading-none tracking-[-0.035em] text-white">Coming Soon</h1>
-              <p className="text-[10px] font-semibold tracking-[0.24em] uppercase text-white/52">Dallas, Texas</p>
-            </div>
-          </div>
-          <ComingSoonInquiry buttonLabel="Click Here to Contact Us" />
+      <header className="absolute inset-x-0 top-0 z-30 border-b border-white/15">
+        <div className="mx-auto flex h-[6.5rem] w-full max-w-[96rem] items-center justify-between gap-5 px-5 sm:h-[7.75rem] sm:px-10 lg:px-12">
+          <a href="#the-home" aria-label="Alford Custom Builders home" className="flex shrink-0 items-center gap-3 sm:gap-4">
+            <span className="relative h-[3.65rem] w-[2.9rem] shrink-0 sm:h-[4.2rem] sm:w-[3.35rem]">
+              <Image
+                src="/brand/alford-mark.svg"
+                alt=""
+                fill
+                preload
+                unoptimized
+                sizes="(max-width: 639px) 46px, 54px"
+              />
+            </span>
+            <span className="leading-none">
+              <span className="block text-[1.05rem] font-light tracking-[0.29em] text-white sm:text-[1.35rem]">ALFORD</span>
+              <span className="mt-1.5 block text-[0.38rem] font-semibold tracking-[0.34em] text-white/80 sm:text-[0.46rem]">CUSTOM BUILDERS</span>
+            </span>
+          </a>
+
+          <nav className="flex items-center gap-5 sm:gap-12" aria-label="Coming soon navigation">
+            <a
+              href="#the-home"
+              className="hidden text-[0.64rem] font-semibold tracking-[0.32em] text-white/80 transition hover:text-white sm:inline"
+            >
+              THE HOME
+            </a>
+            <ComingSoonInquiry
+              buttonLabel="THE BUILDER"
+              buttonClassName="text-[0.64rem] font-semibold tracking-[0.32em] text-white/80 transition hover:text-white"
+            />
+          </nav>
+        </div>
+      </header>
+
+      <main className="relative z-20 mx-auto flex min-h-svh w-full max-w-[96rem] items-center justify-center px-5 pb-[max(2rem,env(safe-area-inset-bottom))] pt-[8.5rem] text-center sm:px-10 sm:pt-[10rem] lg:px-12">
+        <div className="-translate-y-[1vh] sm:translate-y-[3vh]">
+          <h1 className="font-serif text-[clamp(4.15rem,9.2vw,8.9rem)] font-normal leading-[0.78] tracking-[-0.055em] text-[#f7f3ec] [text-shadow:0_3px_28px_rgba(0,0,0,0.34)]">
+            Luxury. Personalized.
+          </h1>
+          <p className="mt-10 text-[0.68rem] font-semibold tracking-[0.34em] text-white/92 sm:mt-12 sm:text-[0.9rem]">
+            6207 PRESTONSHIRE <span aria-hidden="true">·</span> PRESTON HOLLOW
+          </p>
+          <p className="mt-5 text-[0.68rem] font-semibold tracking-[0.42em] text-white sm:text-[0.86rem]">
+            COMING SOON
+          </p>
         </div>
       </main>
     </section>

@@ -17,6 +17,15 @@ export function proxy(request: NextRequest) {
   const localMode = process.env.NODE_ENV !== "production" ? request.nextUrl.searchParams.get("site_mode") : null;
   const isPreview = hostname === "preview.alfordcustombuilders.com" || localMode === "preview";
   const isMain = MAIN_HOSTS.has(hostname) || localMode === "coming-soon";
+  const isComingSoonDeploymentPreview = hostname.endsWith(".vercel.app") && pathname === "/coming-soon";
+
+  if (isComingSoonDeploymentPreview) {
+    const response = NextResponse.next({
+      request: { headers: requestWithMode(request, "coming-soon") },
+    });
+    response.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+    return response;
+  }
 
   if (isPreview) {
     if (pathname === "/coming-soon") return NextResponse.redirect(new URL("/", request.url));
