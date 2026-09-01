@@ -158,20 +158,13 @@ export function ComingSoonRenderings() {
                     alt={rendering.alt}
                     width={2640}
                     height={2040}
+                    loading="eager"
                     unoptimized
                     sizes="(max-width: 639px) 96vw, (max-width: 1199px) 92vw, 1600px"
                     className="h-auto max-h-[calc(100svh-18rem)] w-auto max-w-full bg-white"
                   />
                 </div>
 
-                <a
-                  href={rendering.pdf}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="relative z-10 mt-5 text-[0.55rem] font-semibold tracking-[0.22em] text-white/52 uppercase transition hover:text-[#d6b58f] sm:hidden"
-                >
-                  Open full-resolution PDF ↗
-                </a>
               </figure>
             ))}
           </div>
