@@ -7,6 +7,7 @@ const inquirySchema = z.object({
   firstName: z.string().trim().min(1).max(80),
   lastName: z.string().trim().min(1).max(80),
   email: z.string().trim().email().max(254),
+  note: z.string().trim().max(2000).optional().default(""),
   website: z.string().max(240).optional().default(""),
 });
 

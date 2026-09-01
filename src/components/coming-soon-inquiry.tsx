@@ -37,7 +37,7 @@ export function ComingSoonInquiry({
 
       form.reset();
       setStatus("success");
-      setMessage("Thank you. Andrea will be in touch soon.");
+      setMessage("Thank you. Alford Custom Builder’s Team will be in touch soon.");
     } catch (error) {
       setStatus("error");
       setMessage(error instanceof Error ? error.message : "Unable to send your request.");
@@ -62,7 +62,7 @@ export function ComingSoonInquiry({
 
       <dialog
         ref={dialogRef}
-        className="coming-soon-dialog m-auto w-[min(92vw,42rem)] max-w-none rounded-[1.75rem] border border-white/14 bg-[#171c24] p-0 text-white shadow-[0_40px_120px_rgba(0,0,0,0.55)] backdrop:bg-[#080b10]/80 backdrop:backdrop-blur-sm"
+        className="coming-soon-dialog m-auto max-h-[calc(100svh-2rem)] w-[min(92vw,42rem)] max-w-none overflow-y-auto rounded-[1.75rem] border border-white/14 bg-[#171c24] p-0 text-white shadow-[0_40px_120px_rgba(0,0,0,0.55)] backdrop:bg-[#080b10]/80 backdrop:backdrop-blur-sm"
         onClick={(event) => {
           if (event.target === dialogRef.current) dialogRef.current?.close();
         }}
@@ -79,7 +79,7 @@ export function ComingSoonInquiry({
 
           <p className="text-[10px] font-bold tracking-[0.28em] uppercase text-[var(--color-sand)]">Private inquiry</p>
           <h2 className="mt-4 max-w-xl font-serif text-4xl leading-[1.02] sm:text-5xl">Stay connected as the next chapter takes shape.</h2>
-          <p className="mt-4 max-w-lg text-sm leading-7 text-white/64">Share your name and email. Andrea will follow up with more information about Alford Custom Builders.</p>
+          <p className="mt-4 max-w-lg text-sm leading-7 text-white/64">Share your name, email, and an optional note. Alford Custom Builder’s Team will follow up with more information.</p>
 
           {status === "success" ? (
             <div role="status" className="mt-8 rounded-[1.25rem] border border-[var(--color-sand)]/35 bg-[var(--color-sand)]/10 p-6">
@@ -100,6 +100,10 @@ export function ComingSoonInquiry({
               <label className="grid gap-2 text-sm text-white/78 sm:col-span-2">
                 <span>Email</span>
                 <input required type="email" autoComplete="email" name="email" placeholder="you@example.com" className="rounded-xl border border-white/14 bg-white/7 px-4 py-3.5 text-white outline-none transition placeholder:text-white/30 focus:border-[var(--color-sand)]" />
+              </label>
+              <label className="grid gap-2 text-sm text-white/78 sm:col-span-2">
+                <span>Note <span className="text-white/42">(optional)</span></span>
+                <textarea name="note" maxLength={2000} rows={4} placeholder="Tell us a little about your project or what you would like to know." className="resize-y rounded-xl border border-white/14 bg-white/7 px-4 py-3.5 text-white outline-none transition placeholder:text-white/30 focus:border-[var(--color-sand)]" />
               </label>
               <label className="absolute -left-[10000px]" aria-hidden="true">
                 <span>Company website</span>

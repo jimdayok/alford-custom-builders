@@ -4,6 +4,7 @@ type InquiryEmailInput = {
   firstName: string;
   lastName: string;
   email: string;
+  note?: string;
 };
 
 function escapeHtml(value: string) {
@@ -16,11 +17,19 @@ function escapeHtml(value: string) {
   })[character] ?? character);
 }
 
-export function buildComingSoonInquiryEmail({ firstName, lastName, email }: InquiryEmailInput) {
+export function buildComingSoonInquiryEmail({ firstName, lastName, email, note = "" }: InquiryEmailInput) {
   const safeFirstName = escapeHtml(firstName);
   const safeLastName = escapeHtml(lastName);
   const safeEmail = escapeHtml(email);
+  const safeNote = escapeHtml(note.trim());
   const fullName = `${firstName} ${lastName}`;
+  const noteRow = safeNote
+    ? `<tr>
+                    <td style="width:120px;padding:16px 18px;background:#f6f7f8;border-top:1px solid #dfe4e7;color:#66727c;font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;vertical-align:top;">Note</td>
+                    <td style="padding:16px 18px;border-top:1px solid #dfe4e7;color:#17212b;font-size:16px;line-height:1.6;white-space:pre-wrap;word-break:break-word;">${safeNote}</td>
+                  </tr>`
+    : "";
+  const textNote = note.trim() ? `\nNote:\n${note.trim()}\n` : "";
 
   return {
     subject: `New Website Inquiry — ${fullName} | Alford Custom Builders`,
@@ -55,6 +64,7 @@ export function buildComingSoonInquiryEmail({ firstName, lastName, email }: Inqu
                     <td style="width:120px;padding:16px 18px;background:#f6f7f8;color:#66727c;font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;">Email</td>
                     <td style="padding:16px 18px;color:#17212b;font-size:16px;"><a href="mailto:${safeEmail}" style="color:#8b6847;text-decoration:underline;text-underline-offset:3px;">${safeEmail}</a></td>
                   </tr>
+                  ${noteRow}
                 </table>
                 <table role="presentation" cellspacing="0" cellpadding="0" style="margin-top:28px;">
                   <tr>
@@ -72,6 +82,6 @@ export function buildComingSoonInquiryEmail({ firstName, lastName, email }: Inqu
     </table>
   </body>
 </html>`,
-    text: `NEW WEBSITE INQUIRY — ALFORD CUSTOM BUILDERS\n\nA prospective client submitted the contact form at alfordcustombuilders.com.\n\nName: ${fullName}\nEmail: ${email}\n\nReply directly to this email to contact ${firstName}.`,
+    text: `NEW WEBSITE INQUIRY — ALFORD CUSTOM BUILDERS\n\nA prospective client submitted the contact form at alfordcustombuilders.com.\n\nName: ${fullName}\nEmail: ${email}\n${textNote}\nReply directly to this email to contact ${firstName}.`,
   };
 }
