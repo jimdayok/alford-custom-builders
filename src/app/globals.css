@@ -185,6 +185,16 @@ img {
   mix-blend-mode: soft-light;
 }
 
+.coming-soon-background {
+  object-fit: cover;
+}
+
+@media (min-width: 900px) and (min-aspect-ratio: 3 / 2) and (max-aspect-ratio: 17 / 10) {
+  .coming-soon-background {
+    object-fit: contain;
+  }
+}
+
 .coming-soon-dialog[open] {
   animation: dialog-in 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }

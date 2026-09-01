@@ -17,20 +17,20 @@ export default function ComingSoonPage() {
   return (
     <section
       id="the-home"
-      className="coming-soon-page relative isolate min-h-svh overflow-hidden bg-[#1b2834] text-white"
+      className="coming-soon-page relative isolate min-h-svh overflow-x-clip bg-[#1b2834] text-white"
     >
-      <div className="absolute inset-0 z-0">
+      <div className="fixed inset-0 z-0 bg-[#1b2834]">
         <Image
           src="/images/prestonshire-coming-soon.jpg"
           alt="Architectural rendering of the residence planned for 6207 Prestonshire in Preston Hollow"
           fill
           preload
           unoptimized
-          className="object-cover object-[58%_center] sm:object-center"
+          className="coming-soon-background object-[58%_center] sm:object-center"
           sizes="100vw"
         />
       </div>
-      <div className="absolute inset-0 z-10 bg-[linear-gradient(180deg,rgba(16,30,43,0.52)_0%,rgba(12,22,31,0.36)_42%,rgba(8,14,20,0.52)_100%)]" />
+      <div className="fixed inset-0 z-10 bg-[linear-gradient(180deg,rgba(16,30,43,0.52)_0%,rgba(12,22,31,0.36)_42%,rgba(8,14,20,0.52)_100%)]" />
 
       <header className="absolute inset-x-0 top-0 z-30 border-b border-white/20 bg-[rgba(11,28,43,0.3)]">
         <div className="mx-auto flex h-[6.5rem] w-full max-w-[96rem] items-center justify-between gap-5 px-5 sm:h-[7.75rem] sm:px-10 lg:px-12">
@@ -73,6 +73,7 @@ export default function ComingSoonPage() {
                 buttonLabel="THE BUILDER"
                 buttonClassName={navItemClassName}
               />
+              <span aria-hidden="true" className={navTooltipClassName}>COMING SOON</span>
             </span>
           </nav>
         </div>
@@ -91,6 +92,15 @@ export default function ComingSoonPage() {
           </p>
         </div>
       </main>
+
+      <footer className="relative z-30 border-t border-white/20 bg-[rgba(11,28,43,0.3)]">
+        <div className="mx-auto flex min-h-[6.5rem] w-full max-w-[96rem] items-center justify-center px-5 sm:min-h-[7.75rem] sm:px-10 lg:px-12">
+          <ComingSoonInquiry
+            buttonLabel="CONTACT THE BUILDER"
+            buttonClassName={`${navItemGroupClassName} ${navItemClassName}`}
+          />
+        </div>
+      </footer>
     </section>
   );
 }
