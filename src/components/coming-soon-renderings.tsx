@@ -82,9 +82,26 @@ export function ComingSoonRenderings() {
         <div className="renderings-shell relative h-full overflow-hidden">
           <header className="absolute inset-x-0 top-0 z-30 border-b border-white/12 bg-[#0b1823]/82 backdrop-blur-xl">
             <div className="mx-auto flex h-[5.25rem] max-w-[112rem] items-center justify-between gap-4 px-5 sm:px-10 lg:px-14">
-              <div className="min-w-0">
-                <p className="truncate text-[0.56rem] font-semibold tracking-[0.3em] text-[#d6b58f] uppercase sm:text-[0.64rem]">6207 Prestonshire</p>
-                <p className="mt-1 hidden text-[0.58rem] tracking-[0.26em] text-white/52 uppercase sm:block">Architectural plans</p>
+              <div className="flex min-w-0 items-center gap-4 sm:gap-5">
+                <span
+                  aria-hidden="true"
+                  className="block h-12 w-12 shrink-0 bg-[#d6b58f]"
+                  style={{
+                    WebkitMaskImage: "url('/logos/alfordtemplogo.png')",
+                    WebkitMaskPosition: "left center",
+                    WebkitMaskRepeat: "no-repeat",
+                    WebkitMaskSize: "10rem auto",
+                    maskImage: "url('/logos/alfordtemplogo.png')",
+                    maskPosition: "left center",
+                    maskRepeat: "no-repeat",
+                    maskSize: "10rem auto",
+                  }}
+                />
+                <span aria-hidden="true" className="hidden h-8 w-px bg-white/16 sm:block" />
+                <div className="hidden min-w-0 sm:block">
+                  <p className="truncate text-[0.56rem] font-semibold tracking-[0.3em] text-[#d6b58f] uppercase sm:text-[0.64rem]">6207 Prestonshire</p>
+                  <p className="mt-1 text-[0.58rem] tracking-[0.26em] text-white/52 uppercase">Architectural plans</p>
+                </div>
               </div>
 
               <div className="ml-auto flex items-center gap-4 sm:gap-7">
@@ -119,7 +136,7 @@ export function ComingSoonRenderings() {
               <figure
                 key={rendering.number}
                 data-rendering
-                className="rendering-panel relative flex min-h-[calc(100svh-5.25rem)] snap-start flex-col items-center justify-center px-4 py-10 sm:px-8 sm:py-14 lg:px-14"
+                className="rendering-panel relative flex min-h-[calc(100svh-5.25rem)] snap-start flex-col items-center justify-start px-4 py-8 sm:px-8 lg:px-14"
               >
                 <div className="relative z-10 mb-4 flex w-full max-w-[100rem] items-end justify-between gap-4 px-1 sm:mb-6">
                   <figcaption>
@@ -143,7 +160,7 @@ export function ComingSoonRenderings() {
                     height={2040}
                     unoptimized
                     sizes="(max-width: 639px) 96vw, (max-width: 1199px) 92vw, 1600px"
-                    className="h-auto max-h-[calc(100svh-15rem)] w-auto max-w-full bg-white"
+                    className="h-auto max-h-[calc(100svh-18rem)] w-auto max-w-full bg-white"
                   />
                 </div>
 
