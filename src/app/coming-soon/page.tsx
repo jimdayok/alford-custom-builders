@@ -97,7 +97,11 @@ export default function ComingSoonPage() {
       </main>
 
       <footer className="relative z-30 border-t border-white/20 bg-[rgba(11,28,43,0.3)]">
-        <div className="mx-auto flex min-h-[6.5rem] w-full max-w-[96rem] items-center justify-center px-5 sm:min-h-[7.75rem] sm:px-10 lg:px-12">
+        <div className="mx-auto flex min-h-[6.5rem] w-full max-w-[96rem] flex-col items-center justify-center gap-4 px-5 py-6 sm:min-h-[7.75rem] sm:flex-row sm:justify-between sm:px-10 sm:py-0 lg:px-12">
+          <ComingSoonInquiry
+            buttonLabel="CONTACT THE BUILDER"
+            buttonClassName={`${navItemGroupClassName} ${navItemClassName}`}
+          />
           <p className={`${navItemGroupClassName} ${navItemClassName} text-center`}>
             © 2026 Alford Custom Homes
           </p>
