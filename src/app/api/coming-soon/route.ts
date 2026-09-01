@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 
+import { buildComingSoonInquiryEmail, DEFAULT_INQUIRY_TO_EMAIL } from "@/lib/coming-soon-inquiry-email";
+
 const inquirySchema = z.object({
   firstName: z.string().trim().min(1).max(80),
   lastName: z.string().trim().min(1).max(80),
@@ -13,16 +15,6 @@ const allowedOrigins = new Set([
   "https://www.alfordcustombuilders.com",
   "https://preview.alfordcustombuilders.com",
 ]);
-
-function escapeHtml(value: string) {
-  return value.replace(/[&<>'"]/g, (character) => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    "'": "&#039;",
-    '"': "&quot;",
-  })[character] ?? character);
-}
 
 function brandedFromAddress(configuredFrom: string) {
   const angleAddress = configuredFrom.match(/<([^>]+)>/)?.[1];
@@ -52,15 +44,13 @@ export async function POST(request: Request) {
 
   const apiKey = process.env.RESEND_API_KEY;
   const configuredFrom = process.env.ALFORD_INQUIRY_FROM_EMAIL;
-  const to = process.env.ALFORD_INQUIRY_TO_EMAIL || "andrea@d2dmktg.com";
+  const to = process.env.ALFORD_INQUIRY_TO_EMAIL || DEFAULT_INQUIRY_TO_EMAIL;
   if (!apiKey || !configuredFrom) {
     console.error("Coming-soon inquiry email is not configured.");
     return NextResponse.json({ message: "Email delivery is temporarily unavailable. Please try again soon." }, { status: 503 });
   }
 
-  const firstName = escapeHtml(parsed.data.firstName);
-  const lastName = escapeHtml(parsed.data.lastName);
-  const email = escapeHtml(parsed.data.email);
+  const emailContent = buildComingSoonInquiryEmail(parsed.data);
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
@@ -71,19 +61,7 @@ export async function POST(request: Request) {
       from: brandedFromAddress(configuredFrom),
       to: [to],
       reply_to: parsed.data.email,
-      subject: `Alford coming-soon inquiry from ${parsed.data.firstName} ${parsed.data.lastName}`,
-      html: `
-        <div style="font-family:Arial,sans-serif;max-width:620px;margin:0 auto;color:#171c24">
-          <p style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#98734f">Alford Custom Builders</p>
-          <h1 style="font-family:Georgia,serif;font-size:34px;font-weight:normal">New coming-soon inquiry</h1>
-          <table style="width:100%;border-collapse:collapse;margin-top:24px">
-            <tr><td style="padding:12px;border-bottom:1px solid #ddd">Name</td><td style="padding:12px;border-bottom:1px solid #ddd"><strong>${firstName} ${lastName}</strong></td></tr>
-            <tr><td style="padding:12px;border-bottom:1px solid #ddd">Email</td><td style="padding:12px;border-bottom:1px solid #ddd"><a href="mailto:${email}">${email}</a></td></tr>
-          </table>
-          <p style="margin-top:24px;color:#666">Submitted through alfordcustombuilders.com.</p>
-        </div>
-      `,
-      text: `New Alford coming-soon inquiry\n\nName: ${parsed.data.firstName} ${parsed.data.lastName}\nEmail: ${parsed.data.email}`,
+      ...emailContent,
     }),
   });
 
