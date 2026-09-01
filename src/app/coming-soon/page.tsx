@@ -3,6 +3,10 @@ import Image from "next/image";
 
 import { ComingSoonInquiry } from "@/components/coming-soon-inquiry";
 
+const navItemGroupClassName = "group relative text-[0.72rem] font-light tracking-[0.28em] sm:text-[0.86rem]";
+const navItemClassName = "leading-normal text-white/85 transition-colors hover:text-white";
+const navTooltipClassName = "pointer-events-none absolute top-full left-1/2 mt-3 -translate-x-1/2 translate-y-1 whitespace-nowrap rounded-full border border-white/20 bg-[#102538]/90 px-3 py-1.5 text-[0.5rem] font-semibold tracking-[0.24em] text-white opacity-0 shadow-lg backdrop-blur-md transition duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100";
+
 export const metadata: Metadata = {
   title: "6207 Prestonshire | Coming Soon",
   description: "Luxury, personalized. A new Alford Custom Builders residence is coming soon to 6207 Prestonshire in Preston Hollow.",
@@ -27,36 +31,35 @@ export default function ComingSoonPage() {
       </div>
       <div className="absolute inset-0 z-10 bg-[linear-gradient(180deg,rgba(16,30,43,0.52)_0%,rgba(12,22,31,0.36)_42%,rgba(8,14,20,0.52)_100%)]" />
 
-      <header className="absolute inset-x-0 top-0 z-30 border-b border-white/15">
+      <header className="absolute inset-x-0 top-0 z-30 border-b border-white/15 bg-[rgba(12,29,44,0.18)]">
         <div className="mx-auto flex h-[6.5rem] w-full max-w-[96rem] items-center justify-between gap-5 px-5 sm:h-[7.75rem] sm:px-10 lg:px-12">
-          <a href="#the-home" aria-label="Alford Custom Builders home" className="flex shrink-0 items-center gap-3 sm:gap-4">
-            <span className="relative h-[3.65rem] w-[2.9rem] shrink-0 sm:h-[4.2rem] sm:w-[3.35rem]">
-              <Image
-                src="/brand/alford-mark.svg"
-                alt=""
-                fill
-                preload
-                unoptimized
-                sizes="(max-width: 639px) 46px, 54px"
-              />
-            </span>
-            <span className="leading-none">
-              <span className="block text-[1.05rem] font-light tracking-[0.29em] text-white sm:text-[1.35rem]">ALFORD</span>
-              <span className="mt-1.5 block text-[0.38rem] font-semibold tracking-[0.34em] text-white/80 sm:text-[0.46rem]">CUSTOM BUILDERS</span>
-            </span>
+          <a href="#the-home" aria-label="Alford Custom Builders home" className="relative h-16 w-48 shrink-0 overflow-hidden sm:h-[4.5rem] sm:w-60">
+            <Image
+              src="/logos/alfordtemplogo.png"
+              alt="Alford Custom Builders"
+              width={1000}
+              height={562}
+              preload
+              unoptimized
+              sizes="(max-width: 639px) 12rem, 15rem"
+              className="absolute top-1/2 left-0 h-auto w-full -translate-y-1/2"
+            />
           </a>
 
           <nav className="flex items-center gap-5 sm:gap-12" aria-label="Coming soon navigation">
-            <a
-              href="#the-home"
-              className="hidden text-[0.64rem] font-semibold tracking-[0.32em] text-white/80 transition hover:text-white sm:inline"
-            >
-              THE HOME
-            </a>
-            <ComingSoonInquiry
-              buttonLabel="THE BUILDER"
-              buttonClassName="text-[0.64rem] font-semibold tracking-[0.32em] text-white/80 transition hover:text-white"
-            />
+            <span className={`${navItemGroupClassName} hidden sm:inline-flex`}>
+              <a href="#the-home" className={navItemClassName}>
+                THE HOME
+              </a>
+              <span aria-hidden="true" className={navTooltipClassName}>COMING SOON</span>
+            </span>
+            <span className={`${navItemGroupClassName} inline-flex`}>
+              <ComingSoonInquiry
+                buttonLabel="THE BUILDER"
+                buttonClassName={navItemClassName}
+              />
+              <span aria-hidden="true" className={navTooltipClassName}>COMING SOON</span>
+            </span>
           </nav>
         </div>
       </header>
