@@ -10,11 +10,10 @@ export const siteConfig = {
 };
 
 export const navigation = [
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/portfolio", label: "Gallery" },
-  { href: "/service-areas", label: "Service Areas" },
-  { href: "/journal", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 

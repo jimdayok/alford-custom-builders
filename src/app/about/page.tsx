@@ -1,133 +1,115 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 
-import { CTA } from "@/components/cta";
-import { PageHero } from "@/components/page-hero";
-import { SectionHeading } from "@/components/section-heading";
-import { getAboutPageContent } from "@/lib/cms/published-content";
+import { BrandActions } from "@/components/brand/brand-actions";
+import { ClosingPanel } from "@/components/brand/closing-panel";
+import { EditorialHero } from "@/components/brand/editorial-hero";
+import { StatementBand } from "@/components/brand/statement-band";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const { data } = await getAboutPageContent();
-  return { title: data.seo.title, description: data.seo.description };
-}
+export const metadata: Metadata = {
+  title: "About Alford",
+  description:
+    "Meet Alford Custom Builders and discover the preparation, relationships, communication, and standards behind every exceptional home.",
+};
 
-export default async function AboutPage() {
-  const { data, source } = await getAboutPageContent();
+const values = [
+  "People before projects.",
+  "Trust before transactions.",
+  "Preparation before promises.",
+  "Details over shortcuts.",
+  "Action over words.",
+  "Experience over ego.",
+];
+
+export default function AboutPage() {
   return (
     <>
-      {source === "preview" ? <div role="status" className="fixed right-4 bottom-4 z-[100] rounded-full bg-[#d8b486] px-4 py-2 text-xs font-semibold text-[#101820] shadow-xl">Draft preview · <a className="underline" href="/api/cms/exit-preview">Exit preview</a></div> : null}
-      <PageHero
-        eyebrow={data.eyebrow}
-        title={data.heading}
-        description={data.introduction}
+      <EditorialHero
+        eyebrow="About Alford"
+        title={<>Building Homes Is What We Do.<br />How We Build Relationships Is Who We Are.</>}
+        subheadline="Because the home is the product. The experience is the brand."
+        intro={
+          <>
+            <p>At Alford Custom Builders, we believe exceptional craftsmanship should be expected from a luxury builder.</p>
+            <p>What should set a builder apart is everything surrounding it — thoughtful preparation, honest conversations, clear communication, consistent execution, and a genuine commitment to the people trusting us with their home.</p>
+            <p>Every meeting, update, detail, and promise contributes to the reputation of the company.</p>
+          </>
+        }
+        image="/images/headshot.png"
+        imageAlt="Ben Alford of Alford Custom Builders"
+        imagePosition="object-top"
+        primaryHref="#difference"
+        primaryLabel="Meet Alford"
+        secondaryHref="/contact"
+        secondaryLabel="Start a Conversation"
       />
 
-      <section className="section-shell">
-        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
-            <Image
-              src={data.founderImage.path}
-              alt={data.founderImage.decorative ? "" : data.founderImage.altText}
-              fill
-              className="object-cover"
-              sizes="(min-width: 1024px) 40vw, 100vw"
-            />
+      <StatementBand statement={<>The home is the product.<br />The experience is the brand.</>} />
+
+      <section className="acb-split acb-split--reverse" id="difference">
+        <div className="acb-split__copy acb-split__copy--blanket">
+          <p className="acb-kicker">What We Believe</p>
+          <h2 className="acb-heading mt-6">What We Believe</h2>
+          <p className="acb-section-lede mt-7">Luxury does not begin with materials. It begins with understanding.</p>
+          <div className="acb-body mt-7">
+            <p>Understanding how you live. What matters to your family. How you want your home to feel. What details will make everyday life easier, better, and more personal.</p>
+            <p>We believe the strongest homes are built when craftsmanship and relationships receive the same level of attention.</p>
           </div>
-          <div>
-            <SectionHeading
-              eyebrow={data.founderEyebrow}
-              title={data.founderTitle}
-              description={data.founderDescription}
-            />
-            <div className="mt-8 grid gap-6 sm:grid-cols-2">
-              {data.differentiators.map((item) => (
-                <div
-                  key={item.title}
-                  className="rounded-[1.5rem] bg-white p-6 shadow-[0_18px_50px_rgba(15,24,32,0.06)]"
-                >
-                  <h3 className="font-serif text-2xl text-[var(--color-charcoal)]">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
-                    {item.description}
-                  </p>
-                </div>
-              ))}
+          <BrandActions
+            primaryHref="/services#pre-construction"
+            primaryLabel="Our Building Philosophy"
+            secondaryHref="/portfolio"
+            secondaryLabel="See Our Work"
+          />
+        </div>
+        <div className="acb-split__media">
+          <Image
+            src="/images/4301-armstrong-pkwy-hf-1-154.jpg"
+            alt="Refined interior detail by Alford Custom Builders"
+            fill
+            className="object-cover"
+            sizes="(min-width: 901px) 48vw, 100vw"
+          />
+        </div>
+      </section>
+
+      <section className="acb-section acb-section--paper">
+        <div className="acb-shell">
+          <div className="acb-section__intro">
+            <p className="acb-kicker">Values &amp; Standards</p>
+            <div className="acb-section__content">
+              <h2 className="acb-heading">What We Stand For</h2>
+              <p className="acb-section-lede mt-7">Simple principles. High standards. No shortcuts.</p>
+              <div className="acb-body mt-7">
+                <p>Our values influence every decision we make.</p>
+                <p>They are not marketing statements. They are the standard our clients should experience throughout the relationship.</p>
+              </div>
+              <div className="acb-values">
+                {values.map((value) => <p key={value}>{value}</p>)}
+              </div>
+              <BrandActions
+                primaryHref="/contact"
+                primaryLabel="Experience the Difference"
+                secondaryHref="/services"
+                secondaryLabel="Explore Our Services"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section-shell">
-        <div className="grid gap-8 rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)] p-8 lg:grid-cols-3">
-          <div>
-            <p className="text-xs font-semibold tracking-[0.28em] uppercase text-[var(--color-wood)]">
-              {data.legacyEyebrow}
-            </p>
-            <h2 className="mt-4 font-serif text-4xl text-[var(--color-charcoal)]">
-              {data.legacyTitle}
-            </h2>
-          </div>
-          {data.legacyParagraphs.map((paragraph) => <div key={paragraph} className="text-sm leading-8 text-[var(--color-muted)]">{paragraph}</div>)}
-        </div>
-      </section>
+      <StatementBand statement="Preparation before promises." />
 
-      <section className="section-shell">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-          <SectionHeading
-            eyebrow={data.valuesEyebrow}
-            title={data.valuesTitle}
-            description={data.valuesDescription}
-          />
-          <div className="grid gap-6 sm:grid-cols-2">
-            {data.brandPillars.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-[1.75rem] border border-[var(--color-border)] bg-white p-7 shadow-[0_18px_60px_rgba(20,26,35,0.06)]"
-              >
-                <p className="text-xs font-semibold tracking-[0.28em] uppercase text-[var(--color-wood)]">
-                  {item.title}
-                </p>
-                <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section-shell">
-        <div className="rounded-[2rem] bg-[var(--color-charcoal)] px-8 py-10 text-white shadow-[0_30px_90px_rgba(10,14,20,0.16)] lg:px-10">
-          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-[var(--color-sand)]">
-            Dallas Focus
-          </p>
-          <h2 className="mt-4 max-w-3xl font-serif text-4xl leading-tight sm:text-5xl">
-            Designed for clients in North Dallas neighborhoods where trust and reputation lead the conversation.
-          </h2>
-          <div className="mt-8 flex flex-wrap gap-3">
-            {data.marketFocus.map((market) => (
-              <span
-                key={market}
-                className="rounded-full border border-white/12 bg-white/[0.05] px-4 py-3 text-sm tracking-[0.14em] uppercase text-white/78"
-              >
-                {market}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section-shell pt-20">
-        <CTA
-          title={data.ctaTitle}
-          description={data.ctaDescription}
-          primaryHref="/contact"
-          primaryLabel={data.primaryCtaLabel}
-          secondaryHref="/portfolio"
-          secondaryLabel={data.secondaryCtaLabel}
-        />
-      </section>
+      <ClosingPanel
+        eyebrow="Our Vision"
+        title="We Are Not Trying to Be the Biggest."
+        subheadline="We want to be the builder people measure everyone else against."
+        intro="Known for exceptional homes, yes. But also for calm leadership. Honest conversations. Thoughtful preparation. Exceptional execution. And relationships that continue long after move-in day. That is the company we are building."
+        primaryHref="/contact"
+        primaryLabel="Start Your Home"
+        secondaryHref="/portfolio"
+        secondaryLabel="View Our Gallery"
+      />
     </>
   );
 }

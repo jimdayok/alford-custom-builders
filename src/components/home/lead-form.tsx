@@ -4,26 +4,13 @@ import { useState } from "react";
 
 import { siteConfig } from "@/lib/site-data";
 
-const projectTypes = [
-  "Custom Home",
-  "Remodel",
-  "Addition",
-  "Pre-Construction Planning",
-];
+const projectTypes = ["Custom Home", "Pre-Construction", "Other"];
+const contactMethods = ["Email", "Phone", "Text message"];
+const propertyOptions = ["Yes", "No", "Currently Looking"];
+const planOptions = ["Yes", "In Progress", "Not Yet"];
 
-const timelineOptions = [
-  "Immediately",
-  "3-6 months",
-  "6-12 months",
-  "12+ months",
-];
-
-const budgetOptions = [
-  "Under $1M",
-  "$1M-$2M",
-  "$2M-$4M",
-  "$4M+",
-];
+const fieldClassName =
+  "acb-form__field rounded-none border-0 border-b border-[rgba(242,224,209,0.34)] bg-transparent px-0 py-3 text-white outline-none transition placeholder:text-white/36 focus:border-[var(--brand-apricot)]";
 
 export function LeadForm() {
   const [status, setStatus] = useState<string | null>(null);
@@ -35,146 +22,98 @@ export function LeadForm() {
       `Name: ${payload.name || ""}`,
       `Email: ${payload.email || ""}`,
       `Phone: ${payload.phone || ""}`,
+      `Preferred method of contact: ${payload.preferredContact || ""}`,
       `Project type: ${payload.projectType || ""}`,
       `Project location: ${payload.projectLocation || ""}`,
-      `Estimated timeline: ${payload.timeline || ""}`,
-      `Budget range: ${payload.budget || ""}`,
+      `Owns property: ${payload.ownsProperty || ""}`,
+      `Architectural plans: ${payload.architecturalPlans || ""}`,
+      `Desired timeline: ${payload.timeline || ""}`,
+      `Estimated investment range: ${payload.investment || ""}`,
       "",
-      "Message:",
-      `${payload.message || ""}`,
+      "Vision:",
+      `${payload.vision || ""}`,
     ].join("\n");
 
     window.location.href = `mailto:${siteConfig.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setStatus("Your email app should open with the inquiry details filled in.");
+    setStatus("Your email app should open with your project details filled in.");
   }
 
   return (
-    <div className="rounded-[2rem] border border-white/12 bg-[rgba(13,21,31,0.72)] p-6 shadow-[0_30px_80px_rgba(4,8,12,0.28)] backdrop-blur-md sm:p-8">
-      <div className="max-w-xl">
-        <p className="text-xs font-semibold tracking-[0.3em] uppercase text-[var(--color-sand)]">
-          Start The Conversation
-        </p>
-        <h2 className="mt-4 font-serif text-4xl leading-tight text-white sm:text-5xl">
-          Tell us about the home you want to create.
-        </h2>
-        <p className="mt-4 text-sm leading-7 text-white/72 sm:text-base">
-          Inquiries go directly to Ben Alford. Share the basics and we will
-          follow up with a thoughtful next step.
-        </p>
-      </div>
-
-      <form action={handleSubmit} className="mt-8 grid gap-4 sm:grid-cols-2">
-        <label className="grid gap-2 text-sm text-white/84">
+    <form action={handleSubmit} className="acb-form">
+      <div className="acb-form__grid">
+        <label>
           <span>Name</span>
-          <input
-            required
-            name="name"
-            className="rounded-[1rem] border border-white/12 bg-white/8 px-4 py-3 text-white outline-none transition placeholder:text-white/40 focus:border-[var(--color-sand)]"
-            placeholder="Your name"
-          />
+          <input required name="name" autoComplete="name" className={fieldClassName} placeholder="Your name" />
         </label>
-        <label className="grid gap-2 text-sm text-white/84">
+        <label>
           <span>Email</span>
-          <input
-            required
-            type="email"
-            name="email"
-            className="rounded-[1rem] border border-white/12 bg-white/8 px-4 py-3 text-white outline-none transition placeholder:text-white/40 focus:border-[var(--color-sand)]"
-            placeholder="you@example.com"
-          />
+          <input required type="email" name="email" autoComplete="email" className={fieldClassName} placeholder="you@example.com" />
         </label>
-        <label className="grid gap-2 text-sm text-white/84">
+        <label>
           <span>Phone</span>
-          <input
-            name="phone"
-            className="rounded-[1rem] border border-white/12 bg-white/8 px-4 py-3 text-white outline-none transition placeholder:text-white/40 focus:border-[var(--color-sand)]"
-            placeholder="(214) 555-0199"
-          />
+          <input name="phone" type="tel" autoComplete="tel" className={fieldClassName} placeholder="Your phone number" />
         </label>
-        <label className="grid gap-2 text-sm text-white/84">
+        <label>
+          <span>Preferred Method of Contact</span>
+          <select name="preferredContact" className={fieldClassName} defaultValue="">
+            <option value="" disabled>Select one</option>
+            {contactMethods.map((option) => <option key={option}>{option}</option>)}
+          </select>
+        </label>
+        <label>
           <span>Project Type</span>
-          <select
-            name="projectType"
-            className="rounded-[1rem] border border-white/12 bg-white/8 px-4 py-3 text-white outline-none transition focus:border-[var(--color-sand)]"
-            defaultValue=""
-          >
-            <option value="" disabled className="text-[var(--color-charcoal)]">
-              Select one
-            </option>
-            {projectTypes.map((option) => (
-              <option key={option} value={option} className="text-[var(--color-charcoal)]">
-                {option}
-              </option>
-            ))}
+          <select name="projectType" className={fieldClassName} defaultValue="">
+            <option value="" disabled>Select one</option>
+            {projectTypes.map((option) => <option key={option}>{option}</option>)}
           </select>
         </label>
-        <label className="grid gap-2 text-sm text-white/84">
+        <label>
           <span>Project Location</span>
-          <input
-            name="projectLocation"
-            className="rounded-[1rem] border border-white/12 bg-white/8 px-4 py-3 text-white outline-none transition placeholder:text-white/40 focus:border-[var(--color-sand)]"
-            placeholder="Preston Hollow, Dallas"
-          />
+          <input name="projectLocation" className={fieldClassName} placeholder="City or neighborhood" />
         </label>
-        <label className="grid gap-2 text-sm text-white/84">
-          <span>Estimated Timeline</span>
-          <select
-            name="timeline"
-            className="rounded-[1rem] border border-white/12 bg-white/8 px-4 py-3 text-white outline-none transition focus:border-[var(--color-sand)]"
-            defaultValue=""
-          >
-            <option value="" disabled className="text-[var(--color-charcoal)]">
-              Select one
-            </option>
-            {timelineOptions.map((option) => (
-              <option key={option} value={option} className="text-[var(--color-charcoal)]">
-                {option}
-              </option>
-            ))}
+        <label>
+          <span>Do You Currently Own the Property?</span>
+          <select name="ownsProperty" className={fieldClassName} defaultValue="">
+            <option value="" disabled>Select one</option>
+            {propertyOptions.map((option) => <option key={option}>{option}</option>)}
           </select>
         </label>
-        <label className="grid gap-2 text-sm text-white/84">
-          <span>Budget Range</span>
-          <select
-            name="budget"
-            className="rounded-[1rem] border border-white/12 bg-white/8 px-4 py-3 text-white outline-none transition focus:border-[var(--color-sand)]"
-            defaultValue=""
-          >
-            <option value="" disabled className="text-[var(--color-charcoal)]">
-              Select one
-            </option>
-            {budgetOptions.map((option) => (
-              <option key={option} value={option} className="text-[var(--color-charcoal)]">
-                {option}
-              </option>
-            ))}
+        <label>
+          <span>Do You Have Architectural Plans?</span>
+          <select name="architecturalPlans" className={fieldClassName} defaultValue="">
+            <option value="" disabled>Select one</option>
+            {planOptions.map((option) => <option key={option}>{option}</option>)}
           </select>
         </label>
-        <label className="grid gap-2 text-sm text-white/84 sm:col-span-2">
-          <span>Message</span>
+        <label>
+          <span>Desired Timeline</span>
+          <input name="timeline" className={fieldClassName} placeholder="When would you like to begin?" />
+        </label>
+        <label>
+          <span>Estimated Investment Range</span>
+          <input name="investment" className={fieldClassName} placeholder="Share a range if you have one" />
+        </label>
+        <label className="sm:col-span-2">
+          <span>Tell Us About Your Vision</span>
           <textarea
             required
-            name="message"
+            name="vision"
             rows={5}
-            className="rounded-[1rem] border border-white/12 bg-white/8 px-4 py-3 text-white outline-none transition placeholder:text-white/40 focus:border-[var(--color-sand)]"
-            placeholder="Tell us about your home, goals, and where you are in the planning process."
+            className={fieldClassName}
+            placeholder="Share anything that would help us understand what you are considering."
           />
         </label>
+      </div>
 
-        <div className="sm:col-span-2 flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
-          <div className="text-sm leading-7 text-white/64">
-            Private inquiries only. No mass assignment. No handoff to a sales queue.
-          </div>
-          <button
-            type="submit"
-            className="inline-flex min-h-12 items-center justify-center rounded-[0.95rem] bg-[var(--color-sand)] px-6 py-3 text-xs font-semibold tracking-[0.24em] uppercase text-[var(--color-charcoal)] transition hover:-translate-y-0.5 hover:bg-[#e7cfb0]"
-          >
-            Start the Conversation
-          </button>
-        </div>
-      </form>
+      <div className="acb-form__submit">
+        <p>You do not have to have every answer yet.</p>
+        <button type="submit">
+          <span>Start the Conversation</span>
+          <span aria-hidden="true">↗</span>
+        </button>
+      </div>
 
-      {status ? <p className="mt-4 text-sm text-[var(--color-sand)]">{status}</p> : null}
-    </div>
+      {status ? <p role="status" className="acb-form__status">{status}</p> : null}
+    </form>
   );
 }
