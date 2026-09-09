@@ -6,6 +6,7 @@ import "./globals.css";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { PreviewBanner } from "@/components/preview-banner";
+import { SiteMotion } from "@/components/site-motion";
 import { siteConfig } from "@/lib/site-data";
 import { getGlobalSettings } from "@/lib/cms/published-content";
 
@@ -95,6 +96,7 @@ export default async function RootLayout({
         ) : (
           <div className="site-bg min-h-screen">
             {isPreview ? <PreviewBanner /> : null}
+            <SiteMotion />
             <Header previewMode={isPreview} />
             <main>{children}</main>
             <Footer />

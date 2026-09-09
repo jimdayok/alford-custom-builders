@@ -58,7 +58,12 @@ export async function Footer() {
         </div>
 
         <div className="acb-footer__base">
-          <p>© {new Date().getFullYear()} {settings.businessName}</p>
+          <div className="acb-footer__ownership">
+            <p>© {new Date().getFullYear()} {settings.businessName}</p>
+            <p className="acb-footer__credit">
+              Built by <a href="https://digital.d2dmktg.com/" target="_blank" rel="noreferrer">D2D Digital</a>
+            </p>
+          </div>
           <p>Luxury. Personalized.</p>
           <a href={websiteManagementUrl}>Admin login · Edit this website</a>
         </div>

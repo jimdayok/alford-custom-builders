@@ -14,7 +14,7 @@ export function SectionHeading({
   const alignment = align === "center" ? "text-center mx-auto" : "text-left";
 
   return (
-    <div className={`max-w-3xl ${alignment}`}>
+    <div className={`max-w-3xl ${alignment}`} data-motion-reveal>
       <p className="text-xs font-semibold tracking-[0.32em] uppercase text-[var(--color-wood)]">
         {eyebrow}
       </p>

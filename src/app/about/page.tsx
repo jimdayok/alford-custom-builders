@@ -26,7 +26,12 @@ export default function AboutPage() {
     <>
       <EditorialHero
         eyebrow="About Alford"
-        title={<>Building Homes Is What We Do.<br />How We Build Relationships Is Who We Are.</>}
+        title={
+          <>
+            Building Homes Is What We Do.
+            <span className="acb-display__secondary">How We Build Relationships Is Who We Are.</span>
+          </>
+        }
         subheadline="Because the home is the product. The experience is the brand."
         intro={
           <>

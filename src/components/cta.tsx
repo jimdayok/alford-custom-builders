@@ -18,7 +18,7 @@ export function CTA({
   secondaryLabel,
 }: CtaProps) {
   return (
-    <section className="rounded-[2rem] border border-[var(--color-border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(246,240,231,0.96))] px-7 py-14 text-[var(--color-charcoal)] shadow-[0_24px_80px_rgba(10,16,24,0.08)] sm:px-10 lg:px-14">
+    <section className="rounded-[2rem] border border-[var(--color-border)] bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(246,240,231,0.96))] px-7 py-14 text-[var(--color-charcoal)] shadow-[0_24px_80px_rgba(10,16,24,0.08)] sm:px-10 lg:px-14" data-motion-reveal>
       <div className="max-w-3xl">
         <p className="text-xs font-semibold tracking-[0.32em] uppercase text-[var(--color-wood)]">
           Start The Conversation

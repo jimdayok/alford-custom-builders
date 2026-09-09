@@ -96,7 +96,7 @@ export function ProjectSlideshow({ project }: ProjectSlideshowProps) {
   return (
     <>
       <section className="border-b border-white/8 bg-[#11100e]">
-        <div className="mx-auto max-w-7xl px-5 py-10 sm:px-6 lg:px-8 lg:py-14">
+        <div className="mx-auto max-w-7xl px-5 py-10 sm:px-6 lg:px-8 lg:py-14" data-motion-reveal>
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
               <div>
@@ -200,7 +200,7 @@ export function ProjectSlideshow({ project }: ProjectSlideshowProps) {
       </section>
 
       <section className="bg-[#141311]">
-        <div className="mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:px-8 lg:py-18">
+        <div className="mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:px-8 lg:py-18" data-motion-reveal>
           <div>
             <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
               <div>

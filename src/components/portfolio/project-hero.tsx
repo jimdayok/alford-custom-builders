@@ -9,8 +9,8 @@ type ProjectHeroProps = {
 
 export function ProjectHero({ project, priority = false }: ProjectHeroProps) {
   return (
-    <section className="relative isolate overflow-hidden border-b border-white/10 bg-[#141311]">
-      <div className="absolute inset-0">
+    <section className="relative isolate overflow-hidden border-b border-white/10 bg-[#141311]" data-motion-hero>
+      <div className="absolute inset-0" data-motion-media>
         <Image
           src={project.coverImage}
           alt={`${project.title} cover image`}
@@ -24,7 +24,7 @@ export function ProjectHero({ project, priority = false }: ProjectHeroProps) {
       </div>
 
       <div className="relative mx-auto flex min-h-[72svh] max-w-7xl items-end px-5 pb-12 pt-28 sm:px-6 lg:px-8 lg:pb-18">
-        <div className="max-w-4xl animate-fade">
+        <div className="max-w-4xl" data-motion-copy>
           <p className="text-xs font-semibold tracking-[0.36em] uppercase text-[#d2b38f]">
             Portfolio
           </p>
