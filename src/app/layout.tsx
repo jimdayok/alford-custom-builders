@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Manrope } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 
+import { BrandIntro } from "@/components/brand-intro";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { PreviewBanner } from "@/components/preview-banner";
@@ -95,6 +96,7 @@ export default async function RootLayout({
           <main>{children}</main>
         ) : (
           <div className="site-bg min-h-screen">
+            {isPreview ? <BrandIntro /> : null}
             {isPreview ? <PreviewBanner /> : null}
             <SiteMotion />
             <Header previewMode={isPreview} />
