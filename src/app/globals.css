@@ -573,11 +573,53 @@ img {
   height: 7rem;
   place-items: center;
   background: var(--brand-organic);
+  isolation: isolate;
+  overflow: hidden;
 }
 
-.acb-hero__media-mark img {
+.acb-hero__media-mark-icon {
+  position: relative;
+  z-index: 1;
   width: 4.4rem;
   height: 4.4rem;
+}
+
+.acb-hero__media-mark-light {
+  position: absolute;
+  z-index: 2;
+  inset: 1.3rem;
+  width: calc(100% - 2.6rem);
+  height: calc(100% - 2.6rem);
+  overflow: visible;
+}
+
+.acb-hero__media-mark-trace {
+  fill: none;
+  opacity: 0.62;
+  stroke: rgba(255, 244, 220, 0.92);
+  stroke-linecap: round;
+  stroke-width: 3;
+}
+
+.acb-hero__media-mark-point {
+  filter: url("#acb-mark-glow");
+}
+
+.acb-hero__media-mark-bloom {
+  position: absolute;
+  z-index: 3;
+  top: 42.5%;
+  left: 66%;
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: 999px;
+  background: rgba(255, 247, 228, 0.9);
+  box-shadow:
+    0 0 0.8rem 0.35rem rgba(255, 229, 176, 0.68),
+    0 0 1.6rem 0.7rem rgba(215, 139, 49, 0.22);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
 }
 
 .acb-hero__caption {
@@ -1181,9 +1223,15 @@ img {
     height: 5.25rem;
   }
 
-  .acb-hero__media-mark img {
+  .acb-hero__media-mark-icon {
     width: 3.25rem;
     height: 3.25rem;
+  }
+
+  .acb-hero__media-mark-light {
+    inset: 1rem;
+    width: calc(100% - 2rem);
+    height: calc(100% - 2rem);
   }
 
   .acb-hero__caption {
@@ -1408,138 +1456,6 @@ img {
   }
 
   .acb-scroll-progress {
-    display: none;
-  }
-}
-
-html.acb-intro-active,
-html.acb-intro-active body {
-  overflow: hidden;
-}
-
-.acb-brand-intro {
-  position: fixed;
-  z-index: 1000;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  background: var(--brand-paper);
-  cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-}
-
-.acb-brand-intro__wash {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 50% 48%, rgba(215, 139, 49, 0.1), transparent 32%),
-    linear-gradient(145deg, #fbfaf7 0%, #f2e0d1 100%);
-}
-
-.acb-brand-intro__wash::after {
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
-  content: "";
-  opacity: 0.13;
-  mix-blend-mode: multiply;
-}
-
-.acb-brand-intro__tile {
-  position: relative;
-  width: clamp(12.5rem, 24vw, 18rem);
-  aspect-ratio: 1;
-  background: var(--brand-apricot);
-  box-shadow: 0 26px 90px rgba(35, 31, 32, 0.16);
-  isolation: isolate;
-}
-
-.acb-brand-intro__mark,
-.acb-brand-intro__light {
-  position: absolute;
-  inset: 11%;
-  width: 78%;
-  height: 78%;
-}
-
-.acb-brand-intro__mark {
-  object-fit: contain;
-}
-
-.acb-brand-intro__mark--apricot {
-  opacity: 0;
-}
-
-.acb-brand-intro__light {
-  z-index: 2;
-  overflow: visible;
-}
-
-.acb-brand-intro__trace {
-  fill: none;
-  stroke-linecap: round;
-}
-
-.acb-brand-intro__trace--glow {
-  filter: url("#acb-intro-soft-glow");
-  opacity: 0.72;
-  stroke: #ffe0a3;
-  stroke-width: 11;
-}
-
-.acb-brand-intro__trace--core {
-  stroke: rgba(255, 248, 231, 0.96);
-  stroke-width: 2.6;
-}
-
-.acb-brand-intro__point {
-  filter: url("#acb-intro-point-glow");
-}
-
-.acb-brand-intro__bloom {
-  position: absolute;
-  z-index: 3;
-  top: 37.5%;
-  left: 72.2%;
-  width: 1rem;
-  height: 1rem;
-  border-radius: 999px;
-  background: rgba(255, 247, 228, 0.95);
-  box-shadow:
-    0 0 1.5rem 0.8rem rgba(255, 229, 176, 0.85),
-    0 0 4.5rem 2rem rgba(215, 139, 49, 0.34);
-  opacity: 0;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-}
-
-.acb-brand-intro__hint {
-  position: absolute;
-  right: 1.5rem;
-  bottom: 1.35rem;
-  color: rgba(64, 66, 47, 0.58);
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-@media (max-width: 639px) {
-  .acb-brand-intro__tile {
-    width: min(58vw, 14.5rem);
-  }
-
-  .acb-brand-intro__hint {
-    right: 1rem;
-    bottom: 1rem;
-    font-size: 0.56rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .acb-brand-intro {
     display: none;
   }
 }
