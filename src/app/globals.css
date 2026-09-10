@@ -573,53 +573,11 @@ img {
   height: 7rem;
   place-items: center;
   background: var(--brand-organic);
-  isolation: isolate;
-  overflow: hidden;
 }
 
-.acb-hero__media-mark-icon {
-  position: relative;
-  z-index: 1;
+.acb-hero__media-mark img {
   width: 4.4rem;
   height: 4.4rem;
-}
-
-.acb-hero__media-mark-light {
-  position: absolute;
-  z-index: 2;
-  inset: 1.3rem;
-  width: calc(100% - 2.6rem);
-  height: calc(100% - 2.6rem);
-  overflow: visible;
-}
-
-.acb-hero__media-mark-trace {
-  fill: none;
-  opacity: 0.62;
-  stroke: rgba(255, 244, 220, 0.92);
-  stroke-linecap: round;
-  stroke-width: 3;
-}
-
-.acb-hero__media-mark-point {
-  filter: url("#acb-mark-glow");
-}
-
-.acb-hero__media-mark-bloom {
-  position: absolute;
-  z-index: 3;
-  top: 42.5%;
-  left: 66%;
-  width: 0.38rem;
-  height: 0.38rem;
-  border-radius: 999px;
-  background: rgba(255, 247, 228, 0.9);
-  box-shadow:
-    0 0 0.8rem 0.35rem rgba(255, 229, 176, 0.68),
-    0 0 1.6rem 0.7rem rgba(215, 139, 49, 0.22);
-  opacity: 0;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
 }
 
 .acb-hero__caption {
@@ -1223,15 +1181,9 @@ img {
     height: 5.25rem;
   }
 
-  .acb-hero__media-mark-icon {
+  .acb-hero__media-mark img {
     width: 3.25rem;
     height: 3.25rem;
-  }
-
-  .acb-hero__media-mark-light {
-    inset: 1rem;
-    width: calc(100% - 2rem);
-    height: calc(100% - 2rem);
   }
 
   .acb-hero__caption {
