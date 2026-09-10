@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { AlfordBadge } from "@/components/brand/alford-badge";
 import { BrandActions } from "@/components/brand/brand-actions";
 
 type EditorialHeroProps = {
@@ -52,9 +53,7 @@ export function EditorialHero({
           className={`object-cover ${imagePosition}`}
           sizes="(min-width: 1024px) 46vw, 100vw"
         />
-        <div className="acb-hero__media-mark" aria-hidden="true">
-          <Image src="/brand/web/icon-apricot.svg" alt="" width={92} height={92} />
-        </div>
+        <AlfordBadge />
         <p className="acb-hero__caption">Luxury · Personalized</p>
       </div>
     </section>

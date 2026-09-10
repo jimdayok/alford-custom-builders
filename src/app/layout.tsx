@@ -65,12 +65,9 @@ export async function generateMetadata(): Promise<Metadata> {
     images: ["/opengraph-image"],
   },
   icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/logos/aclogoblue.png", type: "image/png" },
-    ],
-    apple: [{ url: "/logos/aclogoblue.png" }],
-    shortcut: ["/favicon.ico"],
+    icon: [{ url: "/icon.svg", type: "image/svg+xml", sizes: "any" }],
+    apple: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    shortcut: ["/icon.svg"],
   },
   alternates: {
     canonical: siteConfig.url,
