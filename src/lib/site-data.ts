@@ -17,6 +17,13 @@ export const navigation = [
   { href: "/contact", label: "Contact" },
 ];
 
+export const previewTwoNavigation = [
+  { href: "/", label: "Home" },
+  { href: "/discover", label: "Discover" },
+  { href: "/portfolio", label: "Gallery" },
+  { href: "/contact", label: "Contact" },
+];
+
 export const featuredProjects = [
   {
     title: "Armstrong Parkway",

@@ -5,12 +5,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { navigation } from "@/lib/site-data";
+import { PreviewLogoLink } from "@/components/preview-logo-link";
+import type { PreviewVersion } from "@/lib/preview-version";
+import { navigation, previewTwoNavigation } from "@/lib/site-data";
 
-export function Header({ previewMode = false }: { previewMode?: boolean }) {
+export function Header({ previewVersion }: { previewVersion: PreviewVersion | null }) {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  const previewMode = previewVersion !== null;
+  const activeNavigation = previewVersion === "preview2" ? previewTwoNavigation : navigation;
+  const isPreviewTwoHome = previewVersion === "preview2" && pathname === "/";
 
   useEffect(() => {
     if (!isOpen) return;
@@ -31,20 +36,24 @@ export function Header({ previewMode = false }: { previewMode?: boolean }) {
   }, [isOpen]);
 
   return (
-    <header className={`acb-header ${previewMode ? "top-10" : "top-0"}`}>
+    <header className={`acb-header ${previewMode ? "top-10" : "top-0"} ${previewVersion === "preview2" ? "acb-header--v2" : ""} ${isPreviewTwoHome ? "acb-header--v2-home" : ""}`}>
       <div className="acb-header__inner">
-        <Link href="/" aria-label="Alford Custom Builders home" className="acb-header__logo">
-          <Image
-            src="/brand/web/logo-horizontal-primary.svg"
-            alt="Alford Custom Builders"
-            width={406}
-            height={152}
-            priority
-          />
-        </Link>
+        {previewVersion ? (
+          <PreviewLogoLink previewVersion={previewVersion} />
+        ) : (
+          <Link href="/" aria-label="Alford Custom Builders home" className="acb-header__logo">
+            <Image
+              src="/brand/web/logo-horizontal-primary.svg"
+              alt="Alford Custom Builders"
+              width={406}
+              height={152}
+              priority
+            />
+          </Link>
+        )}
 
         <nav className="acb-header__nav" aria-label="Primary navigation">
-          {navigation.map((item) => {
+          {activeNavigation.map((item) => {
             const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
             return (
               <Link key={item.href} href={item.href} aria-current={isActive ? "page" : undefined}>
@@ -54,9 +63,11 @@ export function Header({ previewMode = false }: { previewMode?: boolean }) {
           })}
         </nav>
 
-        <Link href="/contact" className="acb-header__cta">
-          Start a Conversation
-        </Link>
+        {previewVersion === "preview2" ? null : (
+          <Link href="/contact" className="acb-header__cta">
+            Start a Conversation
+          </Link>
+        )}
 
         <div ref={menuRef} className="acb-header__mobile">
           <button
@@ -71,14 +82,16 @@ export function Header({ previewMode = false }: { previewMode?: boolean }) {
           </button>
           {isOpen ? (
             <nav id="acb-mobile-menu" aria-label="Mobile navigation">
-              {navigation.map((item) => (
+              {activeNavigation.map((item) => (
                 <Link key={item.href} href={item.href} onClick={() => setIsOpen(false)}>
                   {item.label}
                 </Link>
               ))}
-              <Link href="/contact" onClick={() => setIsOpen(false)}>
-                Start a Conversation
-              </Link>
+              {previewVersion === "preview2" ? null : (
+                <Link href="/contact" onClick={() => setIsOpen(false)}>
+                  Start a Conversation
+                </Link>
+              )}
             </nav>
           ) : null}
         </div>

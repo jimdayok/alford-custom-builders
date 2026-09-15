@@ -5,11 +5,12 @@ import type { PortfolioProject } from "@/data/portfolio";
 type ProjectHeroProps = {
   project: PortfolioProject;
   priority?: boolean;
+  compact?: boolean;
 };
 
-export function ProjectHero({ project, priority = false }: ProjectHeroProps) {
+export function ProjectHero({ project, priority = false, compact = false }: ProjectHeroProps) {
   return (
-    <section className="relative isolate overflow-hidden border-b border-white/10 bg-[#141311]" data-motion-hero>
+    <section className={`relative isolate overflow-hidden border-b border-white/10 bg-[#141311] ${compact ? "acb-v2-project-hero" : ""}`} data-motion-hero>
       <div className="absolute inset-0" data-motion-media>
         <Image
           src={project.coverImage}
@@ -31,9 +32,11 @@ export function ProjectHero({ project, priority = false }: ProjectHeroProps) {
           <h1 className="mt-5 font-serif text-5xl leading-none text-[#f7f1e7] sm:text-6xl lg:text-7xl">
             {project.title}
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-[#efe8dc]/76 sm:text-lg">
-            {project.description}
-          </p>
+          {compact ? null : (
+            <p className="mt-6 max-w-2xl text-base leading-8 text-[#efe8dc]/76 sm:text-lg">
+              {project.description}
+            </p>
+          )}
           <div className="mt-8 flex flex-wrap gap-3 text-xs font-semibold tracking-[0.22em] uppercase text-[#cfb08b]">
             <span className="rounded-full border border-white/12 bg-white/6 px-4 py-2">
               {project.photoCount} Photos

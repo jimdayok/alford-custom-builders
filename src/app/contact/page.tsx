@@ -5,7 +5,9 @@ import { ClosingPanel } from "@/components/brand/closing-panel";
 import { EditorialHero } from "@/components/brand/editorial-hero";
 import { StatementBand } from "@/components/brand/statement-band";
 import { LeadForm } from "@/components/home/lead-form";
+import { PreviewTwoContact } from "@/components/preview-two/contact";
 import { getContactPageContent } from "@/lib/cms/published-content";
+import { getPreviewVersion } from "@/lib/preview-version";
 
 export const metadata: Metadata = {
   title: "Start a Conversation",
@@ -14,7 +16,12 @@ export const metadata: Metadata = {
 };
 
 export default async function ContactPage() {
-  const { data } = await getContactPageContent();
+  const [previewVersion, { data }] = await Promise.all([
+    getPreviewVersion(),
+    getContactPageContent(),
+  ]);
+  if (previewVersion === "preview2") return <PreviewTwoContact />;
+
   const phoneHref = `tel:${data.displayedPhone.replace(/[^+\d]/g, "")}`;
 
   return (

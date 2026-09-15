@@ -16,11 +16,12 @@ import { ThumbnailRail } from "@/components/portfolio/thumbnail-rail";
 
 type ProjectSlideshowProps = {
   project: PortfolioProject;
+  compact?: boolean;
 };
 
 const swipeThreshold = 40;
 
-export function ProjectSlideshow({ project }: ProjectSlideshowProps) {
+export function ProjectSlideshow({ project, compact = false }: ProjectSlideshowProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
@@ -98,19 +99,23 @@ export function ProjectSlideshow({ project }: ProjectSlideshowProps) {
       <section className="border-b border-white/8 bg-[#11100e]">
         <div className="mx-auto max-w-7xl px-5 py-10 sm:px-6 lg:px-8 lg:py-14" data-motion-reveal>
           <div className="flex flex-col gap-8">
-            <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div className={`flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between ${compact ? "acb-v2-project-intro" : ""}`}>
               <div>
                 <p className="text-xs font-semibold tracking-[0.32em] uppercase text-[#d2b38f]">
                   Explore The Home
                 </p>
-                <h2 className="mt-4 font-serif text-3xl text-[#f7f1e7] sm:text-4xl">
-                  Project photography with cinematic navigation.
-                </h2>
+                {compact ? null : (
+                  <h2 className="mt-4 font-serif text-3xl text-[#f7f1e7] sm:text-4xl">
+                    Project photography with cinematic navigation.
+                  </h2>
+                )}
               </div>
-              <p className="max-w-xl text-sm leading-7 text-[#efe8dc]/66">
-                Use the keyboard arrows or swipe gestures to move through the project.
-                Click any image for an expanded lightbox view.
-              </p>
+              {compact ? null : (
+                <p className="max-w-xl text-sm leading-7 text-[#efe8dc]/66">
+                  Use the keyboard arrows or swipe gestures to move through the project.
+                  Click any image for an expanded lightbox view.
+                </p>
+              )}
             </div>
 
             <div className="grid gap-6 xl:items-start xl:grid-cols-[minmax(0,1fr)_20rem]">
@@ -135,7 +140,7 @@ export function ProjectSlideshow({ project }: ProjectSlideshowProps) {
                           project.title,
                         )}
                         fill
-                        priority
+                        loading="eager"
                         className="animate-fade object-cover transition duration-700 group-hover:scale-[1.015]"
                         sizes="(min-width: 1280px) 70vw, 100vw"
                       />
@@ -180,9 +185,11 @@ export function ProjectSlideshow({ project }: ProjectSlideshowProps) {
                     <p className="text-xs font-semibold tracking-[0.22em] uppercase text-[#d2b38f]">
                       Thumbnail Rail
                     </p>
-                    <p className="mt-2 text-sm leading-7 text-[#efe8dc]/68">
-                      Jump to a specific image in this project.
-                    </p>
+                    {compact ? null : (
+                      <p className="mt-2 text-sm leading-7 text-[#efe8dc]/68">
+                        Jump to a specific image in this project.
+                      </p>
+                    )}
                   </div>
                 </div>
                 <div className="mt-5 xl:max-h-[42rem] xl:overflow-y-auto xl:pr-1">

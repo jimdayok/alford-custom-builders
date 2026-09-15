@@ -82,7 +82,10 @@ export default async function RootLayout({
 }>) {
   const requestHeaders = await headers();
   const siteMode = requestHeaders.get("x-alford-site-mode");
-  const isPreview = siteMode === "preview";
+  const previewVersionValue = requestHeaders.get("x-alford-preview-version");
+  const previewVersion = previewVersionValue === "preview1" || previewVersionValue === "preview2"
+    ? previewVersionValue
+    : null;
   const isComingSoon = siteMode === "coming-soon";
 
   return (
@@ -92,11 +95,11 @@ export default async function RootLayout({
           <main>{children}</main>
         ) : (
           <div className="site-bg min-h-screen">
-            {isPreview ? <PreviewBanner /> : null}
+            {previewVersion ? <PreviewBanner version={previewVersion} /> : null}
             <SiteMotion />
-            <Header previewMode={isPreview} />
+            <Header previewVersion={previewVersion} />
             <main>{children}</main>
-            <Footer />
+            <Footer previewVersion={previewVersion} />
           </div>
         )}
       </body>

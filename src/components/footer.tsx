@@ -3,11 +3,32 @@ import Link from "next/link";
 
 import { navigation } from "@/lib/site-data";
 import { getGlobalSettings } from "@/lib/cms/published-content";
+import type { PreviewVersion } from "@/lib/preview-version";
 
-export async function Footer() {
+export async function Footer({ previewVersion }: { previewVersion: PreviewVersion | null }) {
   const settings = await getGlobalSettings();
   const websiteManagementUrl =
     "https://portal.d2dperformance.com/portal/login?next=%2Fportal%2Fsites%2Falford-custom-homes";
+
+  if (previewVersion === "preview2") {
+    return (
+      <footer className="acb-v2-footer">
+        <div className="acb-shell">
+          <Image
+            src="/brand/web/logo-horizontal-blanket.svg"
+            alt={settings.businessName}
+            width={406}
+            height={152}
+          />
+          <div>
+            <a href={`tel:${settings.phone.replace(/[^+\d]/g, "")}`}>{settings.phone}</a>
+            <a href={`mailto:${settings.email}`}>{settings.email}</a>
+          </div>
+          <p>© {new Date().getFullYear()} {settings.businessName}</p>
+        </div>
+      </footer>
+    );
+  }
 
   return (
     <footer className="acb-footer">

@@ -7,6 +7,7 @@ import { ProjectHero } from "@/components/portfolio/project-hero";
 import { ProjectSlideshow } from "@/components/portfolio/project-slideshow";
 import { getProjectHref } from "@/data/portfolio";
 import { getPortfolioProjects } from "@/lib/cms/published-content";
+import { getPreviewVersion } from "@/lib/preview-version";
 import { siteConfig } from "@/lib/site-data";
 
 type ProjectPageProps = {
@@ -60,7 +61,11 @@ export async function generateMetadata({
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
-  const project = (await getPortfolioProjects()).find((item) => item.slug === slug);
+  const [previewVersion, projects] = await Promise.all([
+    getPreviewVersion(),
+    getPortfolioProjects(),
+  ]);
+  const project = projects.find((item) => item.slug === slug);
 
   if (!project) {
     notFound();
@@ -68,7 +73,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <>
-      <ProjectHero project={project} priority />
+      <ProjectHero project={project} priority compact={previewVersion === "preview2"} />
 
       <section className="border-b border-white/8 bg-[#11100e]">
         <div className="mx-auto max-w-7xl px-5 py-6 sm:px-6 lg:px-8">
@@ -82,9 +87,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </section>
 
-      <ProjectSlideshow project={project} />
+      <ProjectSlideshow project={project} compact={previewVersion === "preview2"} />
 
-      <section className="bg-[#13110f] pb-16 pt-2 sm:pb-20">
+      {previewVersion === "preview2" ? null : <section className="bg-[#13110f] pb-16 pt-2 sm:pb-20">
         <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
           <CTA
             title="Start Your Custom Home Conversation"
@@ -95,7 +100,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             secondaryLabel="View More Projects"
           />
         </div>
-      </section>
+      </section>}
     </>
   );
 }

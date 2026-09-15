@@ -8,6 +8,7 @@ import { StatementBand } from "@/components/brand/statement-band";
 import { PortfolioGrid } from "@/components/portfolio/portfolio-grid";
 import { siteConfig } from "@/lib/site-data";
 import { getPortfolioProjects } from "@/lib/cms/published-content";
+import { getPreviewVersion } from "@/lib/preview-version";
 
 export async function generateMetadata(): Promise<Metadata> {
   const projects = await getPortfolioProjects();
@@ -24,7 +25,24 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function PortfolioPage() {
-  const projects = await getPortfolioProjects();
+  const [previewVersion, projects] = await Promise.all([
+    getPreviewVersion(),
+    getPortfolioProjects(),
+  ]);
+
+  if (previewVersion === "preview2") {
+    return (
+      <section className="acb-v2-gallery">
+        <div className="acb-shell">
+          <div className="acb-v2-gallery__heading">
+            <p className="acb-kicker">Gallery</p>
+            <h1>The homes do the talking.</h1>
+          </div>
+          <PortfolioGrid projects={projects} />
+        </div>
+      </section>
+    );
+  }
 
   return (
     <>

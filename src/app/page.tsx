@@ -6,6 +6,7 @@ import { BrandActions } from "@/components/brand/brand-actions";
 import { ClosingPanel } from "@/components/brand/closing-panel";
 import { EditorialHero } from "@/components/brand/editorial-hero";
 import { StatementBand } from "@/components/brand/statement-band";
+import { PreviewTwoHome } from "@/components/preview-two/home";
 import { getProjectCardImage } from "@/data/portfolio";
 import { siteConfig } from "@/lib/site-data";
 import {
@@ -21,12 +22,23 @@ import {
   getPortfolioProjects,
   getServiceAreas,
 } from "@/lib/cms/published-content";
+import { getPreviewVersion } from "@/lib/preview-version";
 
-export const metadata: Metadata = {
-  title: "Luxury. Personalized. | Dallas Custom Home Builder",
-  description:
-    "Alford Custom Builders creates exceptional Dallas homes through thoughtful planning, trusted relationships, exceptional craftsmanship, and personal attention.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const previewVersion = await getPreviewVersion();
+  if (previewVersion === "preview2") {
+    return {
+      title: "Alford Custom Builders",
+      description: "Personal custom homes shaped by thoughtful planning and exceptional craftsmanship.",
+    };
+  }
+
+  return {
+    title: "Luxury. Personalized. | Dallas Custom Home Builder",
+    description:
+      "Alford Custom Builders creates exceptional Dallas homes through thoughtful planning, trusted relationships, exceptional craftsmanship, and personal attention.",
+  };
+}
 
 const standards = [
   ["01", "Preparation before problems", "The right work starts before the first visible sign of construction."],
@@ -36,6 +48,9 @@ const standards = [
 ] as const;
 
 export default async function HomePage() {
+  const previewVersion = await getPreviewVersion();
+  if (previewVersion === "preview2") return <PreviewTwoHome />;
+
   const [{ data: homepage }, projects, serviceAreas, settings] = await Promise.all([
     getHomepageContent(),
     getPortfolioProjects(),
