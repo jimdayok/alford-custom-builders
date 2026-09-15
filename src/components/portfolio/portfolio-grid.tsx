@@ -49,7 +49,7 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
 
       <div className="mt-8 columns-1 gap-4 md:columns-2 xl:columns-3">
         {visibleProjects.map((project, index) => (
-          <div key={project.slug} className="mb-4 break-inside-avoid" data-motion-card>
+          <div key={project.slug} className="mb-4 break-inside-avoid">
             <ProjectCard project={project} priority={index < 2} />
           </div>
         ))}
