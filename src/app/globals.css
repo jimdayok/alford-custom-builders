@@ -324,10 +324,7 @@ img {
 }
 
 .acb-v2-home__stage {
-  --wide-opacity: 1;
-  --wide-scale: 1;
-  --close-opacity: 0;
-  --close-scale: 1.02;
+  --home-scale: 1;
   --mark-opacity: 1;
   --mark-scale: 0.82;
 
@@ -352,17 +349,9 @@ img {
   object-fit: cover;
   object-position: center;
   backface-visibility: hidden;
-  will-change: transform, opacity;
-}
-
-.acb-v2-home__image--wide {
-  opacity: var(--wide-opacity);
-  transform: scale(var(--wide-scale));
-}
-
-.acb-v2-home__image--close {
-  opacity: var(--close-opacity);
-  transform: scale(var(--close-scale));
+  transform: scale(var(--home-scale));
+  transform-origin: center;
+  will-change: transform;
 }
 
 .acb-v2-home__veil {
@@ -2275,10 +2264,7 @@ img {
   }
 
   .acb-v2-home__stage {
-    --wide-opacity: 0;
-    --wide-scale: 1;
-    --close-opacity: 1;
-    --close-scale: 1.05;
+    --home-scale: 1.05;
     --mark-opacity: 1;
     --mark-scale: 1;
 
