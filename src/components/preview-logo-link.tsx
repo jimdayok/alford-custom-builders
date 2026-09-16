@@ -78,6 +78,7 @@ export function PreviewLogoLink({
           width={isHero ? 288 : 406}
           height={isHero ? 288 : 152}
           preload={isHero}
+          loading={isHero ? undefined : "eager"}
         />
       </Link>
 

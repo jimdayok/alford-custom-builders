@@ -1,7 +1,7 @@
 "use client";
 
 import type { CSSProperties } from "react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 import { PreviewLogoLink } from "@/components/preview-logo-link";
@@ -29,6 +29,7 @@ export function PreviewTwoHome() {
   const sectionRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const markRef = useRef<HTMLDivElement>(null);
+  const [isImageReady, setIsImageReady] = useState(false);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -134,8 +135,9 @@ export function PreviewTwoHome() {
             fill
             preload
             quality={75}
-            className="acb-v2-home__image"
+            className={`acb-v2-home__image${isImageReady ? " acb-v2-home__image--ready" : ""}`}
             sizes="100vw"
+            onLoad={() => setIsImageReady(true)}
           />
           <div className="acb-v2-home__veil" aria-hidden="true" />
           <div ref={markRef} className="acb-v2-home__mark-motion">

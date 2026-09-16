@@ -346,12 +346,17 @@ img {
 
 .acb-v2-home__image {
   z-index: 0;
+  opacity: 0;
   object-fit: cover;
   object-position: center;
   backface-visibility: hidden;
   transform: scale(var(--home-scale));
   transform-origin: center;
-  will-change: transform;
+  will-change: transform, opacity;
+}
+
+.acb-v2-home__image--ready {
+  animation: acb-v2-home-image-reveal 2s ease-in-out 650ms forwards;
 }
 
 .acb-v2-home__veil {
@@ -392,7 +397,30 @@ img {
 .acb-v2-home__mark img {
   width: 88%;
   height: 88%;
+  animation: acb-v2-home-logo-intro 650ms cubic-bezier(0.22, 1, 0.36, 1) both;
   filter: drop-shadow(0 1.5rem 3.5rem rgba(0, 0, 0, 0.42));
+}
+
+@keyframes acb-v2-home-logo-intro {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes acb-v2-home-image-reveal {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .acb-v2-home__mark-motion > .acb-preview-switcher {
@@ -2270,6 +2298,10 @@ img {
 
     position: relative;
     top: 0;
+  }
+
+  .acb-v2-home__image {
+    opacity: 1;
   }
 
 }
