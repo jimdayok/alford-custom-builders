@@ -4,6 +4,7 @@ import type { MouseEvent } from "react";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import type { PreviewVersion } from "@/lib/preview-version";
 
@@ -18,6 +19,7 @@ export function PreviewLogoLink({
   previewVersion,
   variant = "header",
 }: PreviewLogoLinkProps) {
+  const pathname = usePathname();
   const clickCountRef = useRef(0);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const resetTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -44,6 +46,7 @@ export function PreviewLogoLink({
   );
 
   function handleLogoClick(event: MouseEvent<HTMLAnchorElement>) {
+    if (pathname === "/") event.preventDefault();
     clickCountRef.current += 1;
 
     if (resetTimerRef.current) clearTimeout(resetTimerRef.current);
