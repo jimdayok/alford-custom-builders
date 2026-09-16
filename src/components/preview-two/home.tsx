@@ -1,105 +1,124 @@
+"use client";
+
+import type { CSSProperties } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 import { PreviewLogoLink } from "@/components/preview-logo-link";
-import { getProjectCardImage } from "@/data/portfolio";
-import { getPortfolioProjects } from "@/lib/cms/published-content";
 
-export async function PreviewTwoHome() {
-  const projects = (await getPortfolioProjects()).slice(0, 3);
+const clamp = (value: number, minimum = 0, maximum = 1) =>
+  Math.min(maximum, Math.max(minimum, value));
+
+const easeInOut = (value: number) => {
+  const bounded = clamp(value);
+  return bounded * bounded * (3 - 2 * bounded);
+};
+
+const range = (progress: number, start: number, end: number) =>
+  easeInOut((progress - start) / (end - start));
+
+const canvasStyle: CSSProperties = {
+  position: "relative",
+  width: "100%",
+  height: "100%",
+  overflow: "hidden",
+  isolation: "isolate",
+};
+
+export function PreviewTwoHome() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
+  const markRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const stage = stageRef.current;
+    const mark = markRef.current;
+    if (!section || !stage || !mark) return;
+    const markLink = mark.querySelector<HTMLAnchorElement>(".acb-v2-home__mark");
+    if (!markLink) return;
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let animationFrame = 0;
+
+    const render = () => {
+      animationFrame = 0;
+
+      if (reducedMotion.matches) {
+        stage.style.setProperty("--wide-opacity", "0");
+        stage.style.setProperty("--wide-scale", "1");
+        stage.style.setProperty("--close-opacity", "1");
+        stage.style.setProperty("--close-scale", "1.05");
+        stage.style.setProperty("--mark-opacity", "1");
+        stage.style.setProperty("--mark-scale", "1");
+        markLink.style.pointerEvents = "auto";
+        return;
+      }
+
+      const stickyTop = 40;
+      const rect = section.getBoundingClientRect();
+      const scrollDistance = Math.max(1, section.offsetHeight - stage.offsetHeight);
+      const progress = clamp((stickyTop - rect.top) / scrollDistance);
+      const imageTransition = range(progress, 0.25, 0.58);
+      const logoPassThrough = range(progress, 0.05, 0.82);
+      const logoFade = 1 - range(progress, 0.62, 0.82);
+
+      stage.style.setProperty("--wide-opacity", String(1 - imageTransition));
+      stage.style.setProperty("--wide-scale", String(1 + progress * 0.2));
+      stage.style.setProperty("--close-opacity", String(imageTransition));
+      stage.style.setProperty("--close-scale", String(1.02 + progress * 0.36));
+      stage.style.setProperty("--mark-opacity", String(logoFade));
+      stage.style.setProperty("--mark-scale", String(0.82 + logoPassThrough * 11.5));
+      markLink.style.pointerEvents = progress > 0.78 ? "none" : "auto";
+    };
+
+    const queueRender = () => {
+      if (animationFrame) return;
+      animationFrame = window.requestAnimationFrame(render);
+    };
+
+    render();
+    window.addEventListener("scroll", queueRender, { passive: true });
+    window.addEventListener("resize", queueRender);
+    reducedMotion.addEventListener("change", queueRender);
+
+    return () => {
+      if (animationFrame) window.cancelAnimationFrame(animationFrame);
+      window.removeEventListener("scroll", queueRender);
+      window.removeEventListener("resize", queueRender);
+      reducedMotion.removeEventListener("change", queueRender);
+    };
+  }, []);
 
   return (
-    <>
-      <section className="acb-v2-home">
-        <Image
-          src="/images/3529-bryn-mawr-dr-1.jpg"
-          alt="Front elevation of a custom residence by Alford Custom Builders"
-          fill
-          preload
-          quality={75}
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <div className="acb-v2-home__veil" />
-        <div className="acb-v2-home__center">
-          <PreviewLogoLink previewVersion="preview2" variant="hero" />
-          <p className="acb-v2-home__slogan">Luxury. Personalized.</p>
-          <div className="acb-v2-home__actions">
-            <Link href="/contact#project-form">Start a Conversation</Link>
-            <Link href="/portfolio">Explore Our Work</Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="acb-v2-standard" id="difference">
-        <div className="acb-v2-standard__image">
+    <section ref={sectionRef} className="acb-v2-home" aria-label="Greenbrier residence entrance">
+      <div ref={stageRef} className="acb-v2-home__stage">
+        <div className="acb-v2-home__canvas" style={canvasStyle}>
           <Image
-            src="/images/4301-armstrong-pkwy-hf-1-141.jpg"
-            alt="Light-filled interior crafted by Alford Custom Builders"
+            src="/images/3534-greenbrier-dr-44.jpg"
+            alt="Greenbrier residence by Alford Custom Builders"
             fill
-            className="object-cover"
-            sizes="(min-width: 900px) 50vw, 100vw"
+            preload
+            quality={75}
+            className="acb-v2-home__image acb-v2-home__image--wide"
+            sizes="100vw"
           />
-        </div>
-        <div className="acb-v2-standard__copy">
-          <p className="acb-kicker">Our Difference</p>
-          <h2>Luxury Is Personal.</h2>
-          <p>A luxury home isn&apos;t defined by the materials, but by how the experience is made personal to you.</p>
-          <Link href="/about">About Alford <span aria-hidden="true">→</span></Link>
-        </div>
-      </section>
-
-      <section className="acb-v2-expectations">
-        <div className="acb-shell">
-          <p className="acb-kicker">Expectations</p>
-          <div className="acb-v2-expectations__grid">
-            <h2>A clear process. A personal experience.</h2>
-            <div>
-              <p>Preparation before problems. Communication before questions. Craftsmanship without shortcuts.</p>
-              <p>From early planning through the final walkthrough, our role is to simplify complexity, manage the details, communicate clearly, and make the process feel as intentional as your finished home.</p>
-              <Link href="/services">Explore Our Services <span aria-hidden="true">→</span></Link>
-            </div>
+          <Image
+            src="/images/3534-greenbrier-dr-45.jpg"
+            alt=""
+            fill
+            loading="eager"
+            quality={75}
+            className="acb-v2-home__image acb-v2-home__image--close"
+            sizes="100vw"
+          />
+          <div className="acb-v2-home__veil" aria-hidden="true" />
+          <div ref={markRef} className="acb-v2-home__mark-motion">
+            <PreviewLogoLink previewVersion="preview2" variant="hero" />
           </div>
+          <h1 className="sr-only">Alford Custom Builders</h1>
         </div>
-      </section>
-
-      <section className="acb-v2-work">
-        <div className="acb-shell">
-          <div className="acb-v2-work__heading">
-            <div>
-              <p className="acb-kicker">Selected Work</p>
-              <h2>Personal homes. Thoughtful details.</h2>
-            </div>
-            <Link href="/portfolio">View the Gallery <span aria-hidden="true">→</span></Link>
-          </div>
-          <div className="acb-v2-work__grid">
-            {projects.map((project) => (
-              <Link key={project.slug} href={`/portfolio/${project.slug}`}>
-                <Image
-                  src={getProjectCardImage(project.slug, project.coverImage)}
-                  alt={`${project.title} residence by Alford Custom Builders`}
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 900px) 33vw, 100vw"
-                />
-                <span>{project.title}</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="acb-v2-start">
-        <div className="acb-shell">
-          <p className="acb-kicker">Start Here</p>
-          <h2>Every great home starts with a conversation.</h2>
-          <p>If you are thinking about building, you don&apos;t need to have every decision made before reaching out. Often, the best place to begin is with a conversation. Let us help.</p>
-          <div className="acb-v2-start__actions">
-            <Link href="/contact#project-form">Start a Conversation</Link>
-            <Link href="/portfolio">Explore Our Work</Link>
-          </div>
-        </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

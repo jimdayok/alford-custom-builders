@@ -74,7 +74,7 @@ export function PreviewLogoLink({
           alt="Alford Custom Builders"
           width={isHero ? 288 : 406}
           height={isHero ? 288 : 152}
-          priority
+          preload={isHero}
         />
       </Link>
 
