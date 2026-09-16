@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { navigation } from "@/lib/site-data";
+import { navigation, siteConfig } from "@/lib/site-data";
 import { getGlobalSettings } from "@/lib/cms/published-content";
 import type { PreviewVersion } from "@/lib/preview-version";
 
@@ -20,9 +20,10 @@ export async function Footer({ previewVersion }: { previewVersion: PreviewVersio
             width={406}
             height={152}
           />
-          <div>
+          <div className="acb-v2-footer__contact">
             <a href={`tel:${settings.phone.replace(/[^+\d]/g, "")}`}>{settings.phone}</a>
-            <a href={`mailto:${settings.email}`}>{settings.email}</a>
+            <a className="acb-v2-footer__email" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+            <p className="acb-v2-footer__service-area">{siteConfig.location}</p>
           </div>
           <p>© {new Date().getFullYear()} {settings.businessName}</p>
         </div>

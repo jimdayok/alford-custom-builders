@@ -5,14 +5,19 @@ import { BrandActions } from "@/components/brand/brand-actions";
 import { ClosingPanel } from "@/components/brand/closing-panel";
 import { EditorialHero } from "@/components/brand/editorial-hero";
 import { StatementBand } from "@/components/brand/statement-band";
+import { PreviewTwoServices } from "@/components/preview-two/services";
+import { getPreviewVersion } from "@/lib/preview-version";
 
 export const metadata: Metadata = {
   title: "Custom Home Building Services",
   description:
-    "Explore custom home building, pre-construction planning, and construction management from Alford Custom Builders in Dallas.",
+    "Explore custom home building, remodeling, and additions from Alford Custom Builders.",
 };
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const previewVersion = await getPreviewVersion();
+  if (previewVersion === "preview2") return <PreviewTwoServices />;
+
   return (
     <>
       <EditorialHero

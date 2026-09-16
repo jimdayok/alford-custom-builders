@@ -26,7 +26,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
           src={cardImage}
           alt={`${project.title} featured image`}
           fill
-          priority={priority}
+          preload={priority}
           className="object-cover transition duration-700 group-hover:scale-[1.04]"
           sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
           quality={72}

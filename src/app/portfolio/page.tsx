@@ -34,10 +34,6 @@ export default async function PortfolioPage() {
     return (
       <section className="acb-v2-gallery">
         <div className="acb-shell">
-          <div className="acb-v2-gallery__heading">
-            <p className="acb-kicker">Gallery</p>
-            <h1>The homes do the talking.</h1>
-          </div>
           <PortfolioGrid projects={projects} />
         </div>
       </section>

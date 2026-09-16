@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import { siteConfig } from "@/lib/site-data";
 
-const projectTypes = ["Custom Home", "Pre-Construction", "Other"];
+const projectTypes = ["Custom Build", "Remodel / Addition", "Other"];
 const contactMethods = ["Email", "Phone", "Text message"];
 const propertyOptions = ["Yes", "No", "Currently Looking"];
 const planOptions = ["Yes", "In Progress", "Not Yet"];

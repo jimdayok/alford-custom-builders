@@ -9,6 +9,7 @@ import { PreviewBanner } from "@/components/preview-banner";
 import { SiteMotion } from "@/components/site-motion";
 import { siteConfig } from "@/lib/site-data";
 import { getGlobalSettings } from "@/lib/cms/published-content";
+import { getPreviewVersion } from "@/lib/preview-version";
 
 const serif = Cormorant_Garamond({
   subsets: ["latin"],
@@ -22,56 +23,66 @@ const sans = Manrope({
 });
 
 export async function generateMetadata(): Promise<Metadata> {
-  const settings = await getGlobalSettings();
+  const [settings, previewVersion] = await Promise.all([
+    getGlobalSettings(),
+    getPreviewVersion(),
+  ]);
+  const isPreviewTwo = previewVersion === "preview2";
+  const description = isPreviewTwo
+    ? "Personal custom homes shaped by thoughtful planning, trusted relationships, and exceptional craftsmanship."
+    : settings.defaultSeoDescription;
+
   return {
-  metadataBase: new URL(siteConfig.url),
-  title: {
-    default: settings.defaultSeoTitle,
-    template: `%s | ${settings.businessName}`,
-  },
-  description: settings.defaultSeoDescription,
-  applicationName: settings.businessName,
-  keywords: [
-    "Dallas custom home builder",
-    "Park Cities home builder",
-    "Preston Hollow builder",
-    "University Park custom home builder",
-    "Highland Park luxury remodel",
-    "luxury remodel Dallas",
-    "high-end residential construction",
-    "Dallas luxury custom homes",
-    "custom home planning Dallas",
-  ],
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: siteConfig.url,
-    siteName: settings.businessName,
-    title: settings.defaultSeoTitle,
-    description: settings.defaultSeoDescription,
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: settings.businessName,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: settings.defaultSeoTitle,
-    description: settings.defaultSeoDescription,
-    images: ["/opengraph-image"],
-  },
-  icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml", sizes: "any" }],
-    apple: [{ url: "/icon.svg", type: "image/svg+xml" }],
-    shortcut: ["/icon.svg"],
-  },
-  alternates: {
-    canonical: siteConfig.url,
-  },
+    metadataBase: new URL(siteConfig.url),
+    title: {
+      default: settings.defaultSeoTitle,
+      template: `%s | ${settings.businessName}`,
+    },
+    description,
+    applicationName: settings.businessName,
+    keywords: isPreviewTwo
+      ? ["custom home builder", "luxury custom homes", "custom home remodeling", "residential additions"]
+      : [
+        "Dallas custom home builder",
+        "Park Cities home builder",
+        "Preston Hollow builder",
+        "University Park custom home builder",
+        "Highland Park luxury remodel",
+        "luxury remodel Dallas",
+        "high-end residential construction",
+        "Dallas luxury custom homes",
+        "custom home planning Dallas",
+      ],
+    openGraph: {
+      type: "website",
+      locale: "en_US",
+      url: siteConfig.url,
+      siteName: settings.businessName,
+      title: settings.defaultSeoTitle,
+      description,
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: settings.businessName,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: settings.defaultSeoTitle,
+      description,
+      images: ["/opengraph-image"],
+    },
+    icons: {
+      icon: [{ url: "/icon.svg", type: "image/svg+xml", sizes: "any" }],
+      apple: [{ url: "/icon.svg", type: "image/svg+xml" }],
+      shortcut: ["/icon.svg"],
+    },
+    alternates: {
+      canonical: siteConfig.url,
+    },
   };
 }
 

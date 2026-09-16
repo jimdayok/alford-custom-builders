@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { LeadForm } from "@/components/home/lead-form";
 import { getContactPageContent } from "@/lib/cms/published-content";
+import { siteConfig } from "@/lib/site-data";
 
 export async function PreviewTwoContact() {
   const { data } = await getContactPageContent();
@@ -24,7 +25,7 @@ export async function PreviewTwoContact() {
           <p className="acb-kicker">Contact</p>
           <h1>Tell us what you want to create.</h1>
           <a href={phoneHref}>{data.displayedPhone}</a>
-          <a href={`mailto:${data.displayedEmail}`}>{data.displayedEmail}</a>
+          <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
         </div>
       </div>
       <div className="acb-v2-contact__form" id="project-form">

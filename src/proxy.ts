@@ -58,11 +58,12 @@ export function proxy(request: NextRequest) {
   if (isPreview) {
     if (pathname === "/coming-soon") return NextResponse.redirect(new URL("/", request.url));
 
-    if (
-      previewVersion === "preview2" &&
-      (pathname === "/about" || pathname === "/services" || pathname === "/our-process")
-    ) {
-      return NextResponse.redirect(new URL("/discover", request.url));
+    if (previewVersion === "preview2" && pathname === "/discover") {
+      return NextResponse.redirect(new URL("/about", request.url));
+    }
+
+    if (previewVersion === "preview2" && pathname === "/our-process") {
+      return NextResponse.redirect(new URL("/services", request.url));
     }
 
     const response = NextResponse.next({

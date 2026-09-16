@@ -5,6 +5,8 @@ import { BrandActions } from "@/components/brand/brand-actions";
 import { ClosingPanel } from "@/components/brand/closing-panel";
 import { EditorialHero } from "@/components/brand/editorial-hero";
 import { StatementBand } from "@/components/brand/statement-band";
+import { PreviewTwoAbout } from "@/components/preview-two/about";
+import { getPreviewVersion } from "@/lib/preview-version";
 
 export const metadata: Metadata = {
   title: "About Alford",
@@ -21,7 +23,10 @@ const values = [
   "Experience over ego.",
 ];
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const previewVersion = await getPreviewVersion();
+  if (previewVersion === "preview2") return <PreviewTwoAbout />;
+
   return (
     <>
       <EditorialHero
