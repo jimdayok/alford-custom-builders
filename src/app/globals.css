@@ -336,11 +336,6 @@ img {
   background: var(--brand-ink);
 }
 
-.acb-site--published .acb-v2-home__stage {
-  top: 0;
-  height: 100svh;
-}
-
 .acb-v2-home__canvas {
   position: relative;
   width: 100%;
@@ -2266,10 +2261,6 @@ img {
 
   .acb-v2-home {
     height: calc(100svh - 2.5rem);
-  }
-
-  .acb-site--published .acb-v2-home {
-    height: 100svh;
   }
 
   .acb-v2-home__stage {

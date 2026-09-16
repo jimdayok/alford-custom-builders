@@ -44,8 +44,7 @@ export function proxy(request: NextRequest) {
       ? "preview1"
       : null;
   const isPreview = previewVersion !== null;
-  const isPublished = MAIN_HOSTS.has(hostname) || localMode === "published";
-  const isMain = localMode === "coming-soon";
+  const isMain = MAIN_HOSTS.has(hostname) || localMode === "coming-soon";
   const isComingSoonDeploymentPreview = hostname.endsWith(".vercel.app") && pathname === "/coming-soon";
 
   if (isComingSoonDeploymentPreview) {
@@ -72,16 +71,6 @@ export function proxy(request: NextRequest) {
     });
     response.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
     return response;
-  }
-
-  if (isPublished) {
-    if (pathname === "/coming-soon") return NextResponse.redirect(new URL("/", request.url));
-    if (pathname === "/discover") return NextResponse.redirect(new URL("/about", request.url));
-    if (pathname === "/our-process") return NextResponse.redirect(new URL("/services", request.url));
-
-    const requestHeaders = requestWithMode(request, "preview", "preview2");
-    requestHeaders.set("x-alford-site-published", "true");
-    return NextResponse.next({ request: { headers: requestHeaders } });
   }
 
   if (isMain) {
