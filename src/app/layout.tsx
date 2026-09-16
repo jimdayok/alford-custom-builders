@@ -98,17 +98,19 @@ export default async function RootLayout({
     ? previewVersionValue
     : null;
   const isComingSoon = siteMode === "coming-soon";
+  const isPublished = requestHeaders.get("x-alford-site-published") === "true";
+  const showPreviewBanner = previewVersion !== null && !isPublished;
 
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable}`}>
-      <body>
+      <body className={isPublished ? "acb-site--published" : undefined}>
         {isComingSoon ? (
           <main>{children}</main>
         ) : (
           <div className="site-bg min-h-screen">
-            {previewVersion ? <PreviewBanner version={previewVersion} /> : null}
+            {showPreviewBanner && previewVersion ? <PreviewBanner version={previewVersion} /> : null}
             <SiteMotion />
-            <Header previewVersion={previewVersion} />
+            <Header previewVersion={previewVersion} showPreviewBanner={showPreviewBanner} />
             <main>{children}</main>
             <Footer previewVersion={previewVersion} />
           </div>

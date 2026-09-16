@@ -9,11 +9,16 @@ import { PreviewLogoLink } from "@/components/preview-logo-link";
 import type { PreviewVersion } from "@/lib/preview-version";
 import { navigation, previewTwoNavigation } from "@/lib/site-data";
 
-export function Header({ previewVersion }: { previewVersion: PreviewVersion | null }) {
+export function Header({
+  previewVersion,
+  showPreviewBanner = previewVersion !== null,
+}: {
+  previewVersion: PreviewVersion | null;
+  showPreviewBanner?: boolean;
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
-  const previewMode = previewVersion !== null;
   const activeNavigation = previewVersion === "preview2" ? previewTwoNavigation : navigation;
   const isPreviewTwoHome = previewVersion === "preview2" && pathname === "/";
 
@@ -36,7 +41,7 @@ export function Header({ previewVersion }: { previewVersion: PreviewVersion | nu
   }, [isOpen]);
 
   return (
-    <header className={`acb-header ${previewMode ? "top-10" : "top-0"} ${previewVersion === "preview2" ? "acb-header--v2" : ""} ${isPreviewTwoHome ? "acb-header--v2-home" : ""}`}>
+    <header className={`acb-header ${showPreviewBanner ? "top-10" : "top-0"} ${previewVersion === "preview2" ? "acb-header--v2" : ""} ${isPreviewTwoHome ? "acb-header--v2-home" : ""}`}>
       <div className="acb-header__inner">
         {previewVersion ? (
           <PreviewLogoLink previewVersion={previewVersion} />

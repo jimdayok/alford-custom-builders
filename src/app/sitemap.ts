@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-data";
 import { getJournalPosts, getPortfolioProjects } from "@/lib/cms/published-content";
 
-const routes = ["", "/about", "/services", "/portfolio", "/service-areas", "/journal", "/our-process", "/contact"];
+const routes = ["", "/about", "/services", "/portfolio", "/available", "/service-areas", "/journal", "/contact"];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [portfolioProjects, journalPosts] = await Promise.all([getPortfolioProjects(), getJournalPosts()]);
