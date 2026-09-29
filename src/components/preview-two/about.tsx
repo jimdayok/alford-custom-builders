@@ -34,13 +34,30 @@ export function PreviewTwoAbout() {
         image="/images/headshot.png"
         imageAlt="Ben Alford of Alford Custom Builders"
         imagePosition="object-top"
-        primaryHref="#beliefs"
-        primaryLabel="What We Believe"
+        primaryHref="#ben-alford"
+        primaryLabel="Meet Ben Alford"
         secondaryHref="/contact"
         secondaryLabel="Start a Conversation"
       />
 
       <StatementBand statement={<>The home is the product.<br />The experience is the brand.</>} />
+
+      <section className="acb-section acb-section--paper" id="ben-alford">
+        <div className="acb-shell">
+          <div className="acb-section__intro">
+            <p className="acb-kicker">Meet Ben Alford</p>
+            <div className="acb-section__content">
+              <h2 className="acb-heading">A family tradition. A vision of his own.</h2>
+              <p className="acb-section-lede">A second-generation builder who believes the experience matters as much as the home.</p>
+              <div className="acb-body">
+                <p>Ben Alford grew up in the homebuilding business. He worked alongside his family and later helped lead the family company. Those years taught him that a well-built home depends on more than skilled construction. It depends on trust, clear communication, and care for the people who will live there.</p>
+                <p>With Alford Custom Builders, Ben is carrying that family tradition forward while creating something distinctly his own. His focus is on timeless architecture, refined craftsmanship, and homes thoughtfully shaped around the way each family lives.</p>
+                <p>Ben stays close to every project, from the first conversation to the final details. He listens, asks the right questions, and takes personal responsibility for the experience as well as the result. For him, the goal is simple: a home that feels unmistakably yours, built through a relationship you can feel good about.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="acb-split acb-split--reverse" id="beliefs">
         <div className="acb-split__copy acb-split__copy--blanket">
@@ -59,10 +76,10 @@ export function PreviewTwoAbout() {
         </div>
         <div className="acb-split__media">
           <Image
-            src="/images/4301-armstrong-pkwy-hf-1-154.jpg"
-            alt="Refined interior detail by Alford Custom Builders"
+            src="/images/prestonshire-coming-soon.jpg"
+            alt="Architectural rendering of the Prestonshire residence by Alford Custom Builders"
             fill
-            className="object-cover"
+            className="object-cover object-[58%_center] saturate-[0.85] contrast-[1.03]"
             sizes="(min-width: 901px) 48vw, 100vw"
           />
         </div>
