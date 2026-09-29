@@ -10,7 +10,7 @@ type PreviewShellProps = {
 };
 
 export function PreviewShell({ children, header, footer }: PreviewShellProps) {
-  const isLanding = usePathname() === "/";
+  const isLanding = ["/", "/coming-soon"].includes(usePathname());
 
   return (
     <div className={isLanding ? "min-h-screen" : "site-bg min-h-screen"}>

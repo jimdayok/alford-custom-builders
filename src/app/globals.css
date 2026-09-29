@@ -500,3 +500,209 @@ img {
     display: none;
   }
 }
+
+/* The existing Alford coming-soon presentation and hidden preview menu. */
+.coming-soon-page::after {
+  position: absolute;
+  z-index: -5;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+  content: "";
+  opacity: 0.12;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+}
+
+.coming-soon-background {
+  object-fit: cover;
+}
+
+@media (min-width: 900px) and (min-aspect-ratio: 3 / 2) and (max-aspect-ratio: 17 / 10) {
+  .coming-soon-background {
+    object-fit: contain;
+  }
+}
+
+.coming-soon-dialog[open] {
+  animation: dialog-in 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.renderings-dialog[open] {
+  animation: renderings-dialog-in 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.renderings-dialog::backdrop {
+  animation: renderings-backdrop-in 500ms ease both;
+}
+
+.renderings-shell::before {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
+  content: "";
+  opacity: 0.11;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+}
+
+.rendering-panel::before {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(214, 181, 143, 0.09), transparent 31%),
+    radial-gradient(circle at 82% 72%, rgba(73, 113, 145, 0.13), transparent 38%),
+    linear-gradient(145deg, #0b1823 0%, #102638 54%, #09141e 100%);
+  content: "";
+}
+
+.rendering-frame {
+  transform: none;
+  opacity: 1;
+  animation: rendering-frame-in 780ms 160ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes renderings-dialog-in {
+  from {
+    opacity: 0;
+    transform: scale(1.018);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes renderings-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes rendering-frame-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 639px) {
+  .coming-soon-dialog {
+    max-height: calc(100svh - 1.5rem);
+    overflow-y: auto;
+  }
+
+  .renderings-scroll {
+    scroll-snap-type: y proximity;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .renderings-dialog[open],
+  .renderings-dialog::backdrop,
+  .rendering-frame {
+    animation: none;
+  }
+}
+.acb-preview-switcher {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: rgba(20, 19, 17, 0.68);
+  backdrop-filter: blur(12px);
+}
+
+.acb-preview-switcher__panel {
+  position: relative;
+  width: min(100%, 32rem);
+  padding: clamp(2rem, 6vw, 4rem);
+  background: var(--brand-paper);
+  box-shadow: 0 3rem 10rem rgba(0, 0, 0, 0.42);
+}
+
+.acb-preview-switcher__panel h2 {
+  margin-top: 1rem;
+  color: var(--brand-organic);
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2.25rem, 7vw, 4rem);
+  font-weight: 500;
+  line-height: 0.95;
+}
+
+.acb-preview-switcher__panel nav {
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--brand-line);
+}
+
+.acb-preview-switcher__panel nav a {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  min-height: 5.75rem;
+  border-bottom: 1px solid var(--brand-line);
+  color: var(--brand-ink);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.acb-preview-switcher__panel nav a:hover {
+  color: var(--brand-apricot);
+}
+
+.acb-preview-switcher__panel nav small {
+  grid-column: 1 / -1;
+  margin-top: -1.5rem;
+  color: var(--brand-natural);
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+}
+
+.acb-preview-switcher__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  color: var(--brand-organic);
+  font-size: 1.7rem;
+}
+
+.acb-preview-switcher {
+  --brand-organic: #40422f;
+  --brand-natural: #a08870;
+  --brand-apricot: #d78b31;
+  --brand-ink: #231f20;
+  --brand-paper: #fbfaf7;
+  --brand-line: rgba(64, 66, 47, 0.2);
+}
+
+.acb-preview-switcher .acb-kicker {
+  color: var(--brand-apricot);
+  font-size: 0.69rem;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
