@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { PreviewShell } from "@/components/preview-shell";
 import { siteConfig } from "@/lib/site-data";
 import { getGlobalSettings } from "@/lib/cms/published-content";
 
@@ -22,6 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await getGlobalSettings();
   return {
   metadataBase: new URL(siteConfig.url),
+  robots: { index: false, follow: false },
   title: {
     default: settings.defaultSeoTitle,
     template: `%s | ${settings.businessName}`,
@@ -83,11 +85,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable}`}>
       <body>
-        <div className="site-bg min-h-screen">
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </div>
+        <PreviewShell header={<Header />} footer={<Footer />}>
+          {children}
+        </PreviewShell>
       </body>
     </html>
   );
