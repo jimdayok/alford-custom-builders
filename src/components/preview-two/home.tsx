@@ -111,17 +111,24 @@ export function PreviewTwoHome() {
       if (!animationFrame) animationFrame = window.requestAnimationFrame(render);
     };
 
-    queueRender(true);
+    const showOpeningView = () => {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      queueRender(true);
+    };
+
+    showOpeningView();
     const handleScroll = () => queueRender();
     const handleResize = () => queueRender(true);
     const handleMotionPreference = () => queueRender(true);
 
+    window.addEventListener("pageshow", showOpeningView);
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleResize);
     reducedMotion.addEventListener("change", handleMotionPreference);
 
     return () => {
       if (animationFrame) window.cancelAnimationFrame(animationFrame);
+      window.removeEventListener("pageshow", showOpeningView);
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
       reducedMotion.removeEventListener("change", handleMotionPreference);
