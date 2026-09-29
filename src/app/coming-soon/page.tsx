@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { headers } from "next/headers";
 
 import { ComingSoonInquiry } from "@/components/coming-soon-inquiry";
 import { ComingSoonLogoLink } from "@/components/coming-soon-logo-link";
@@ -13,7 +14,12 @@ export const metadata: Metadata = {
   description: "Luxury, personalized. A new Alford Custom Builders residence is coming soon to 6207 Prestonshire in Preston Hollow.",
 };
 
-export default function ComingSoonPage() {
+export default async function ComingSoonPage() {
+  const hostname = (await headers()).get("host")?.split(":")[0] ?? "";
+  const stagingHref = hostname === "127.0.0.1" || hostname === "localhost"
+    ? "https://www.alfordcustombuilders.com/coming-soon?contact=1"
+    : undefined;
+
   return (
     <section
       id="the-home"
@@ -64,6 +70,8 @@ export default function ComingSoonPage() {
           <nav className={`${navItemGroupClassName} flex items-center`} aria-label="Contact the builder">
             <ComingSoonInquiry
               buttonLabel="CONTACT THE BUILDER"
+              stagingHref={stagingHref}
+              autoOpen
               buttonClassName={navItemClassName}
             />
           </nav>
@@ -92,6 +100,7 @@ export default function ComingSoonPage() {
         <div className="mx-auto flex min-h-[6.5rem] w-full max-w-[96rem] flex-col items-center justify-center gap-4 px-5 py-6 sm:min-h-[7.75rem] sm:flex-row sm:justify-between sm:px-10 sm:py-0 lg:px-12">
           <ComingSoonInquiry
             buttonLabel="CONTACT THE BUILDER"
+            stagingHref={stagingHref}
             buttonClassName={`${navItemGroupClassName} ${navItemClassName}`}
           />
           <p className={`${navItemGroupClassName} ${navItemClassName} text-center`}>

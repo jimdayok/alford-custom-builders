@@ -1,21 +1,31 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
 type ComingSoonInquiryProps = {
   buttonLabel?: string;
   buttonClassName?: string;
+  stagingHref?: string;
+  autoOpen?: boolean;
 };
 
 export function ComingSoonInquiry({
   buttonLabel = "Request More Information",
   buttonClassName,
+  stagingHref,
+  autoOpen = false,
 }: ComingSoonInquiryProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [status, setStatus] = useState<FormStatus>("idle");
   const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    if (autoOpen && !stagingHref && new URLSearchParams(window.location.search).get("contact") === "1") {
+      dialogRef.current?.showModal();
+    }
+  }, [autoOpen, stagingHref]);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -48,6 +58,10 @@ export function ComingSoonInquiry({
     setStatus("idle");
     setMessage("");
     dialogRef.current?.showModal();
+  }
+
+  if (stagingHref) {
+    return <a href={stagingHref} className={buttonClassName} aria-label="Contact the builder on the public Alford site">{buttonLabel}</a>;
   }
 
   return (
