@@ -400,7 +400,6 @@ img {
   width: 88%;
   height: 88%;
   animation: acb-v2-home-logo-intro 650ms cubic-bezier(0.22, 1, 0.36, 1) both;
-  filter: drop-shadow(0 1.5rem 3.5rem rgba(0, 0, 0, 0.42));
 }
 
 @keyframes acb-v2-home-logo-intro {
