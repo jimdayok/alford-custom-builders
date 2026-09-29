@@ -56,14 +56,15 @@ export function PreviewTwoHome() {
       const houseMove = range(progress, 0.02, 1);
       const logoPassThrough = range(progress, 0.05, 0.82);
       const logoFade = 1 - range(progress, 0.62, 0.82);
+      const endingReveal = range(progress, 0.81, 0.93);
       stage.style.setProperty("--home-scale", String(1 + houseMove * 1.45));
       stage.style.setProperty("--home-pan-x", "0vw");
       stage.style.setProperty("--home-pan-y", `${houseMove * -38}vh`);
       stage.style.setProperty("--mark-opacity", String(logoFade));
       stage.style.setProperty("--mark-scale", String(0.82 + logoPassThrough * 11.5));
-      stage.style.setProperty("--ending-veil-opacity", String(range(progress, 0.8, 0.94) * 0.86));
-      stage.style.setProperty("--ending-content-opacity", String(range(progress, 0.87, 0.98)));
-      stage.style.setProperty("--ending-content-y", `${(1 - range(progress, 0.87, 0.98)) * 28}px`);
+      stage.style.setProperty("--ending-veil-opacity", String(range(progress, 0.78, 0.9) * 0.86));
+      stage.style.setProperty("--ending-content-opacity", String(endingReveal));
+      stage.style.setProperty("--ending-content-y", `${(1 - endingReveal) * 28}px`);
       markLink.style.pointerEvents = progress > 0.78 ? "none" : "auto";
     };
 
