@@ -3,7 +3,7 @@
 import type { MouseEvent, ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
 
-const clickWindowMs = 2200;
+const clickWindowMs = 10000;
 
 type ComingSoonLogoLinkProps = {
   children: ReactNode;
