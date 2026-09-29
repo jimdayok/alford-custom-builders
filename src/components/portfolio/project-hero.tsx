@@ -5,12 +5,13 @@ import type { PortfolioProject } from "@/data/portfolio";
 type ProjectHeroProps = {
   project: PortfolioProject;
   priority?: boolean;
+  compact?: boolean;
 };
 
-export function ProjectHero({ project, priority = false }: ProjectHeroProps) {
+export function ProjectHero({ project, priority = false, compact = false }: ProjectHeroProps) {
   return (
-    <section className="relative isolate overflow-hidden border-b border-white/10 bg-[#141311]">
-      <div className="absolute inset-0">
+    <section className={`relative isolate overflow-hidden border-b border-white/10 bg-[#141311] ${compact ? "acb-v2-project-hero" : ""}`} data-motion-hero>
+      <div className="absolute inset-0" data-motion-media>
         <Image
           src={project.coverImage}
           alt={`${project.title} cover image`}
@@ -24,22 +25,21 @@ export function ProjectHero({ project, priority = false }: ProjectHeroProps) {
       </div>
 
       <div className="relative mx-auto flex min-h-[72svh] max-w-7xl items-end px-5 pb-12 pt-28 sm:px-6 lg:px-8 lg:pb-18">
-        <div className="max-w-4xl animate-fade">
+        <div className="max-w-4xl" data-motion-copy>
           <p className="text-xs font-semibold tracking-[0.36em] uppercase text-[#d2b38f]">
             Portfolio
           </p>
           <h1 className="mt-5 font-serif text-5xl leading-none text-[#f7f1e7] sm:text-6xl lg:text-7xl">
             {project.title}
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-[#efe8dc]/76 sm:text-lg">
-            {project.description}
-          </p>
+          {compact ? null : (
+            <p className="mt-6 max-w-2xl text-base leading-8 text-[#efe8dc]/76 sm:text-lg">
+              {project.description}
+            </p>
+          )}
           <div className="mt-8 flex flex-wrap gap-3 text-xs font-semibold tracking-[0.22em] uppercase text-[#cfb08b]">
             <span className="rounded-full border border-white/12 bg-white/6 px-4 py-2">
               {project.photoCount} Photos
-            </span>
-            <span className="rounded-full border border-white/12 bg-white/6 px-4 py-2">
-              {project.rooms.length} Spaces
             </span>
           </div>
         </div>

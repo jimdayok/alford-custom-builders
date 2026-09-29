@@ -25,7 +25,7 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
 
   return (
     <div>
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap gap-2 border-b border-[rgba(242,224,209,0.2)] pb-7">
         {projectFilters.map((filter) => {
           const isActive = filter === activeProject;
 
@@ -34,10 +34,10 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
               key={filter}
               type="button"
               onClick={() => setActiveProject(filter)}
-              className={`rounded-full border px-4 py-2 text-xs font-semibold tracking-[0.22em] uppercase transition duration-300 ${
+              className={`border px-4 py-2 text-[0.65rem] font-bold tracking-[0.2em] uppercase transition duration-300 ${
                 isActive
-                  ? "border-[#d2b38f] bg-[#d2b38f] text-[#171512]"
-                  : "border-white/10 bg-white/[0.03] text-[#efe8dc]/72 hover:-translate-y-0.5 hover:border-[#d2b38f]/60 hover:text-[#f7f1e7]"
+                  ? "border-[var(--brand-apricot)] bg-[var(--brand-apricot)] text-[var(--brand-ink)]"
+                  : "border-[rgba(242,224,209,0.24)] bg-transparent text-[rgba(242,224,209,0.74)] hover:border-[var(--brand-apricot)] hover:text-[var(--brand-blanket)]"
               }`}
               aria-pressed={isActive}
             >
@@ -47,9 +47,9 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
         })}
       </div>
 
-      <div className="mt-10 columns-1 gap-6 md:columns-2 xl:columns-3">
+      <div className="mt-8 columns-1 gap-4 md:columns-2 xl:columns-3">
         {visibleProjects.map((project, index) => (
-          <div key={project.slug} className="mb-6 break-inside-avoid">
+          <div key={project.slug} className="mb-4 break-inside-avoid">
             <ProjectCard project={project} priority={index < 2} />
           </div>
         ))}

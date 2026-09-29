@@ -5,17 +5,24 @@ export const siteConfig = {
   url: "https://alfordcustombuilders.com",
   ogImage: "/logos/aclogoblue.png",
   phone: "(469) 863-1381",
-  email: "ben@alfordcustombuilders.com",
-  location: "Serving Preston Hollow, the Park Cities, and surrounding North Dallas neighborhoods",
+  email: "BenA@AlfordCustomBuilders.com",
+  location: "Park Cities, Preston Hollow, Frisco and Beyond",
 };
 
 export const navigation = [
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/portfolio", label: "Gallery" },
-  { href: "/service-areas", label: "Service Areas" },
-  { href: "/#testimonials", label: "Testimonials" },
-  { href: "/journal", label: "Blog" },
+  { href: "/contact", label: "Contact" },
+];
+
+export const previewTwoNavigation = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/portfolio", label: "Gallery" },
+  { href: "/available", label: "Available" },
   { href: "/contact", label: "Contact" },
 ];
 
