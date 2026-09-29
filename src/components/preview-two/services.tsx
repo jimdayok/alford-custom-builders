@@ -32,8 +32,8 @@ export function PreviewTwoServices() {
       <section className="acb-split" id="custom-builds">
         <div className="acb-split__media">
           <Image
-            src="/images/3534-greenbrier-dr-52.jpg"
-            alt="Custom kitchen and living space by Alford Custom Builders"
+            src="/images/golfsim1.jpg"
+            alt="Indoor golf simulator and lounge"
             fill
             className="object-cover"
             sizes="(min-width: 901px) 52vw, 100vw"
@@ -70,8 +70,8 @@ export function PreviewTwoServices() {
         </div>
         <div className="acb-split__media">
           <Image
-            src="/images/4906-deloache-ave-42.jpg"
-            alt="Remodeled residence by Alford Custom Builders"
+            src="/images/4416-manning-33.jpg"
+            alt="Custom home with pool and covered patio"
             fill
             className="object-cover"
             sizes="(min-width: 901px) 48vw, 100vw"
