@@ -318,7 +318,7 @@ img {
 
 .acb-v2-home {
   position: relative;
-  height: 320svh;
+  height: 400svh;
   overflow: clip;
   background: var(--brand-ink);
 }
@@ -329,6 +329,9 @@ img {
   --home-pan-y: 0vh;
   --mark-opacity: 1;
   --mark-scale: 0.82;
+  --ending-veil-opacity: 0;
+  --ending-content-opacity: 0;
+  --ending-content-y: 28px;
 
   position: sticky;
   top: 2.5rem;
@@ -426,6 +429,46 @@ img {
 
 .acb-v2-home__mark-motion > .acb-preview-switcher {
   pointer-events: auto;
+}
+
+.acb-v2-home__ending-veil,
+.acb-v2-home__ending {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.acb-v2-home__ending-veil {
+  z-index: 3;
+  background: var(--brand-organic);
+  opacity: var(--ending-veil-opacity);
+}
+
+.acb-v2-home__ending {
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.5rem, 4vh, 3rem);
+  padding: 2rem;
+  opacity: var(--ending-content-opacity);
+  text-align: center;
+  transform: translateY(var(--ending-content-y));
+}
+
+.acb-v2-home__ending-logo {
+  width: min(68vw, 27rem);
+  height: auto;
+}
+
+.acb-v2-home__ending-slogan {
+  color: var(--brand-blanket);
+  font-family: var(--font-sans), sans-serif;
+  font-size: clamp(3rem, 6.8vw, 7.5rem);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 0.91;
 }
 
 .acb-v2-home__slogan {

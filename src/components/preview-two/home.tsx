@@ -61,6 +61,9 @@ export function PreviewTwoHome() {
       stage.style.setProperty("--home-pan-y", `${houseMove * -38}vh`);
       stage.style.setProperty("--mark-opacity", String(logoFade));
       stage.style.setProperty("--mark-scale", String(0.82 + logoPassThrough * 11.5));
+      stage.style.setProperty("--ending-veil-opacity", String(range(progress, 0.8, 0.94) * 0.86));
+      stage.style.setProperty("--ending-content-opacity", String(range(progress, 0.87, 0.98)));
+      stage.style.setProperty("--ending-content-y", `${(1 - range(progress, 0.87, 0.98)) * 28}px`);
       markLink.style.pointerEvents = progress > 0.78 ? "none" : "auto";
     };
 
@@ -68,9 +71,12 @@ export function PreviewTwoHome() {
       stage.style.setProperty("--home-scale", "1.05");
       stage.style.setProperty("--home-pan-x", "0vw");
       stage.style.setProperty("--home-pan-y", "0vh");
-      stage.style.setProperty("--mark-opacity", "1");
+      stage.style.setProperty("--mark-opacity", "0");
       stage.style.setProperty("--mark-scale", "1");
-      markLink.style.pointerEvents = "auto";
+      stage.style.setProperty("--ending-veil-opacity", "0.62");
+      stage.style.setProperty("--ending-content-opacity", "1");
+      stage.style.setProperty("--ending-content-y", "0px");
+      markLink.style.pointerEvents = "none";
     };
 
     const render = (frameTime: number) => {
@@ -152,6 +158,17 @@ export function PreviewTwoHome() {
           <div className="acb-v2-home__veil" aria-hidden="true" />
           <div ref={markRef} className="acb-v2-home__mark-motion">
             <PreviewLogoLink previewVersion="preview2" variant="hero" />
+          </div>
+          <div className="acb-v2-home__ending-veil" aria-hidden="true" />
+          <div className="acb-v2-home__ending">
+            <Image
+              src="/brand/web/logo-horizontal-blanket.svg"
+              alt="Alford Custom Builders"
+              width={406}
+              height={152}
+              className="acb-v2-home__ending-logo"
+            />
+            <p className="acb-v2-home__ending-slogan">Luxury.<br />Personalized.</p>
           </div>
           <h1 className="sr-only">Alford Custom Builders</h1>
         </div>
