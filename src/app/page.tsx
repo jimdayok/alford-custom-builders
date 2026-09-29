@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/button";
+import { HomeJourneyHero } from "@/components/home/home-journey-hero";
 import { LeadForm } from "@/components/home/lead-form";
 import { getProjectCardImage } from "@/data/portfolio";
 import { siteConfig } from "@/lib/site-data";
@@ -55,7 +56,7 @@ const principles = [
 
 export default async function HomePage() {
   const [
-    { data: homepageHero, source },
+    { source },
     portfolioProjects,
     processSteps,
     serviceAreas,
@@ -88,47 +89,7 @@ export default async function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
       />
 
-      <section className="brand-hero" id="top">
-        <div className="brand-hero__media">
-          <Image
-            src={homepageHero.image.path}
-            alt={homepageHero.image.decorative ? "" : homepageHero.image.altText}
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
-          />
-        </div>
-        <div className="brand-hero__veil" />
-        <div className="brand-hero__frame">
-          <div className="brand-hero__copy">
-            <p className="brand-kicker text-white/70">Alford Custom Builders · Dallas</p>
-            <h1 className="brand-display mt-5 max-w-5xl text-white">
-              Luxury.<br />Personalized.
-            </h1>
-            <p className="mt-7 max-w-xl text-base leading-8 text-white/78 sm:text-lg">
-              Exceptional homes are expected. A building experience that feels calm,
-              clear, and deeply personal is the difference.
-            </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Button href="/contact">Begin a Conversation</Button>
-              <Button
-                href="/portfolio"
-                variant="ghost"
-                className="border-white/30 bg-transparent !text-white hover:border-white hover:bg-white hover:!text-[var(--color-charcoal)]"
-              >
-                Explore Our Work
-              </Button>
-            </div>
-          </div>
-          <div className="brand-hero__aside" aria-label="Brand promise">
-            <span>Luxury is personal.</span>
-          </div>
-        </div>
-        <a href="#belief" className="brand-hero__scroll" aria-label="Continue to our belief">
-          <span>Discover</span><i aria-hidden="true" />
-        </a>
-      </section>
+      <HomeJourneyHero />
 
       <section className="brand-section brand-belief" id="belief">
         <div className="brand-container grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-24">

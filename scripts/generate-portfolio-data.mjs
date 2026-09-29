@@ -58,7 +58,7 @@ const roomDefinitions = [
 ];
 
 const supportedExtensions = new Set([".jpg", ".jpeg", ".png", ".webp"]);
-const excludedPathParts = new Set(["placeholders"]);
+const excludedPathParts = new Set(["placeholders", "hero-journey"]);
 const excludedFilePatterns = [/alford-custom-builders/i];
 
 async function walk(dir) {

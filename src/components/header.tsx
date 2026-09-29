@@ -3,25 +3,36 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { navigation } from "@/lib/site-data";
 
 export function Header() {
+  const pathname = usePathname();
+  const isJourneyHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 220);
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const threshold = isJourneyHome
+        ? window.innerHeight * (reducedMotion ? 0.72 : 4.15)
+        : 220;
+      setScrolled(window.scrollY > threshold);
     };
 
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [isJourneyHome]);
 
   return (
     <>
-      <header className="relative z-30 border-b border-[rgba(15,34,54,0.08)] bg-[rgba(255,252,247,0.94)]">
+      {!isJourneyHome ? <header className="relative z-30 border-b border-[rgba(15,34,54,0.08)] bg-[rgba(255,252,247,0.94)]">
         <div className="mx-auto max-w-7xl px-5 pb-5 pt-6 sm:px-6 lg:px-8 lg:pb-7 lg:pt-8">
           <div className="flex justify-center">
             <Link href="/" aria-label="Alford Custom Builders home">
@@ -67,7 +78,7 @@ export function Header() {
             </div>
           </details>
         </div>
-      </header>
+      </header> : null}
 
       <div
         className={`fixed inset-x-0 top-0 z-50 transition duration-500 ${
