@@ -39,10 +39,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const standards = [
-  ["01", "Preparation before problems", "We plan beyond the next milestone so decisions feel considered, not rushed."],
-  ["02", "Communication before questions", "Clear, direct updates keep you confident about what is happening and what comes next."],
-  ["03", "Consistency before recognition", "The work behind the scenes matters as much as the moments everyone sees."],
-  ["04", "Craftsmanship without shortcuts", "Every detail is protected by people who care how the finished home lives and feels."],
+  ["Preparation before problems", "We plan beyond the next milestone so decisions feel considered, not rushed."],
+  ["Communication before questions", "Clear, direct updates keep you confident about what is happening and what comes next."],
+  ["Consistency before recognition", "The work behind the scenes matters as much as the moments everyone sees."],
+  ["Craftsmanship without shortcuts", "Every detail is protected by people who care how the finished home lives and feels."],
 ] as const;
 
 const principles = [
@@ -128,10 +128,9 @@ export default async function HomePage() {
             </p>
           </div>
           <div className="mt-14 grid border-l border-t border-white/14 sm:grid-cols-2 xl:grid-cols-4">
-            {standards.map(([number, title, description]) => (
-              <article key={number} className="border-b border-r border-white/14 p-6 sm:p-8">
-                <p className="text-xs tracking-[0.28em] text-[var(--color-sand)]">{number}</p>
-                <h3 className="mt-12 font-serif text-3xl leading-tight">{title}</h3>
+            {standards.map(([title, description]) => (
+              <article key={title} className="border-b border-r border-white/14 p-6 sm:p-8">
+                <h3 className="font-serif text-3xl leading-tight">{title}</h3>
                 <p className="mt-5 text-sm leading-7 text-white/60">{description}</p>
               </article>
             ))}
@@ -181,9 +180,8 @@ export default async function HomePage() {
             </div>
           </div>
           <ol className="mt-14 border-t border-[var(--color-border-strong)]">
-            {processSteps.map((step, index) => (
-              <li key={step.step} className="group grid gap-4 border-b border-[var(--color-border)] py-7 md:grid-cols-[0.18fr_0.42fr_1fr] md:items-baseline">
-                <span className="text-xs tracking-[0.28em] text-[var(--color-wood)]">{String(index + 1).padStart(2, "0")}</span>
+            {processSteps.map((step) => (
+              <li key={step.step} className="group grid gap-4 border-b border-[var(--color-border)] py-7 md:grid-cols-[0.42fr_1fr] md:items-baseline">
                 <h3 className="font-serif text-3xl text-[var(--color-charcoal)]">{step.title}</h3>
                 <p className="max-w-2xl text-sm leading-7 text-[var(--color-muted)] md:justify-self-end">{step.description}</p>
               </li>
