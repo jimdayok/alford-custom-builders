@@ -56,8 +56,11 @@ export function PreviewTwoHome() {
       const houseMove = range(progress, 0.02, 1);
       const logoPassThrough = range(progress, 0.05, 0.82);
       const logoFade = 1 - range(progress, 0.62, 0.82);
+      const horizontalPan = stage.clientWidth / stage.clientHeight <= 1.25 ? 0 : 17;
 
       stage.style.setProperty("--home-scale", String(1 + houseMove * 0.58));
+      stage.style.setProperty("--home-pan-x", `${houseMove * horizontalPan}vw`);
+      stage.style.setProperty("--home-pan-y", `${houseMove * -40}vh`);
       stage.style.setProperty("--mark-opacity", String(logoFade));
       stage.style.setProperty("--mark-scale", String(0.82 + logoPassThrough * 11.5));
       markLink.style.pointerEvents = progress > 0.78 ? "none" : "auto";
@@ -65,6 +68,8 @@ export function PreviewTwoHome() {
 
     const paintReducedMotion = () => {
       stage.style.setProperty("--home-scale", "1.05");
+      stage.style.setProperty("--home-pan-x", "0vw");
+      stage.style.setProperty("--home-pan-y", "0vh");
       stage.style.setProperty("--mark-opacity", "1");
       stage.style.setProperty("--mark-scale", "1");
       markLink.style.pointerEvents = "auto";
@@ -130,7 +135,7 @@ export function PreviewTwoHome() {
       <div ref={stageRef} className="acb-v2-home__stage">
         <div className="acb-v2-home__canvas" style={canvasStyle}>
           <Image
-            src="/images/3534-greenbrier-dr-44.jpg"
+            src="/images/frontpicture.png"
             alt="Greenbrier residence by Alford Custom Builders"
             fill
             preload

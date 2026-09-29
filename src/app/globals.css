@@ -325,6 +325,8 @@ img {
 
 .acb-v2-home__stage {
   --home-scale: 1;
+  --home-pan-x: 0vw;
+  --home-pan-y: 0vh;
   --mark-opacity: 1;
   --mark-scale: 0.82;
 
@@ -350,7 +352,7 @@ img {
   object-fit: cover;
   object-position: center;
   backface-visibility: hidden;
-  transform: scale(var(--home-scale));
+  transform: translate3d(var(--home-pan-x), var(--home-pan-y), 0) scale(var(--home-scale));
   transform-origin: center;
   will-change: transform, opacity;
 }
@@ -1110,6 +1112,12 @@ img {
 
   .acb-v2-available__veil {
     background: linear-gradient(90deg, rgba(20, 19, 17, 0.74), rgba(20, 19, 17, 0.3));
+  }
+}
+
+@media (max-aspect-ratio: 5 / 4) {
+  .acb-v2-home__image {
+    object-position: 35% center;
   }
 }
 
