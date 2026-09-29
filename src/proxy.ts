@@ -3,9 +3,11 @@ import { type NextRequest, NextResponse } from "next/server";
 const MAIN_HOSTS = new Set([
   "alfordcustombuilders.com",
   "www.alfordcustombuilders.com",
+  "127.0.0.1",
+  "localhost",
 ]);
 
-type PreviewVersion = "preview1" | "preview2";
+type PreviewVersion = "preview1" | "preview2" | "preview3";
 
 function requestWithMode(
   request: NextRequest,
@@ -23,12 +25,6 @@ export function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   const localMode = process.env.NODE_ENV !== "production" ? request.nextUrl.searchParams.get("site_mode") : null;
 
-  if (hostname === "preview.alfordcustombuilders.com") {
-    const previewOneUrl = request.nextUrl.clone();
-    previewOneUrl.hostname = "preview1.alfordcustombuilders.com";
-    return NextResponse.redirect(previewOneUrl);
-  }
-
   const isPreviewOne =
     hostname === "preview1.alfordcustombuilders.com" ||
     hostname === "preview1.localhost" ||
@@ -38,7 +34,13 @@ export function proxy(request: NextRequest) {
     hostname === "preview2.alfordcustombuilders.com" ||
     hostname === "preview2.localhost" ||
     localMode === "preview2";
-  const previewVersion: PreviewVersion | null = isPreviewTwo
+  const isPreviewThree =
+    hostname === "preview.alfordcustombuilders.com" ||
+    hostname === "preview3.localhost" ||
+    localMode === "preview3";
+  const previewVersion: PreviewVersion | null = isPreviewThree
+    ? "preview3"
+    : isPreviewTwo
     ? "preview2"
     : isPreviewOne
       ? "preview1"

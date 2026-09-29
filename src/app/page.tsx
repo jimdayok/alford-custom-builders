@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
+import PreviewThreeHome, { generateMetadata as generatePreviewThreeMetadata } from "./_preview-three-home";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -25,6 +27,7 @@ import {
 import { getPreviewVersion } from "@/lib/preview-version";
 
 export async function generateMetadata(): Promise<Metadata> {
+  if ((await headers()).get("x-alford-preview-version") === "preview3") return generatePreviewThreeMetadata();
   const previewVersion = await getPreviewVersion();
   if (previewVersion === "preview2") {
     return {
@@ -48,6 +51,7 @@ const standards = [
 ] as const;
 
 export default async function HomePage() {
+  if ((await headers()).get("x-alford-preview-version") === "preview3") return <PreviewThreeHome />;
   const previewVersion = await getPreviewVersion();
   if (previewVersion === "preview2") return <PreviewTwoHome />;
 

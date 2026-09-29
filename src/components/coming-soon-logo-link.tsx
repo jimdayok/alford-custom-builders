@@ -3,7 +3,7 @@
 import type { MouseEvent, ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
 
-const clickWindowMs = 2200;
+const clickWindowMs = 10000;
 
 type ComingSoonLogoLinkProps = {
   children: ReactNode;
@@ -92,6 +92,10 @@ export function ComingSoonLogoLink({ children, className }: ComingSoonLogoLinkPr
               </a>
               <a href="https://preview2.alfordcustombuilders.com">
                 <span>Preview 2</span>
+                <span aria-hidden="true">→</span>
+              </a>
+              <a href="https://preview.alfordcustombuilders.com">
+                <span>Preview 3</span>
                 <span aria-hidden="true">→</span>
               </a>
             </nav>

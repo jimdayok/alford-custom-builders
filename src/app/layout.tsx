@@ -6,6 +6,8 @@ import "./globals.css";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { PreviewBanner } from "@/components/preview-banner";
+import { PreviewThreeFooter } from "@/components/preview-three-footer";
+import { PreviewThreeHeader } from "@/components/preview-three-header";
 import { SiteMotion } from "@/components/site-motion";
 import { siteConfig } from "@/lib/site-data";
 import { getGlobalSettings } from "@/lib/cms/published-content";
@@ -98,12 +100,19 @@ export default async function RootLayout({
     ? previewVersionValue
     : null;
   const isComingSoon = siteMode === "coming-soon";
+  const isPreviewThree = previewVersionValue === "preview3";
 
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable}`}>
       <body>
         {isComingSoon ? (
           <main>{children}</main>
+        ) : isPreviewThree ? (
+          <div className="site-bg min-h-screen">
+            <PreviewThreeHeader />
+            <main>{children}</main>
+            <PreviewThreeFooter />
+          </div>
         ) : (
           <div className="site-bg min-h-screen">
             {previewVersion ? <PreviewBanner version={previewVersion} /> : null}

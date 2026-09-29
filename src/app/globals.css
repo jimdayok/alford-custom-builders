@@ -2359,3 +2359,200 @@ img {
   background: linear-gradient(180deg, rgba(20, 19, 17, 0.58), rgba(20, 19, 17, 0));
   backdrop-filter: none;
 }
+
+/* Preview 3 journey */
+.home-journey {
+  position: relative;
+  min-height: 100svh;
+  background: #0c1118;
+  color: white;
+}
+
+.home-journey__stage {
+  position: relative;
+  isolation: isolate;
+  height: 100svh;
+  min-height: 38rem;
+  overflow: hidden;
+  background: #0c1118;
+}
+
+.home-journey__frame,
+.home-journey__shade,
+.home-journey__threshold {
+  position: absolute;
+  inset: 0;
+}
+
+.home-journey__frame {
+  opacity: 0;
+  transform-origin: 50% 58%;
+  will-change: transform, opacity;
+}
+
+.home-journey__frame--first {
+  opacity: 1;
+}
+
+.home-journey__frame--3 {
+  transform-origin: 40% 55%;
+}
+
+.home-journey__image {
+  object-fit: cover;
+}
+
+.home-journey__image--wide {
+  object-position: 50% 62%;
+}
+
+.home-journey__image--walk,
+.home-journey__image--close {
+  object-position: 50% 64%;
+}
+
+.home-journey__image--porch {
+  object-position: 45% 53%;
+}
+
+.home-journey__image--doorway,
+.home-journey__image--interior {
+  object-position: 50% 52%;
+}
+
+.home-journey__shade {
+  z-index: 8;
+  background:
+    linear-gradient(180deg, rgba(6, 10, 15, 0.22), transparent 30%, transparent 62%, rgba(6, 10, 15, 0.42)),
+    radial-gradient(circle at 50% 48%, transparent 46%, rgba(6, 10, 15, 0.22) 100%);
+  pointer-events: none;
+}
+
+.home-journey__threshold {
+  z-index: 9;
+  background: radial-gradient(circle at 42% 53%, rgba(12, 13, 15, 0.12) 0 12%, rgba(7, 8, 10, 0.94) 72%);
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.home-journey__logo {
+  position: absolute;
+  z-index: 12;
+  top: clamp(2.5rem, 9vh, 7rem);
+  left: 50%;
+  width: min(76vw, 42rem);
+  transform: translateX(-50%);
+  filter: brightness(0) invert(1) drop-shadow(0 8px 26px rgba(4, 8, 12, 0.42));
+  will-change: transform, opacity;
+}
+
+.home-journey__scroll {
+  position: absolute;
+  z-index: 12;
+  bottom: max(2rem, env(safe-area-inset-bottom));
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  will-change: transform, opacity;
+}
+
+.home-journey__scroll i {
+  display: block;
+  width: 1px;
+  height: 3.5rem;
+  background: linear-gradient(180deg, var(--color-sand), transparent);
+}
+
+.home-journey__invitation {
+  position: absolute;
+  z-index: 12;
+  top: 50%;
+  left: 50%;
+  width: min(90vw, 48rem);
+  padding: clamp(2rem, 5vw, 4.5rem);
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  background: rgba(13, 18, 24, 0.7);
+  box-shadow: 0 30px 100px rgba(4, 7, 10, 0.26);
+  text-align: center;
+  backdrop-filter: blur(14px);
+  will-change: transform, opacity;
+}
+
+.home-journey__invitation p {
+  color: var(--color-sand);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.home-journey__invitation h2 {
+  margin-top: 1rem;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(3.4rem, 8vw, 7.5rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.9;
+  text-wrap: balance;
+}
+
+.home-journey__invitation a {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.56);
+  padding: 0.85rem 1.5rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  transition: background-color 240ms ease, color 240ms ease, border-color 240ms ease;
+}
+
+.home-journey__invitation a:hover {
+  border-color: var(--color-sand);
+  background: var(--color-sand);
+  color: var(--color-charcoal);
+}
+
+
+@media (max-width: 720px) {
+  .home-journey__stage {
+    min-height: 34rem;
+  }
+
+  .home-journey__frame {
+    transform-origin: 44% 62%;
+  }
+
+  .home-journey__image--wide,
+  .home-journey__image--walk,
+  .home-journey__image--close {
+    object-position: 49% 64%;
+  }
+
+  .home-journey__image--porch {
+    object-position: 40% 55%;
+  }
+
+  .home-journey__logo {
+    top: 10vh;
+    width: min(86vw, 33rem);
+  }
+
+  .home-journey__invitation {
+    width: min(88vw, 34rem);
+    padding: 2.25rem 1.25rem;
+  }
+}
