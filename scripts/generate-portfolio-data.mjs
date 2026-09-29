@@ -59,7 +59,7 @@ const roomDefinitions = [
 
 const supportedExtensions = new Set([".jpg", ".jpeg", ".png", ".webp"]);
 const excludedPathParts = new Set(["placeholders", "renderings"]);
-const excludedFilePatterns = [/alford-custom-builders/i, /prestonshire-coming-soon/i, /^frontpicture\.png$/i];
+const excludedFilePatterns = [/alford-custom-builders/i, /prestonshire-coming-soon/i, /^frontpicture\.png$/i, /^greenbrier-hero-clean-wide\.png$/i];
 
 async function walk(dir) {
   const entries = await fs.readdir(dir, { withFileTypes: true });
