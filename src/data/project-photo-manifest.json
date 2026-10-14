@@ -1,0 +1,982 @@
+[
+  {
+    "title": "Armstrong",
+    "slug": "armstrong-pkwy",
+    "coverImage": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-1-no-number.webp",
+    "images": [
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-1-no-number.webp",
+        "filename": "4301 Armstrong Pkwy-1.jpg",
+        "room": "Exterior",
+        "alt": "Armstrong completed home, photograph 1",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-2.webp",
+        "filename": "4301 Armstrong Pkwy-2.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 2",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-3.webp",
+        "filename": "4301 Armstrong Pkwy-3.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 3",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-4.webp",
+        "filename": "4301 Armstrong Pkwy-4.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 4",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-8.webp",
+        "filename": "4301 Armstrong Pkwy-8.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 5",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-10.webp",
+        "filename": "4301 Armstrong Pkwy-10.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 6",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-14.webp",
+        "filename": "4301 Armstrong Pkwy-14.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 7",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-15.webp",
+        "filename": "4301 Armstrong Pkwy-15.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 8",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-20.webp",
+        "filename": "4301 Armstrong Pkwy-20.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 9",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-21.webp",
+        "filename": "4301 Armstrong Pkwy-21.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 10",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-22.webp",
+        "filename": "4301 Armstrong Pkwy-22.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 11",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-23.webp",
+        "filename": "4301 Armstrong Pkwy-23.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 12",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-26.webp",
+        "filename": "4301 Armstrong Pkwy-26.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 13",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-29.webp",
+        "filename": "4301 Armstrong Pkwy-29.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 14",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-30.webp",
+        "filename": "4301 Armstrong Pkwy-30.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 15",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-31-2.webp",
+        "filename": "4301 Armstrong Pkwy-31-2.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 16",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-36.webp",
+        "filename": "4301 Armstrong Pkwy-36.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 17",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-37.webp",
+        "filename": "4301 Armstrong Pkwy-37.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 18",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-39.webp",
+        "filename": "4301 Armstrong Pkwy-39.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 19",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-40.webp",
+        "filename": "4301 Armstrong Pkwy-40.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 20",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-42.webp",
+        "filename": "4301 Armstrong Pkwy-42.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 21",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-46.webp",
+        "filename": "4301 Armstrong Pkwy-46.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 22",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-58.webp",
+        "filename": "4301 Armstrong Pkwy-58.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 23",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-62.webp",
+        "filename": "4301 Armstrong Pkwy-62.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 24",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-65.webp",
+        "filename": "4301 Armstrong Pkwy-65.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 25",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/armstrong-pkwy/4301-armstrong-pkwy-66.webp",
+        "filename": "4301 Armstrong Pkwy-66.jpg",
+        "room": "Featured Space",
+        "alt": "Armstrong completed home, photograph 26",
+        "caption": ""
+      }
+    ]
+  },
+  {
+    "title": "Bryn Mawr",
+    "slug": "bryn-mawr-dr",
+    "coverImage": "/images/projects-20261004/bryn-mawr-dr/3529-bryn-mawr-dr-1.webp",
+    "images": [
+      {
+        "src": "/images/projects-20261004/bryn-mawr-dr/3529-bryn-mawr-dr-1.webp",
+        "filename": "3529 Bryn Mawr Dr-1.jpg",
+        "room": "Exterior",
+        "alt": "Bryn Mawr completed home, photograph 1",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/bryn-mawr-dr/3529-bryn-mawr-dr-2.webp",
+        "filename": "3529 Bryn Mawr Dr-2.jpg",
+        "room": "Featured Space",
+        "alt": "Bryn Mawr completed home, photograph 2",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/bryn-mawr-dr/3529-bryn-mawr-dr-4.webp",
+        "filename": "3529 Bryn Mawr Dr-4.jpg",
+        "room": "Featured Space",
+        "alt": "Bryn Mawr completed home, photograph 3",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/bryn-mawr-dr/3529-bryn-mawr-dr-6.webp",
+        "filename": "3529 Bryn Mawr Dr-6.jpg",
+        "room": "Featured Space",
+        "alt": "Bryn Mawr completed home, photograph 4",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/bryn-mawr-dr/3529-bryn-mawr-dr-7.webp",
+        "filename": "3529 Bryn Mawr Dr-7.jpg",
+        "room": "Featured Space",
+        "alt": "Bryn Mawr completed home, photograph 5",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/bryn-mawr-dr/3529-bryn-mawr-dr-8.webp",
+        "filename": "3529 Bryn Mawr Dr-8.jpg",
+        "room": "Featured Space",
+        "alt": "Bryn Mawr completed home, photograph 6",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/bryn-mawr-dr/3529-bryn-mawr-dr-9.webp",
+        "filename": "3529 Bryn Mawr Dr-9.jpg",
+        "room": "Featured Space",
+        "alt": "Bryn Mawr completed home, photograph 7",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/bryn-mawr-dr/3529-bryn-mawr-dr-12.webp",
+        "filename": "3529 Bryn Mawr Dr-12.jpg",
+        "room": "Featured Space",
+        "alt": "Bryn Mawr completed home, photograph 8",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/bryn-mawr-dr/3529-bryn-mawr-dr-15.webp",
+        "filename": "3529 Bryn Mawr Dr-15.jpg",
+        "room": "Featured Space",
+        "alt": "Bryn Mawr completed home, photograph 9",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/bryn-mawr-dr/3529-bryn-mawr-dr-23.webp",
+        "filename": "3529 Bryn Mawr Dr-23.jpg",
+        "room": "Featured Space",
+        "alt": "Bryn Mawr completed home, photograph 10",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/bryn-mawr-dr/3529-bryn-mawr-dr-24.webp",
+        "filename": "3529 Bryn Mawr Dr-24.jpg",
+        "room": "Featured Space",
+        "alt": "Bryn Mawr completed home, photograph 11",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/bryn-mawr-dr/3529-bryn-mawr-dr-25.webp",
+        "filename": "3529 Bryn Mawr Dr-25.jpg",
+        "room": "Featured Space",
+        "alt": "Bryn Mawr completed home, photograph 12",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/bryn-mawr-dr/3529-bryn-mawr-dr-28.webp",
+        "filename": "3529 Bryn Mawr Dr-28.jpg",
+        "room": "Featured Space",
+        "alt": "Bryn Mawr completed home, photograph 13",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/bryn-mawr-dr/3529-bryn-mawr-dr-29.webp",
+        "filename": "3529 Bryn Mawr Dr-29.jpg",
+        "room": "Featured Space",
+        "alt": "Bryn Mawr completed home, photograph 14",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/bryn-mawr-dr/3529-bryn-mawr-dr-33.webp",
+        "filename": "3529 Bryn Mawr Dr-33.jpg",
+        "room": "Featured Space",
+        "alt": "Bryn Mawr completed home, photograph 15",
+        "caption": ""
+      }
+    ]
+  },
+  {
+    "title": "Deloache",
+    "slug": "deloache-ave",
+    "coverImage": "/images/projects-20261004/deloache-ave/4906-deloache-ave-1-no-number.webp",
+    "images": [
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-1-no-number.webp",
+        "filename": "4906 Deloache Ave-1.jpg",
+        "room": "Exterior",
+        "alt": "Deloache completed home, photograph 1",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-2.webp",
+        "filename": "4906 Deloache Ave-2.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 2",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-3.webp",
+        "filename": "4906 Deloache Ave-3.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 3",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-5.webp",
+        "filename": "4906 Deloache Ave-5.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 4",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-8.webp",
+        "filename": "4906 Deloache Ave-8.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 5",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-9.webp",
+        "filename": "4906 Deloache Ave-9.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 6",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-10.webp",
+        "filename": "4906 Deloache Ave-10.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 7",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-11.webp",
+        "filename": "4906 Deloache Ave-11.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 8",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-13.webp",
+        "filename": "4906 Deloache Ave-13.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 9",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-14.webp",
+        "filename": "4906 Deloache Ave-14.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 10",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-17.webp",
+        "filename": "4906 Deloache Ave-17.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 11",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-18.webp",
+        "filename": "4906 Deloache Ave-18.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 12",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-19.webp",
+        "filename": "4906 Deloache Ave-19.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 13",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-20.webp",
+        "filename": "4906 Deloache Ave-20.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 14",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-24.webp",
+        "filename": "4906 Deloache Ave-24.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 15",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-25.webp",
+        "filename": "4906 Deloache Ave-25.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 16",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-26.webp",
+        "filename": "4906 Deloache Ave-26.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 17",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-27.webp",
+        "filename": "4906 Deloache Ave-27.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 18",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-28.webp",
+        "filename": "4906 Deloache Ave-28.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 19",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-29.webp",
+        "filename": "4906 Deloache Ave-29.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 20",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-30.webp",
+        "filename": "4906 Deloache Ave-30.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 21",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-32.webp",
+        "filename": "4906 Deloache Ave-32.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 22",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-33.webp",
+        "filename": "4906 Deloache Ave-33.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 23",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-36.webp",
+        "filename": "4906 Deloache Ave-36.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 24",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-38.webp",
+        "filename": "4906 Deloache Ave-38.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 25",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-41.webp",
+        "filename": "4906 Deloache Ave-41.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 26",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-42.webp",
+        "filename": "4906 Deloache Ave-42.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 27",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/deloache-ave/4906-deloache-ave-43.webp",
+        "filename": "4906 Deloache Ave-43.jpg",
+        "room": "Featured Space",
+        "alt": "Deloache completed home, photograph 28",
+        "caption": ""
+      }
+    ]
+  },
+  {
+    "title": "Greenbrier",
+    "slug": "greenbrier-dr",
+    "coverImage": "/images/projects-20261004/greenbrier-dr/3534-greenbrier-dr-1-no-number.webp",
+    "images": [
+      {
+        "src": "/images/projects-20261004/greenbrier-dr/3534-greenbrier-dr-1-2.webp",
+        "filename": "3534 Greenbrier Dr-1-2.jpg",
+        "room": "Featured Space",
+        "alt": "Greenbrier completed home, photograph 1",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/greenbrier-dr/3534-greenbrier-dr-3.webp",
+        "filename": "3534 Greenbrier Dr-3.jpg",
+        "room": "Featured Space",
+        "alt": "Greenbrier completed home, photograph 2",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/greenbrier-dr/3534-greenbrier-dr-4-2.webp",
+        "filename": "3534 Greenbrier Dr-4-2.jpg",
+        "room": "Featured Space",
+        "alt": "Greenbrier completed home, photograph 3",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/greenbrier-dr/3534-greenbrier-dr-7-2.webp",
+        "filename": "3534 Greenbrier Dr-7-2.jpg",
+        "room": "Featured Space",
+        "alt": "Greenbrier completed home, photograph 4",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/greenbrier-dr/3534-greenbrier-dr-8.webp",
+        "filename": "3534 Greenbrier Dr-8.jpg",
+        "room": "Featured Space",
+        "alt": "Greenbrier completed home, photograph 5",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/greenbrier-dr/3534-greenbrier-dr-10.webp",
+        "filename": "3534 Greenbrier Dr-10.jpg",
+        "room": "Featured Space",
+        "alt": "Greenbrier completed home, photograph 6",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/greenbrier-dr/3534-greenbrier-dr-11.webp",
+        "filename": "3534 Greenbrier Dr-11.jpg",
+        "room": "Featured Space",
+        "alt": "Greenbrier completed home, photograph 7",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/greenbrier-dr/3534-greenbrier-dr-13.webp",
+        "filename": "3534 Greenbrier Dr-13.jpg",
+        "room": "Featured Space",
+        "alt": "Greenbrier completed home, photograph 8",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/greenbrier-dr/3534-greenbrier-dr-15-2.webp",
+        "filename": "3534 Greenbrier Dr-15-2.jpg",
+        "room": "Featured Space",
+        "alt": "Greenbrier completed home, photograph 9",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/greenbrier-dr/3534-greenbrier-dr-17.webp",
+        "filename": "3534 Greenbrier Dr-17.jpg",
+        "room": "Featured Space",
+        "alt": "Greenbrier completed home, photograph 10",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/greenbrier-dr/3534-greenbrier-dr-20.webp",
+        "filename": "3534 Greenbrier Dr-20.jpg",
+        "room": "Featured Space",
+        "alt": "Greenbrier completed home, photograph 11",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/greenbrier-dr/3534-greenbrier-dr-21.webp",
+        "filename": "3534 Greenbrier Dr-21.jpg",
+        "room": "Featured Space",
+        "alt": "Greenbrier completed home, photograph 12",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/greenbrier-dr/3534-greenbrier-dr-26-2.webp",
+        "filename": "3534 Greenbrier Dr-26-2.jpg",
+        "room": "Featured Space",
+        "alt": "Greenbrier completed home, photograph 13",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/greenbrier-dr/3534-greenbrier-dr-27.webp",
+        "filename": "3534 Greenbrier Dr-27.jpg",
+        "room": "Featured Space",
+        "alt": "Greenbrier completed home, photograph 14",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/greenbrier-dr/3534-greenbrier-dr-29.webp",
+        "filename": "3534 Greenbrier Dr-29.jpg",
+        "room": "Featured Space",
+        "alt": "Greenbrier completed home, photograph 15",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/greenbrier-dr/3534-greenbrier-dr-30.webp",
+        "filename": "3534 Greenbrier Dr-30.jpg",
+        "room": "Featured Space",
+        "alt": "Greenbrier completed home, photograph 16",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/greenbrier-dr/3534-greenbrier-dr-31.webp",
+        "filename": "3534 Greenbrier Dr-31.jpg",
+        "room": "Featured Space",
+        "alt": "Greenbrier completed home, photograph 17",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/greenbrier-dr/3534-greenbrier-dr-32.webp",
+        "filename": "3534 Greenbrier Dr-32.jpg",
+        "room": "Featured Space",
+        "alt": "Greenbrier completed home, photograph 18",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/greenbrier-dr/3534-greenbrier-dr-34.webp",
+        "filename": "3534 Greenbrier Dr-34.jpg",
+        "room": "Featured Space",
+        "alt": "Greenbrier completed home, photograph 19",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/greenbrier-dr/3534-greenbrier-dr-49.webp",
+        "filename": "3534 Greenbrier Dr-49.jpg",
+        "room": "Featured Space",
+        "alt": "Greenbrier completed home, photograph 20",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/greenbrier-dr/3534-greenbrier-dr-50.webp",
+        "filename": "3534 Greenbrier Dr-50.jpg",
+        "room": "Featured Space",
+        "alt": "Greenbrier completed home, photograph 21",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/greenbrier-dr/3534-greenbrier-dr-1-no-number.webp",
+        "filename": "3534 Greenbrier Dr- 1.jpg",
+        "room": "Exterior",
+        "alt": "Greenbrier completed home, photograph 22",
+        "caption": ""
+      }
+    ]
+  },
+  {
+    "title": "Harrys",
+    "slug": "harrys",
+    "coverImage": "/images/projects-20261004/harrys/4512harrys-1.webp",
+    "images": [
+      {
+        "src": "/images/projects-20261004/harrys/4512harrys-1.webp",
+        "filename": "4512Harrys-1.jpg",
+        "room": "Exterior",
+        "alt": "Harrys completed home, photograph 1",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/harrys/4512harrys-6.webp",
+        "filename": "4512Harrys-6.jpg",
+        "room": "Featured Space",
+        "alt": "Harrys completed home, photograph 2",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/harrys/4512harrys-9.webp",
+        "filename": "4512Harrys-9.jpg",
+        "room": "Featured Space",
+        "alt": "Harrys completed home, photograph 3",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/harrys/4512harrys-12.webp",
+        "filename": "4512Harrys-12.jpg",
+        "room": "Featured Space",
+        "alt": "Harrys completed home, photograph 4",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/harrys/4512harrys-22.webp",
+        "filename": "4512Harrys-22.jpg",
+        "room": "Featured Space",
+        "alt": "Harrys completed home, photograph 5",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/harrys/4512harrys-34.webp",
+        "filename": "4512Harrys-34.jpg",
+        "room": "Featured Space",
+        "alt": "Harrys completed home, photograph 6",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/harrys/4512harrys-35.webp",
+        "filename": "4512Harrys-35.jpg",
+        "room": "Featured Space",
+        "alt": "Harrys completed home, photograph 7",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/harrys/4512harrys-38.webp",
+        "filename": "4512Harrys-38.jpg",
+        "room": "Featured Space",
+        "alt": "Harrys completed home, photograph 8",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/harrys/4512harrys-44.webp",
+        "filename": "4512Harrys-44.jpg",
+        "room": "Featured Space",
+        "alt": "Harrys completed home, photograph 9",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/harrys/4512harrys-48.webp",
+        "filename": "4512Harrys-48.jpg",
+        "room": "Featured Space",
+        "alt": "Harrys completed home, photograph 10",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/harrys/4512harrys-52.webp",
+        "filename": "4512Harrys-52.jpg",
+        "room": "Featured Space",
+        "alt": "Harrys completed home, photograph 11",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/harrys/4512harrys-54.webp",
+        "filename": "4512Harrys-54.jpg",
+        "room": "Featured Space",
+        "alt": "Harrys completed home, photograph 12",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/harrys/4512harrys-58.webp",
+        "filename": "4512Harrys-58.jpg",
+        "room": "Featured Space",
+        "alt": "Harrys completed home, photograph 13",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/harrys/4512harrys-60.webp",
+        "filename": "4512Harrys-60.jpg",
+        "room": "Featured Space",
+        "alt": "Harrys completed home, photograph 14",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/harrys/4512harrys-77.webp",
+        "filename": "4512Harrys-77.jpg",
+        "room": "Featured Space",
+        "alt": "Harrys completed home, photograph 15",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/harrys/4512harrys-84.webp",
+        "filename": "4512Harrys-84.jpg",
+        "room": "Featured Space",
+        "alt": "Harrys completed home, photograph 16",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/harrys/4512harrys-86.webp",
+        "filename": "4512Harrys-86.jpg",
+        "room": "Featured Space",
+        "alt": "Harrys completed home, photograph 17",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/harrys/4512harrys-91.webp",
+        "filename": "4512Harrys-91.jpg",
+        "room": "Featured Space",
+        "alt": "Harrys completed home, photograph 18",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/harrys/4512harrys-92.webp",
+        "filename": "4512Harrys-92.jpg",
+        "room": "Featured Space",
+        "alt": "Harrys completed home, photograph 19",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/harrys/4512harrys-99.webp",
+        "filename": "4512Harrys-99.jpg",
+        "room": "Featured Space",
+        "alt": "Harrys completed home, photograph 20",
+        "caption": ""
+      }
+    ]
+  },
+  {
+    "title": "Palomar",
+    "slug": "palomar",
+    "coverImage": "/images/projects-20261004/palomar/5609-palomar-ln-no-number.webp",
+    "images": [
+      {
+        "src": "/images/projects-20261004/palomar/5609-palomar-ln-1-part-2.webp",
+        "filename": "5609 Palomar Ln-1 part 2.jpg",
+        "room": "Featured Space",
+        "alt": "Palomar completed home, photograph 1",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/palomar/5609-palomar-ln-2.webp",
+        "filename": "5609 Palomar Ln-2.jpg",
+        "room": "Featured Space",
+        "alt": "Palomar completed home, photograph 2",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/palomar/5609-palomar-ln-3.webp",
+        "filename": "5609 Palomar Ln-3.jpg",
+        "room": "Featured Space",
+        "alt": "Palomar completed home, photograph 3",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/palomar/5609-palomar-ln-4.webp",
+        "filename": "5609 Palomar Ln-4.jpg",
+        "room": "Featured Space",
+        "alt": "Palomar completed home, photograph 4",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/palomar/5609-palomar-ln-7.webp",
+        "filename": "5609 Palomar Ln-7.jpg",
+        "room": "Featured Space",
+        "alt": "Palomar completed home, photograph 5",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/palomar/5609-palomar-ln-8.webp",
+        "filename": "5609 Palomar Ln-8.jpg",
+        "room": "Featured Space",
+        "alt": "Palomar completed home, photograph 6",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/palomar/5609-palomar-ln-9.webp",
+        "filename": "5609 Palomar Ln-9.jpg",
+        "room": "Featured Space",
+        "alt": "Palomar completed home, photograph 7",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/palomar/5609-palomar-ln-11.webp",
+        "filename": "5609 Palomar Ln-11.jpg",
+        "room": "Featured Space",
+        "alt": "Palomar completed home, photograph 8",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/palomar/5609-palomar-ln-13.webp",
+        "filename": "5609 Palomar Ln-13.jpg",
+        "room": "Featured Space",
+        "alt": "Palomar completed home, photograph 9",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/palomar/5609-palomar-ln-14.webp",
+        "filename": "5609 Palomar Ln-14.jpg",
+        "room": "Featured Space",
+        "alt": "Palomar completed home, photograph 10",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/palomar/5609-palomar-ln-15.webp",
+        "filename": "5609 Palomar Ln-15.jpg",
+        "room": "Featured Space",
+        "alt": "Palomar completed home, photograph 11",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/palomar/5609-palomar-ln-16.webp",
+        "filename": "5609 Palomar Ln-16.jpg",
+        "room": "Featured Space",
+        "alt": "Palomar completed home, photograph 12",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/palomar/5609-palomar-ln-17.webp",
+        "filename": "5609 Palomar Ln-17.jpg",
+        "room": "Featured Space",
+        "alt": "Palomar completed home, photograph 13",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/palomar/5609-palomar-ln-19.webp",
+        "filename": "5609 Palomar Ln-19.jpg",
+        "room": "Featured Space",
+        "alt": "Palomar completed home, photograph 14",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/palomar/5609-palomar-ln-20.webp",
+        "filename": "5609 Palomar Ln-20.jpg",
+        "room": "Featured Space",
+        "alt": "Palomar completed home, photograph 15",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/palomar/5609-palomar-ln-21.webp",
+        "filename": "5609 Palomar Ln-21.jpg",
+        "room": "Featured Space",
+        "alt": "Palomar completed home, photograph 16",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/palomar/5609-palomar-ln-22.webp",
+        "filename": "5609 Palomar Ln-22.jpg",
+        "room": "Featured Space",
+        "alt": "Palomar completed home, photograph 17",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/palomar/5609-palomar-ln-25.webp",
+        "filename": "5609 Palomar Ln-25.jpg",
+        "room": "Featured Space",
+        "alt": "Palomar completed home, photograph 18",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/palomar/5609-palomar-ln-29.webp",
+        "filename": "5609 Palomar Ln-29.jpg",
+        "room": "Featured Space",
+        "alt": "Palomar completed home, photograph 19",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/palomar/5609-palomar-ln-30.webp",
+        "filename": "5609 Palomar Ln-30.jpg",
+        "room": "Featured Space",
+        "alt": "Palomar completed home, photograph 20",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/palomar/5609-palomar-ln-31.webp",
+        "filename": "5609 Palomar Ln-31.jpg",
+        "room": "Featured Space",
+        "alt": "Palomar completed home, photograph 21",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/palomar/5609-palomar-ln-33.webp",
+        "filename": "5609 Palomar Ln-33.jpg",
+        "room": "Featured Space",
+        "alt": "Palomar completed home, photograph 22",
+        "caption": ""
+      },
+      {
+        "src": "/images/projects-20261004/palomar/5609-palomar-ln-no-number.webp",
+        "filename": "5609 Palomar Ln-.jpg",
+        "room": "Exterior",
+        "alt": "Palomar completed home, photograph 23",
+        "caption": ""
+      }
+    ]
+  }
+]
